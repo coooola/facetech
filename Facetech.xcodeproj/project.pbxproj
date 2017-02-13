@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF2E1E51A5430002AB09 /* AppDelegate.swift */; };
+		537BEF311E51A5430002AB09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF301E51A5430002AB09 /* ViewController.swift */; };
+		537BEF341E51A5430002AB09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF321E51A5430002AB09 /* Main.storyboard */; };
+		537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */; };
+		537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF381E51A5430002AB09 /* Assets.xcassets */; };
+		537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */; };
+		537BEF471E51A5440002AB09 /* FacetechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF461E51A5440002AB09 /* FacetechTests.swift */; };
+		537BEF521E51A5440002AB09 /* FacetechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF511E51A5440002AB09 /* FacetechUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		537BEF431E51A5440002AB09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 537BEF231E51A5430002AB09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 537BEF2A1E51A5430002AB09;
+			remoteInfo = Facetech;
+		};
+		537BEF4E1E51A5440002AB09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 537BEF231E51A5430002AB09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 537BEF2A1E51A5430002AB09;
+			remoteInfo = Facetech;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		537BEF2B1E51A5430002AB09 /* Facetech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facetech.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		537BEF2E1E51A5430002AB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		537BEF301E51A5430002AB09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		537BEF331E51A5430002AB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		537BEF361E51A5430002AB09 /* Facetech.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Facetech.xcdatamodel; sourceTree = "<group>"; };
+		537BEF381E51A5430002AB09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		537BEF3B1E51A5430002AB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		537BEF3D1E51A5430002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		537BEF421E51A5440002AB09 /* FacetechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FacetechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		537BEF461E51A5440002AB09 /* FacetechTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacetechTests.swift; sourceTree = "<group>"; };
+		537BEF481E51A5440002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FacetechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		537BEF511E51A5440002AB09 /* FacetechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacetechUITests.swift; sourceTree = "<group>"; };
+		537BEF531E51A5440002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		537BEF281E51A5430002AB09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF3F1E51A5440002AB09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF4A1E51A5440002AB09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		537BEF221E51A5430002AB09 = {
+			isa = PBXGroup;
+			children = (
+				537BEF2D1E51A5430002AB09 /* Facetech */,
+				537BEF451E51A5440002AB09 /* FacetechTests */,
+				537BEF501E51A5440002AB09 /* FacetechUITests */,
+				537BEF2C1E51A5430002AB09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		537BEF2C1E51A5430002AB09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				537BEF2B1E51A5430002AB09 /* Facetech.app */,
+				537BEF421E51A5440002AB09 /* FacetechTests.xctest */,
+				537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		537BEF2D1E51A5430002AB09 /* Facetech */ = {
+			isa = PBXGroup;
+			children = (
+				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
+				537BEF301E51A5430002AB09 /* ViewController.swift */,
+				537BEF321E51A5430002AB09 /* Main.storyboard */,
+				537BEF381E51A5430002AB09 /* Assets.xcassets */,
+				537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */,
+				537BEF3D1E51A5430002AB09 /* Info.plist */,
+				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
+			);
+			path = Facetech;
+			sourceTree = "<group>";
+		};
+		537BEF451E51A5440002AB09 /* FacetechTests */ = {
+			isa = PBXGroup;
+			children = (
+				537BEF461E51A5440002AB09 /* FacetechTests.swift */,
+				537BEF481E51A5440002AB09 /* Info.plist */,
+			);
+			path = FacetechTests;
+			sourceTree = "<group>";
+		};
+		537BEF501E51A5440002AB09 /* FacetechUITests */ = {
+			isa = PBXGroup;
+			children = (
+				537BEF511E51A5440002AB09 /* FacetechUITests.swift */,
+				537BEF531E51A5440002AB09 /* Info.plist */,
+			);
+			path = FacetechUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		537BEF2A1E51A5430002AB09 /* Facetech */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 537BEF561E51A5440002AB09 /* Build configuration list for PBXNativeTarget "Facetech" */;
+			buildPhases = (
+				537BEF271E51A5430002AB09 /* Sources */,
+				537BEF281E51A5430002AB09 /* Frameworks */,
+				537BEF291E51A5430002AB09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Facetech;
+			productName = Facetech;
+			productReference = 537BEF2B1E51A5430002AB09 /* Facetech.app */;
+			productType = "com.apple.product-type.application";
+		};
+		537BEF411E51A5440002AB09 /* FacetechTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 537BEF591E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechTests" */;
+			buildPhases = (
+				537BEF3E1E51A5440002AB09 /* Sources */,
+				537BEF3F1E51A5440002AB09 /* Frameworks */,
+				537BEF401E51A5440002AB09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				537BEF441E51A5440002AB09 /* PBXTargetDependency */,
+			);
+			name = FacetechTests;
+			productName = FacetechTests;
+			productReference = 537BEF421E51A5440002AB09 /* FacetechTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		537BEF4C1E51A5440002AB09 /* FacetechUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 537BEF5C1E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechUITests" */;
+			buildPhases = (
+				537BEF491E51A5440002AB09 /* Sources */,
+				537BEF4A1E51A5440002AB09 /* Frameworks */,
+				537BEF4B1E51A5440002AB09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				537BEF4F1E51A5440002AB09 /* PBXTargetDependency */,
+			);
+			name = FacetechUITests;
+			productName = FacetechUITests;
+			productReference = 537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		537BEF231E51A5430002AB09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Nicolas BITAN";
+				TargetAttributes = {
+					537BEF2A1E51A5430002AB09 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					537BEF411E51A5440002AB09 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 537BEF2A1E51A5430002AB09;
+					};
+					537BEF4C1E51A5440002AB09 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 537BEF2A1E51A5430002AB09;
+					};
+				};
+			};
+			buildConfigurationList = 537BEF261E51A5430002AB09 /* Build configuration list for PBXProject "Facetech" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 537BEF221E51A5430002AB09;
+			productRefGroup = 537BEF2C1E51A5430002AB09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				537BEF2A1E51A5430002AB09 /* Facetech */,
+				537BEF411E51A5440002AB09 /* FacetechTests */,
+				537BEF4C1E51A5440002AB09 /* FacetechUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		537BEF291E51A5430002AB09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */,
+				537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */,
+				537BEF341E51A5430002AB09 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF401E51A5440002AB09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF4B1E51A5440002AB09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		537BEF271E51A5430002AB09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537BEF311E51A5430002AB09 /* ViewController.swift in Sources */,
+				537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */,
+				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF3E1E51A5440002AB09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537BEF471E51A5440002AB09 /* FacetechTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		537BEF491E51A5440002AB09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				537BEF521E51A5440002AB09 /* FacetechUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		537BEF441E51A5440002AB09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 537BEF2A1E51A5430002AB09 /* Facetech */;
+			targetProxy = 537BEF431E51A5440002AB09 /* PBXContainerItemProxy */;
+		};
+		537BEF4F1E51A5440002AB09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 537BEF2A1E51A5430002AB09 /* Facetech */;
+			targetProxy = 537BEF4E1E51A5440002AB09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		537BEF321E51A5430002AB09 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				537BEF331E51A5430002AB09 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				537BEF3B1E51A5430002AB09 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		537BEF541E51A5440002AB09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		537BEF551E51A5440002AB09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		537BEF571E51A5440002AB09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Facetech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.Facetech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		537BEF581E51A5440002AB09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Facetech/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.Facetech;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		537BEF5A1E51A5440002AB09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FacetechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.FacetechTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Facetech.app/Facetech";
+			};
+			name = Debug;
+		};
+		537BEF5B1E51A5440002AB09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FacetechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.FacetechTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Facetech.app/Facetech";
+			};
+			name = Release;
+		};
+		537BEF5D1E51A5440002AB09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = FacetechUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.FacetechUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Facetech;
+			};
+			name = Debug;
+		};
+		537BEF5E1E51A5440002AB09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = FacetechUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Polytech.FacetechUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Facetech;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		537BEF261E51A5430002AB09 /* Build configuration list for PBXProject "Facetech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				537BEF541E51A5440002AB09 /* Debug */,
+				537BEF551E51A5440002AB09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		537BEF561E51A5440002AB09 /* Build configuration list for PBXNativeTarget "Facetech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				537BEF571E51A5440002AB09 /* Debug */,
+				537BEF581E51A5440002AB09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		537BEF591E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				537BEF5A1E51A5440002AB09 /* Debug */,
+				537BEF5B1E51A5440002AB09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		537BEF5C1E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				537BEF5D1E51A5440002AB09 /* Debug */,
+				537BEF5E1E51A5440002AB09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				537BEF361E51A5430002AB09 /* Facetech.xcdatamodel */,
+			);
+			currentVersion = 537BEF361E51A5430002AB09 /* Facetech.xcdatamodel */;
+			path = Facetech.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 537BEF231E51A5430002AB09 /* Project object */;
+}
