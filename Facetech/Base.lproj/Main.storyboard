@@ -282,7 +282,7 @@
             </objects>
             <point key="canvasLocation" x="1971" y="-354"/>
         </scene>
-        <!--View Controller-->
+        <!--Accueil-->
         <scene sceneID="Grf-gw-89H">
             <objects>
                 <viewController id="hDJ-CA-nVN" sceneMemberID="viewController">
@@ -391,7 +391,7 @@
                             <constraint firstItem="GDd-sw-5j4" firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="yTP-ky-c5q"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" id="8wZ-7Y-N3g"/>
+                    <tabBarItem key="tabBarItem" title="Accueil" image="mmenu-icon-0.png" id="8wZ-7Y-N3g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOb-ae-aWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,9 +408,20 @@
                     <view key="view" contentMode="scaleToFill" id="rS3-RL-sOv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scA-PC-BN5">
+                                <rect key="frame" x="266" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.32076733732876711" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendrier" id="Wak-Hb-UzO"/>
+                    <tabBarItem key="tabBarItem" title="Calendrier" image="calendar_icon.png" id="Wak-Hb-UzO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvN-En-ifr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,4 +447,8 @@
             <point key="canvasLocation" x="3624" y="61"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar_icon.png" width="30" height="30"/>
+        <image name="mmenu-icon-0.png" width="30" height="30"/>
+    </resources>
 </document>

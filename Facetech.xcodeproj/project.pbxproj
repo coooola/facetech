@@ -15,6 +15,8 @@
 		537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */; };
 		537BEF471E51A5440002AB09 /* FacetechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF461E51A5440002AB09 /* FacetechTests.swift */; };
 		537BEF521E51A5440002AB09 /* FacetechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF511E51A5440002AB09 /* FacetechUITests.swift */; };
+		A354A35D1E530F1600B6B1F1 /* mmenu-icon-0.png in Resources */ = {isa = PBXBuildFile; fileRef = A354A35C1E530F1600B6B1F1 /* mmenu-icon-0.png */; };
+		A354A35F1E530F5200B6B1F1 /* calendar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A354A35E1E530F5200B6B1F1 /* calendar_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FacetechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		537BEF511E51A5440002AB09 /* FacetechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacetechUITests.swift; sourceTree = "<group>"; };
 		537BEF531E51A5440002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A354A35C1E530F1600B6B1F1 /* mmenu-icon-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mmenu-icon-0.png"; path = "../../mmenu-icon-0.png"; sourceTree = "<group>"; };
+		A354A35E1E530F5200B6B1F1 /* calendar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar_icon.png; path = ../../calendar_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
+				A354A35E1E530F5200B6B1F1 /* calendar_icon.png */,
+				A354A35C1E530F1600B6B1F1 /* mmenu-icon-0.png */,
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
@@ -235,9 +241,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A354A35D1E530F1600B6B1F1 /* mmenu-icon-0.png in Resources */,
 				537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */,
 				537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */,
 				537BEF341E51A5430002AB09 /* Main.storyboard in Resources */,
+				A354A35F1E530F5200B6B1F1 /* calendar_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
