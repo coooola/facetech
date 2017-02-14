@@ -98,6 +98,7 @@
                     <connections>
                         <outlet property="identifiantTextField" destination="QCT-0G-ood" id="rfH-fN-68D"/>
                         <outlet property="mdpTextField" destination="eNU-um-zLO" id="de4-Ex-N1w"/>
+                        <outlet property="messageErreurLabel" destination="yE3-nV-PCN" id="5C2-Ba-8fq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

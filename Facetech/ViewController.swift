@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mdpTextField: UITextField!
     
+    @IBOutlet weak var messageErreurLabel: UILabel!
+    
     var id : String = "";
     var mdp : String = "";
     
@@ -30,6 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Handle the text field’s user input through delegate callbacks.
         identifiantTextField.delegate = self
         mdpTextField.delegate = self
+        messageErreurLabel.isHidden = true;
       
     }
 
@@ -61,6 +64,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if  let saisieMdp = self.mdpTextField.text
         {
             self.mdp = saisieMdp;
+            if self.mdp == "coucou"
+            {
+                messageErreurLabel.isHidden = false;
+            }
+            else
+            {
+                messageErreurLabel.isHidden = true;
+            }
         }
         else
         {
