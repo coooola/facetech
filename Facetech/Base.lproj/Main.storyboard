@@ -35,12 +35,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zYa-30-cZG"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNU-um-zLO">
                                 <rect key="frame" x="80" y="334" width="215" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3zd-Uy-zM8"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mot de passe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMk-PM-IWl">
                                 <rect key="frame" x="80" y="305" width="104" height="21"/>
@@ -57,9 +63,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tq-mI-eIE">
                                 <rect key="frame" x="141.5" y="394" width="92" height="30"/>
                                 <state key="normal" title="Se connecter"/>
-                                <connections>
-                                    <segue destination="qP5-86-we1" kind="show" id="Odb-FR-eGO"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,6 +84,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="eNU-um-zLO" secondAttribute="trailing" constant="64" id="u0f-3Q-RxU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="identifiantTextField" destination="QCT-0G-ood" id="rfH-fN-68D"/>
+                        <outlet property="mdpTextField" destination="eNU-um-zLO" id="de4-Ex-N1w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

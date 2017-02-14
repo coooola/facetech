@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5316A5DA1E52ED440037BEB8 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */; };
 		537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF2E1E51A5430002AB09 /* AppDelegate.swift */; };
 		537BEF311E51A5430002AB09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF301E51A5430002AB09 /* ViewController.swift */; };
 		537BEF341E51A5430002AB09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF321E51A5430002AB09 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		537BEF2B1E51A5430002AB09 /* Facetech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facetech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537BEF2E1E51A5430002AB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		537BEF301E51A5430002AB09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */,
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
 				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
+				5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */,
 			);
 			path = Facetech;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5316A5DA1E52ED440037BEB8 /* MainPageViewController.swift in Sources */,
 				537BEF311E51A5430002AB09 /* ViewController.swift in Sources */,
 				537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */,
 				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
@@ -509,6 +513,7 @@
 				537BEF581E51A5440002AB09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		537BEF591E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +522,7 @@
 				537BEF5B1E51A5440002AB09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		537BEF5C1E51A5440002AB09 /* Build configuration list for PBXNativeTarget "FacetechUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +531,7 @@
 				537BEF5E1E51A5440002AB09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
