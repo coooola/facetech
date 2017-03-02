@@ -57,25 +57,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         {
             self.id = saisieId;
         }
-        else
-        {
-            self.id = "Ecris quelque chose !";
-        }
         if  let saisieMdp = self.mdpTextField.text
         {
             self.mdp = saisieMdp;
-            if self.mdp == "coucou"
-            {
-                messageErreurLabel.isHidden = false;
-            }
-            else
-            {
-                messageErreurLabel.isHidden = true;
-            }
-        }
-        else
-        {
-            self.mdp = "Ecris quelque chose !";
         }
     }
 
@@ -83,12 +67,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Functions
     
-    @IBAction func seConnecterButton(_ sender: Any)
-    {
-        if self.id == "Nicolas" && self.mdp == "123456"
-        {
-        }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+            if self.id == "Nicolas" && self.mdp == "123456"
+            {
+                messageErreurLabel.isHidden = true;
+                return true
+            }
+            messageErreurLabel.isHidden = false;
+            return false
     }
+    
 
 }
 

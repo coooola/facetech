@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2ub-53-NDw">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="161" y="418" width="92" height="30"/>
                                 <state key="normal" title="Se connecter"/>
                                 <connections>
-                                    <segue destination="rUI-jx-5s8" kind="show" id="NDz-gc-SCf"/>
+                                    <segue destination="rUI-jx-5s8" kind="presentation" id="FA2-rn-9po"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le mot ne passe n'est pas valide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE3-nV-PCN">
@@ -95,6 +95,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="eNU-um-zLO" secondAttribute="trailing" constant="64" id="u0f-3Q-RxU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jvg-bU-wNL"/>
                     <connections>
                         <outlet property="identifiantTextField" destination="QCT-0G-ood" id="rfH-fN-68D"/>
                         <outlet property="mdpTextField" destination="eNU-um-zLO" id="de4-Ex-N1w"/>
@@ -103,7 +104,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="-300"/>
+            <point key="canvasLocation" x="578" y="-355"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bZy-yA-nb2">
+            <objects>
+                <navigationController id="2ub-53-NDw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPh-R2-aBF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3eY-NW-E7K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBl-ia-jdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-646" y="-355"/>
         </scene>
         <!--Compte-->
         <scene sceneID="Ni1-wf-oyk">
@@ -443,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOb-ae-aWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2689.8550724637685" y="-956.25000000000011"/>
+            <point key="canvasLocation" x="2748" y="-954"/>
         </scene>
         <!--Calendrier-->
         <scene sceneID="9IR-0H-f9r">
