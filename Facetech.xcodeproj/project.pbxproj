@@ -16,8 +16,8 @@
 		537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */; };
 		537BEF471E51A5440002AB09 /* FacetechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF461E51A5440002AB09 /* FacetechTests.swift */; };
 		537BEF521E51A5440002AB09 /* FacetechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF511E51A5440002AB09 /* FacetechUITests.swift */; };
-		53EE3C111E682A0D00519FFD /* Utilisateur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EE3C101E682A0D00519FFD /* Utilisateur.swift */; };
-		53EE3C161E6833DD00519FFD /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EE3C151E6833DD00519FFD /* CreateUserViewController.swift */; };
+		A36A5E4A1E683026003F3CCF /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A5E491E683026003F3CCF /* MessageTableViewCell.swift */; };
+		A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 		537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FacetechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		537BEF511E51A5440002AB09 /* FacetechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacetechUITests.swift; sourceTree = "<group>"; };
 		537BEF531E51A5440002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53EE3C101E682A0D00519FFD /* Utilisateur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilisateur.swift; sourceTree = "<group>"; };
-		53EE3C151E6833DD00519FFD /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		A36A5E491E683026003F3CCF /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,8 @@
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
+				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
+				A36A5E491E683026003F3CCF /* MessageTableViewCell.swift */,
 				537BEF381E51A5430002AB09 /* Assets.xcassets */,
 				537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */,
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
@@ -285,7 +287,8 @@
 				53EE3C111E682A0D00519FFD /* Utilisateur.swift in Sources */,
 				537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */,
 				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
-				53EE3C161E6833DD00519FFD /* CreateUserViewController.swift in Sources */,
+				A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */,
+				A36A5E4A1E683026003F3CCF /* MessageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
