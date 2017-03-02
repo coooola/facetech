@@ -1,4 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AnneePromo" representedClassName="AnneePromo" syncable="YES" codeGenerationType="class">
+        <attribute name="annee" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="contenirUtilisateurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="appartenirPromo" inverseEntity="Utilisateur" syncable="YES"/>
+    </entity>
+    <entity name="Date" representedClassName="Date" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="avoirEvenements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="aLieuLe" inverseEntity="Evenement" syncable="YES"/>
+        <relationship name="possederMessages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="etrePosteLe" inverseEntity="Message" syncable="YES"/>
+    </entity>
+    <entity name="Document" representedClassName="Document" syncable="YES" codeGenerationType="class">
+        <attribute name="document" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idDocument" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="appartenirMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="possederDocuments" inverseEntity="Message" syncable="YES"/>
+        <relationship name="etreTypeDocument" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeDocument" inverseName="possederDocuments" inverseEntity="TypeDocument" syncable="YES"/>
+    </entity>
+    <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
+        <attribute name="idEvenement" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomEvenement" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="aLieuLe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="avoirEvenements" inverseEntity="Date" syncable="YES"/>
+        <relationship name="etreAssocieTypeUtilisateur" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="possederEvenements" inverseEntity="TypeUtilisateur" syncable="YES"/>
+        <relationship name="etreCreerPar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="creerUnEvent" inverseEntity="Utilisateur" syncable="YES"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
+        <attribute name="contenu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idMesage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="etreEcritPar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="ecrireMessage" inverseEntity="Utilisateur" syncable="YES"/>
+        <relationship name="etreLieTypeUtilisateur" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="etreRelieMessages" inverseEntity="TypeUtilisateur" syncable="YES"/>
+        <relationship name="etrePosteLe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="possederMessages" inverseEntity="Date" syncable="YES"/>
+        <relationship name="possederDocuments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="appartenirMessage" inverseEntity="Document" syncable="YES"/>
+    </entity>
+    <entity name="TypeDocument" representedClassName="TypeDocument" syncable="YES" codeGenerationType="class">
+        <attribute name="idTypeDocument" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="libelleTypeDocument" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="possederDocuments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="etreTypeDocument" inverseEntity="Document" syncable="YES"/>
+    </entity>
+    <entity name="TypeUtilisateur" representedClassName="TypeUtilisateur" syncable="YES" codeGenerationType="class">
+        <attribute name="idTypeUtilisateur" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="libelleTypeUtilisateur" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="avoirUtilisateurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="possederTypeUtilisateur" inverseEntity="Utilisateur" syncable="YES"/>
+        <relationship name="etreRelieMessages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="etreLieTypeUtilisateur" inverseEntity="Message" syncable="YES"/>
+        <relationship name="possederEvenements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="etreAssocieTypeUtilisateur" inverseEntity="Evenement" syncable="YES"/>
+    </entity>
+    <entity name="Utilisateur" representedClassName="Utilisateur" syncable="YES" codeGenerationType="class">
+        <attribute name="adresseMail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idUtilisateur" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="motDePasse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appartenirPromo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnneePromo" inverseName="contenirUtilisateurs" inverseEntity="AnneePromo" syncable="YES"/>
+        <relationship name="creerUnEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="etreCreerPar" inverseEntity="Evenement" syncable="YES"/>
+        <relationship name="ecrireMessage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="etreEcritPar" inverseEntity="Message" syncable="YES"/>
+        <relationship name="possederTypeUtilisateur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="avoirUtilisateurs" inverseEntity="TypeUtilisateur" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="73"/>
+        <element name="Date" positionX="387" positionY="420" width="128" height="88"/>
+        <element name="Document" positionX="-378" positionY="287" width="128" height="103"/>
+        <element name="Evenement" positionX="297" positionY="-52" width="90" height="118"/>
+        <element name="Message" positionX="-162" positionY="270" width="171" height="133"/>
+        <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>
+        <element name="TypeUtilisateur" positionX="214" positionY="296" width="128" height="118"/>
+        <element name="Utilisateur" positionX="-63" positionY="-90" width="128" height="178"/>
+    </elements>
 </model>
