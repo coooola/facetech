@@ -85,6 +85,7 @@
 		537BEF221E51A5430002AB09 = {
 			isa = PBXGroup;
 			children = (
+				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF2D1E51A5430002AB09 /* Facetech */,
 				537BEF451E51A5440002AB09 /* FacetechTests */,
 				537BEF501E51A5440002AB09 /* FacetechUITests */,
@@ -115,6 +116,7 @@
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
 				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
 				5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */,
+				53EE3C151E6833DD00519FFD /* CreateUserViewController.swift */,
 			);
 			path = Facetech;
 			sourceTree = "<group>";
@@ -135,6 +137,14 @@
 				537BEF531E51A5440002AB09 /* Info.plist */,
 			);
 			path = FacetechUITests;
+			sourceTree = "<group>";
+		};
+		53EE3C0F1E6829EF00519FFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53EE3C101E682A0D00519FFD /* Utilisateur.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +215,7 @@
 				TargetAttributes = {
 					537BEF2A1E51A5430002AB09 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					537BEF411E51A5440002AB09 = {
@@ -273,6 +284,7 @@
 			files = (
 				5316A5DA1E52ED440037BEB8 /* MainPageViewController.swift in Sources */,
 				537BEF311E51A5430002AB09 /* ViewController.swift in Sources */,
+				53EE3C111E682A0D00519FFD /* Utilisateur.swift in Sources */,
 				537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */,
 				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
 				A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */,
@@ -428,10 +440,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Facetech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Polytech.Facetech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -440,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Facetech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Polytech.Facetech;
