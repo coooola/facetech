@@ -110,7 +110,7 @@
         <scene sceneID="bZy-yA-nb2">
             <objects>
                 <navigationController id="2ub-53-NDw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPh-R2-aBF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QPh-R2-aBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -319,7 +319,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vye-OC-yOa"/>
                     <connections>
-                        <outlet property="mailTextField" destination="pV1-Kt-hkh" id="qDz-hU-Iw7"/>
+                        <outlet property="mailTextField" destination="pV1-Kt-hkh" id="hs3-wi-ANL"/>
                         <outlet property="nomTextField" destination="VWb-f0-eaf" id="Hta-oy-GgN"/>
                         <outlet property="prenomTextField" destination="4sI-Ct-eAY" id="Z0P-RD-8g2"/>
                     </connections>
