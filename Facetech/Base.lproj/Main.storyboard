@@ -431,7 +431,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" tableViewCell="194-io-Ov7" id="XCX-Fm-xsF">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bai-px-8Fl" userLabel="contentLabel">
@@ -502,10 +502,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Accueil" image="mmenu-icon-0.png" id="8wZ-7Y-N3g"/>
                     <connections>
+                        <outlet property="messagePresenter" destination="xun-1Q-MjS" id="b1k-oD-UTA"/>
                         <outlet property="messageTable" destination="2Ex-oa-dYh" id="sAR-Pk-oH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOb-ae-aWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="xun-1Q-MjS" customClass="MessagePresenter" customModule="Facetech" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2747.826086956522" y="-954.61956521739137"/>
         </scene>

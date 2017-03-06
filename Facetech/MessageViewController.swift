@@ -9,11 +9,22 @@
 import UIKit
 import CoreData
 
-class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     var messages : [Message] = []
     
+    fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
+        // prepare a request
+        let request : NSFetchRequest<Message> = Message.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.etrePosteLe.date), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
+        return fetchResultController
+    }()
+    
     @IBOutlet weak var messageTable: UITableView!
+    
+    @IBOutlet var messagePresenter: MessagePresenter!
     
     @IBAction func addAction(_ sender: Any) {
         let alert = UIAlertController(title: "Nouveau Message",
@@ -40,7 +51,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         present(alert, animated: true)
     }
-    
+
+        
+    }
+
     func saveNewMessage(withContent contenuMsg: String){
         // first get context into application delegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -76,15 +90,15 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // first get context of persistent data
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alertError(errorMsg: "Could not load data", msgInfo: "reason unknown")
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+        //guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+        //    self.alertError(errorMsg: "Could not load data", msgInfo: "reason unknown")
+        //    return
+        //}
+        //let context = appDelegate.persistentContainer.viewContext
         // create request associate to entity Message
-        let request : NSFetchRequest<Message> = Message.fetchRequest()
+        //let request : NSFetchRequest<Message> = Message.fetchRequest()
         do{
-            try self.messages = context.fetch(request)
+            try self.messagesFetched.performFetch()
         }
         catch let error as NSError{
             self.alertError(errorMsg: "\(error)", msgInfo: "\(error.userInfo)")
@@ -97,12 +111,19 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return self.messages.count
+        //return self.messages.count
+        guard let section = self.messagesFetchedd.sections?[section] else {
+            fatalError("unexpected section number")
+        }
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
-        cell.contentLabel.text = self.messages[indexPath.row].contenu
+        let message = self.messagesFetchedd.object(at: indexPath)
+        self.messagePresenter.configure(theCell: cell, forMessage: message)
+        //self.messagePresenter.configure(theCell: cell, forMessage: self.messages[indexPath.row])
+        //cell.contentLabel.text = self.messages[indexPath.row].contenu
         return cell
     }
     
@@ -117,4 +138,5 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
      }
      */
     
+
 }
