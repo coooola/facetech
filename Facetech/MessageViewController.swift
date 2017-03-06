@@ -105,6 +105,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.contentLabel.text = self.messages[indexPath.row].contenu
         return cell
     }
+    
+    
     /*
      // MARK: - Navigation
      
