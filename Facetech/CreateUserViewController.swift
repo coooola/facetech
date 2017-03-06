@@ -32,9 +32,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
         
         prenomTextField.delegate = self
         nomTextField.delegate = self
-        mailTextField.delegate = self;
-
-        // Do any additional setup after loading the view.
+        mailTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,12 +58,13 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
     /// - Returns: <#return value description#>
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
+       self.textFieldDidEndEditing(prenomTextField)
        return self.saveNewPerson()
     }
     
     
     
-    //MARK: - UITextField Functions
+    //MARK: - UITextFieldDelegate Functions
     
     /// <#Description#>
     ///
@@ -86,6 +85,22 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
         }
     }
 
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        self.nomTextField.backgroundColor = UIColor.white
+        self.prenomTextField.backgroundColor = UIColor.white
+        self.mailTextField.backgroundColor = UIColor.white
+    }
+    
+    /// <#Description#>
+    /// 
+    /// - Parameter textField: <#textField description#>
+    /// - Returns: <#return value description#>
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder();
+        return true;
+    }
     
     
     
@@ -137,6 +152,30 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
     
     func saveNewPerson() -> Bool
     {
+        var verif: Bool = true
+        if (self.nom=="")
+        {
+            self.nomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.nomTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (self.prenom=="")
+        {
+            self.prenomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.prenomTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (self.mail=="")
+        {
+            self.mailTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.mailTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (!verif)
+        {
+            return false
+        }
+        
         guard let context = self.getContext(errorMsg: "Could not load data") else {return false}
         
         let newUser = Utilisateur(context: context)
