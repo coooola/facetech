@@ -55,8 +55,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     /// - Returns: <#return value description#>
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        identifiantTextField.resignFirstResponder();
-        mdpTextField.resignFirstResponder();
+        textField.resignFirstResponder();
         return true;
     }
     
@@ -88,11 +87,14 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     /// - Returns: <#return value description#>
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
+        self.textFieldDidEndEditing(mdpTextField)
+        
         guard let context = self.getContext(errorMsg: "Could not load data") else {return false}
         
         var user : [Utilisateur] = []
         
         let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
+        request.predicate = NSPredicate(format: "adresseMail == %@", self.id)
         do{
             try user = context.fetch(request)
         }
