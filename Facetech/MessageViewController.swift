@@ -28,15 +28,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // first get context of persistent data
-        // guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-        //    self.alertError(errorMsg: "Could not load data", msgInfo: "reason unknown")
-        //    return
-        // }
-        // let context = appDelegate.persistentContainer.viewContext
-        //  create request associate to entity Message
-        // let request : NSFetchRequest<Message> = Message.fetchRequest()
         do{
             try self.messagesFetched.performFetch()
         }
@@ -132,26 +123,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    /// delete a message from collection according to its index
-    ///
-    /// - Precondition: index must be into bound of collection
-    /// - Parameter messageWithIndex: index of message to delete
-    /// - Returns: true id deletion
-    /*func delete(messageWithIndex index: Int) -> Bool{
-        guard let context = self.getContext(errorMsg: "Could not delete message") else { return false }
-        let message = self.messages[index]
-        context.delete(message)
-        do{
-            try CoreDataManager.save()
-            self.messages.remove(at: index)
-            return true
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-            return false
-        }
-    }*/
-    
     // MARK: - NSFetchResultController delegate protocol
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -159,6 +130,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.messageTable.endUpdates()
+        CoreDataManager.save()
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type{
@@ -185,8 +157,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
-        //self.messagePresenter.configure(theCell: cell, forMessage: self.messages[indexPath.row])
-        //cell.contentLabel.text = self.messages[indexPath.row].contenu
         cell.accessoryType = .detailButton
         return cell
     }
@@ -198,23 +168,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: Modifier, handler: editHandlerAction)
+        let edit = UITableViewRowAction(style: .default, title: "Modifier", handler: editHandlerAction)
         delete.backgroundColor = UIColor.red
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
     }
     
-    // manage editing of a row
-    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        // just managed deleting
-        if (editingStyle==UITableViewCellEditingStyle.delete){
-            self.messageTable.beginUpdates()
-            if self.delete(messageWithIndex: indexPath.row){
-                self.messageTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            }
-            self.messageTable.endUpdates()
-        }
-    }*/
     
     // MARK: - helper methods
     /// Get context of core data initialized in application delegate
@@ -226,7 +185,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
         // first get context of persistent data
         guard let  appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            //DialogBoxHelper.alert(view: view, WithTitle: errorMsg, andMessage: userInfoMsg)
             DialogBoxHelper.alert(view: self, WithTitle: errorMsg, andMessage: userInfoMsg)
             return nil
         }
