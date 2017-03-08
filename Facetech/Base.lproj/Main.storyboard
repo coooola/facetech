@@ -276,6 +276,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="uj4-Hq-igo"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="rTL-Oi-ZHu" id="WMT-kb-KQ5"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rA-6c-Jhv">
                                 <rect key="frame" x="169" y="496" width="76" height="30"/>
@@ -319,6 +322,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vye-OC-yOa"/>
                     <connections>
+                        <outlet property="anneePicker" destination="P1f-7W-BTc" id="vMO-Pv-E6c"/>
                         <outlet property="mailTextField" destination="pV1-Kt-hkh" id="hs3-wi-ANL"/>
                         <outlet property="nomTextField" destination="VWb-f0-eaf" id="Hta-oy-GgN"/>
                         <outlet property="prenomTextField" destination="4sI-Ct-eAY" id="Z0P-RD-8g2"/>

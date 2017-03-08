@@ -11,9 +11,9 @@ import CoreData
 
 extension Utilisateur{
     
-    static func createUtilisateur(context: NSManagedObjectContext, mail: String, nom: String, prenom: String) -> Utilisateur
+    static func createUtilisateur(mail: String, nom: String, prenom: String) -> Utilisateur
     {
-        let newUser = Utilisateur(context : context)
+        let newUser = Utilisateur(context : CoreDataManager.context)
         newUser.adresseMail = mail
         newUser.nom = nom
         newUser.prenom = prenom
