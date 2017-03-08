@@ -81,7 +81,14 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
         }
         if (verif)
         {
-            guard let user = Utilisateur.createUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom) else {return false}
+            do
+            {
+                try UtilisateurModel.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom)
+            }
+            catch let error as NSError
+            {
+                DialogBoxHelper.alert(view : self, error: error)
+            }
         }
         
        return verif

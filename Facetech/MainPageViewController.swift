@@ -89,9 +89,17 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     {
         self.textFieldDidEndEditing(mdpTextField)
        
-        guard let user = Utilisateur.getUtilisateur() else { return false }
+        var user : Utilisateur?
+        do
+        {
+            try user = UtilisateurModel.getUtilisateur(mail: self.id)
+        }
+        catch let error as NSError
+        {
+            DialogBoxHelper.alert(view : self, error: error)
+        }
         
-        if user.adresseMail == self.id && user.motDePasse == self.mdp
+        if user!.adresseMail == self.id && user!.motDePasse == self.mdp
         {
             messageErreurLabel.isHidden = true;
             return true

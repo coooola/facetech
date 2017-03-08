@@ -9,31 +9,26 @@
 import Foundation
 import CoreData
 
-extension Utilisateur{
+class UtilisateurModel : NSObject{
     
-    static func createUtilisateur(mail: String, nom: String, prenom: String) -> Utilisateur?
+    class func insertUtilisateur(mail: String, nom: String, prenom: String) throws -> Utilisateur
     {
         
         let context = CoreDataManager.context
         
-        let newUser = Utilisateur(context: context)
-        newUser.adresseMail = mail
-        newUser.nom = nom
-        newUser.prenom = prenom
-        newUser.motDePasse = prenom + "." + nom
-        
+        let newUser = Utilisateur.createUtilisateur(context: context, mail: mail, nom: nom, prenom: prenom)
+
         if let error = CoreDataManager.save()
         {
-            //DialogBoxHelper.alert(view: self, error: error)
-            return nil
+            throw error
         }
-        
+    
         return newUser
         
     }
     
     
-    static func getUtilisateur(mail: String? = nil, nom: String? = nil, prenom: String? = nil) -> Utilisateur?
+    class func getUtilisateur(mail: String? = nil, nom: String? = nil, prenom: String? = nil) throws -> Utilisateur?
     {
         
         let context = CoreDataManager.context
@@ -42,12 +37,14 @@ extension Utilisateur{
         
         let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
         
-        request.predicate = NSPredicate(format: "adresseMail == %@", mail!)
-        do{
+        request.predicate = NSPredicate(format: "adresseMail == %@", mail != nil ? mail! : "")
+        
+        do
+        {
             try user = context.fetch(request)
         }
         catch let error as NSError{
-            //DialogBoxHelper.alert(view: self, error: error)
+            throw error
         }
         
         return user.count != 0 ? user[0]: nil
