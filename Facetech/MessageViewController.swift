@@ -51,8 +51,16 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         present(alert, animated: true)
     }
-
-        
+    
+    // Mark: - Persons data management -
+    
+    /// save all data
+    ///
+    func save(){
+        // first get context into application delegate
+        if let error = CoreDataManager.save(){
+            DialogBoxHelper.alert(view: self, error: error)
+        }
     }
 
     func saveNewMessage(withContent contenuMsg: String){
@@ -112,7 +120,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //return self.messages.count
-        guard let section = self.messagesFetchedd.sections?[section] else {
+        guard let section = self.messagesFetched.sections?[section] else {
             fatalError("unexpected section number")
         }
         return section.numberOfObjects
@@ -120,7 +128,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
-        let message = self.messagesFetchedd.object(at: indexPath)
+        let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
         //self.messagePresenter.configure(theCell: cell, forMessage: self.messages[indexPath.row])
         //cell.contentLabel.text = self.messages[indexPath.row].contenu

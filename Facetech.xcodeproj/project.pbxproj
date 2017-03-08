@@ -21,6 +21,7 @@
 		A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */; };
 		A39774A21E6D60290025281B /* MessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39774A11E6D60290025281B /* MessagePresenter.swift */; };
 		A39774A41E6D6D030025281B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39774A31E6D6D030025281B /* CoreDataManager.swift */; };
+		A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A39774A11E6D60290025281B /* MessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePresenter.swift; sourceTree = "<group>"; };
 		A39774A31E6D6D030025281B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +114,12 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
+				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
 				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
-				A39774A31E6D6D030025281B /* CoreDataManager.swift */,
 				A39774A11E6D60290025281B /* MessagePresenter.swift */,
 				A36A5E491E683026003F3CCF /* MessageTableViewCell.swift */,
 				537BEF381E51A5430002AB09 /* Assets.xcassets */,
@@ -152,6 +154,15 @@
 			children = (
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		A3F7D6D71E70040D00AC5577 /* Class Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A39774A31E6D6D030025281B /* CoreDataManager.swift */,
+				A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */,
+			);
+			name = "Class Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5316A5DA1E52ED440037BEB8 /* MainPageViewController.swift in Sources */,
+				A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */,
 				537BEF311E51A5430002AB09 /* ViewController.swift in Sources */,
 				537BEF2F1E51A5430002AB09 /* AppDelegate.swift in Sources */,
 				53EE3C181E68413900519FFD /* CreateUserViewController.swift in Sources */,
