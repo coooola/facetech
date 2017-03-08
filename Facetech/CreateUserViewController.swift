@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateUserViewController: UIViewController, UITextFieldDelegate
+class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPickerViewDataSource
 {
 
     
@@ -24,6 +24,12 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
     var prenom : String = "";
     var nom : String = "";
     var mail : String = "";
+
+    
+    @IBOutlet weak var anneePicker: UIPickerView!
+    
+    var anneePickerData: [Int] = []
+    
     
     //MARK: - UIViewController function
     
@@ -33,6 +39,22 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
         prenomTextField.delegate = self
         nomTextField.delegate = self
         mailTextField.delegate = self
+        
+        //anneePicker.delegate = self
+        
+        /*do
+        {
+            let anneePromo = try AnneeModel.getToutesLesAnnees()
+            for annee in anneePromo
+            {
+                anneePickerData.append(Int(annee.annee))
+            }
+        }
+        catch let error as NSError
+        {
+            DialogBoxHelper.alert(view : self, error: error)
+        }*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,6 +155,18 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
         textField.resignFirstResponder();
         return true;
     }
+    
+    
+    //MARK: - UIPickerViewDelegate Functions
+    
+    /**func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        <#code#>
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return
+    }**/
 
     
     
