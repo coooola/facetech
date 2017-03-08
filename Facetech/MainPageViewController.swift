@@ -88,73 +88,17 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
         self.textFieldDidEndEditing(mdpTextField)
+       
+        guard let user = Utilisateur.getUtilisateur() else { return false }
         
-        guard let context = self.getContext(errorMsg: "Could not load data") else {return false}
-        
-        var user : [Utilisateur] = []
-        
-        let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
-        request.predicate = NSPredicate(format: "adresseMail == %@", self.id)
-        do{
-            try user = context.fetch(request)
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-        }
-        for people in user
+        if user.adresseMail == self.id && user.motDePasse == self.mdp
         {
-            if people.adresseMail == self.id && people.motDePasse == self.mdp
-            {
-                messageErreurLabel.isHidden = true;
-                return true
-            }
+            messageErreurLabel.isHidden = true;
+            return true
         }
         messageErreurLabel.isHidden = false;
+
         return false
     }
     
-    
-    
-    
-    
-    //MARK: - Helper methods
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - errorMsg: <#errorMsg description#>
-    ///   - userInfoMsg: <#userInfoMsg description#>
-    /// - Returns: <#return value description#>
-    func getContext(errorMsg: String, userInfoMsg: String = "could notr eretrieve data context") -> NSManagedObjectContext?
-    {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alert(WithTitle:errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - title: <#title description#>
-    ///   - msg: <#msg description#>
-    func alert(WithTitle title: String, andMessage msg: String = "")
-    {
-        let alert = UIAlertController(title: title,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(cancelAction)
-        present(alert, animated:true)
-    }
-    
-    
-    /// <#Description#>
-    ///
-    /// - Parameter error: <#error description#>
-    func alert(error : NSError){
-        self.alert(WithTitle: "\(error)", andMessage: "\(error.userInfo)")
-    }
 }

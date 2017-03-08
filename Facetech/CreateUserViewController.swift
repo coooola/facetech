@@ -58,8 +58,33 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
     /// - Returns: <#return value description#>
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
-       self.textFieldDidEndEditing(prenomTextField)
-       return self.saveNewPerson()
+        self.textFieldDidEndEditing(prenomTextField)
+        
+        var verif: Bool = true
+        if (self.nom=="")
+        {
+            self.nomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.nomTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (self.prenom=="")
+        {
+            self.prenomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.prenomTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (self.mail=="")
+        {
+            self.mailTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.mailTextField.backgroundColor = UIColor.red
+            verif = false
+        }
+        if (verif)
+        {
+            guard let user = Utilisateur.createUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom) else {return false}
+        }
+        
+       return verif
     }
     
     
@@ -100,103 +125,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate
     {
         textField.resignFirstResponder();
         return true;
-    }
-    
-    
-    
-    //MARK: - Helper methods
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - errorMsg: <#errorMsg description#>
-    ///   - userInfoMsg: <#userInfoMsg description#>
-    /// - Returns: <#return value description#>
-    func getContext(errorMsg: String, userInfoMsg: String = "could notr eretrieve data context") -> NSManagedObjectContext?
-    {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alert(WithTitle:errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - title: <#title description#>
-    ///   - msg: <#msg description#>
-    func alert(WithTitle title: String, andMessage msg: String = "")
-    {
-        let alert = UIAlertController(title: title,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(cancelAction)
-        present(alert, animated:true)
-    }
-    
-    
-    /// <#Description#>
-    ///
-    /// - Parameter error: <#error description#>
-    func alert(error : NSError){
-        self.alert(WithTitle: "\(error)", andMessage: "\(error.userInfo)")
-    }
-    
-    
-    
-    
-    //MARK: - Interaction with model functions
-    
-    func saveNewPerson() -> Bool
-    {
-        var verif: Bool = true
-        if (self.nom=="")
-        {
-            self.nomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
-            self.nomTextField.backgroundColor = UIColor.red
-            verif = false
-        }
-        if (self.prenom=="")
-        {
-            self.prenomTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
-            self.prenomTextField.backgroundColor = UIColor.red
-            verif = false
-        }
-        if (self.mail=="")
-        {
-            self.mailTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
-            self.mailTextField.backgroundColor = UIColor.red
-            verif = false
-        }
-        if (!verif)
-        {
-            return false
-        }
-        
-        guard let context = self.getContext(errorMsg: "Could not load data") else {return false}
-        
-        let newUser = Utilisateur(context: context)
-        newUser.adresseMail = self.mail
-        newUser.nom = self.nom
-        newUser.prenom = self.prenom
-        newUser.motDePasse = self.prenom + "." + self.nom
-        
-        do
-        {
-            try context.save()
-        }
-        catch let error as NSError{
-            self.alert(error: error)
-            return false
-        }
-        
-        return true
-        
-        
-        
     }
 
     
