@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPickerViewDataSource
+class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate
 {
 
     
     //MARK: - Objects
+    
+    //MARK: Textfield
     
     @IBOutlet weak var prenomTextField: UITextField!
     
@@ -24,11 +26,16 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
     var prenom : String = "";
     var nom : String = "";
     var mail : String = "";
-
     
-    //@IBOutlet weak var anneePicker: UIPickerView!
+    //MARK: Picker
     
-    //var anneePickerData: [Int] = []
+    @IBOutlet weak var anneePicker: UIPickerView!
+    
+    var anneePickerData: [AnneePromo] = []
+    
+    @IBOutlet weak var typeUtilisateurPicker: UIPickerView!
+    
+    var typeUtilisateurData: [TypeUtilisateur] = []
     
     
     //MARK: - UIViewController function
@@ -40,20 +47,16 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
         nomTextField.delegate = self
         mailTextField.delegate = self
         
-        //anneePicker.delegate = self
         
-        /*do
+        do
         {
-            let anneePromo = try AnneesSetModel.getToutesLesAnnees()
-            for annee in anneePromo
-            {
-                anneePickerData.append(Int(annee.annee))
-            }
+            anneePickerData = try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})
+            typeUtilisateurData = try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()
         }
         catch let error as NSError
         {
             DialogBoxHelper.alert(view : self, error: error)
-        }*/
+        }
         
     }
 
@@ -159,15 +162,35 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
     
     //MARK: - UIPickerViewDelegate Functions
     
-    /**func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        return
-    }**/
-
+        if (pickerView == typeUtilisateurPicker)
+        {
+            return typeUtilisateurData.count
+        }
+        
+        else
+        {
+            return anneePickerData.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        if (pickerView == typeUtilisateurPicker)
+        {
+            return "coucou"//typeUtilisateurData[row].libelleTypeUtilisateur
+        }
+        else
+        {
+            return anneePickerData[row].annee.description
+        }
+    }
+    
     
     
 

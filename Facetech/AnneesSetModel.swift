@@ -15,11 +15,12 @@ class AnneesSetModel : NSObject{
         return AnneesSetModel()
     }()
     
-    private static var touteLesAnnees : [AnneePromo] = []
+    
+    private var touteLesAnnees : [AnneePromo] = []
     
     
     
-    class func getToutesLesAnnees() throws -> [AnneePromo]
+    func getToutesLesAnnees() throws -> [AnneePromo]
     {
         if (touteLesAnnees.count == 0)
         {
