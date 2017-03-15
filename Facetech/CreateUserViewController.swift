@@ -26,9 +26,9 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
     var mail : String = "";
 
     
-    @IBOutlet weak var anneePicker: UIPickerView!
+    //@IBOutlet weak var anneePicker: UIPickerView!
     
-    var anneePickerData: [Int] = []
+    //var anneePickerData: [Int] = []
     
     
     //MARK: - UIViewController function
@@ -44,7 +44,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
         
         /*do
         {
-            let anneePromo = try AnneeModel.getToutesLesAnnees()
+            let anneePromo = try AnneesSetModel.getToutesLesAnnees()
             for annee in anneePromo
             {
                 anneePickerData.append(Int(annee.annee))
@@ -105,7 +105,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate//, UIPicke
         {
             do
             {
-                try UtilisateurModel.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom)
+                try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom)
             }
             catch let error as NSError
             {

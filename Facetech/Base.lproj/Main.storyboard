@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rUI-jx-5s8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2ub-53-NDw">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -276,9 +276,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="uj4-Hq-igo"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="rTL-Oi-ZHu" id="WMT-kb-KQ5"/>
-                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rA-6c-Jhv">
                                 <rect key="frame" x="169" y="496" width="76" height="30"/>
@@ -322,7 +319,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vye-OC-yOa"/>
                     <connections>
-                        <outlet property="anneePicker" destination="P1f-7W-BTc" id="vMO-Pv-E6c"/>
                         <outlet property="mailTextField" destination="pV1-Kt-hkh" id="hs3-wi-ANL"/>
                         <outlet property="nomTextField" destination="VWb-f0-eaf" id="Hta-oy-GgN"/>
                         <outlet property="prenomTextField" destination="4sI-Ct-eAY" id="Z0P-RD-8g2"/>
@@ -435,7 +431,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" tableViewCell="194-io-Ov7" id="XCX-Fm-xsF">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bai-px-8Fl" userLabel="contentLabel">

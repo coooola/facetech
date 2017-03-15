@@ -92,7 +92,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         var user : Utilisateur?
         do
         {
-            try user = UtilisateurModel.getUtilisateur(mail: self.id)
+            try user = UtilisateursSetModel.utilisateursSet.getUtilisateur(mail: self.id)
         }
         catch let error as NSError
         {
@@ -102,6 +102,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         if user!.adresseMail == self.id && user!.motDePasse == self.mdp
         {
             messageErreurLabel.isHidden = true;
+            Session.utilisateurConnecte = user;
             return true
         }
         messageErreurLabel.isHidden = false;
