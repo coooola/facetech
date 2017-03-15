@@ -19,7 +19,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.etrePosteLe.date), ascending: true)]
         
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.etrePosteLe), cacheName: nil)
         
         fetchResultController.delegate = self
         
@@ -154,6 +154,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Table View data source protocol -
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //return self.messages.count
         guard let section = self.messagesFetched.sections?[section] else {
@@ -162,11 +163,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         return section.numberOfObjects
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
         cell.accessoryType = .detailButton
+        /*cell.textLabel?.numberOfLines=0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping*/
         return cell
     }
     
@@ -182,6 +186,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
     }
+    
+    
     
     
     
