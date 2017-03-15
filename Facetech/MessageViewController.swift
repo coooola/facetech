@@ -14,20 +14,29 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     var messages : [Message] = []
     
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
+        
         // prepare a request
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.etrePosteLe.date), ascending: true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.etrePosteLe), cacheName: nil)
+        
         fetchResultController.delegate = self
+        
         return fetchResultController
     }()
     
-    @IBOutlet weak var messageTable: UITableView!
     
+    
+    @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
     
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         do{
             try self.messagesFetched.performFetch()
         }
@@ -36,7 +45,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -85,58 +97,54 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    // Mark: - Message data management -
-    
-    /// save all data
-    ///
-    
-    func save(){
-        // first get context into application delegate
-        if let error = CoreDataManager.save(){
-            DialogBoxHelper.alert(view: self, error: error)
-        }
-    }
-
+   
     // MARK: - Messsage data management -
 
-    /// create a new message, add it to the collection and save it
+    /// Enregistre un nouveau message
     ///
-    /// - Parameter contenuMsg: content of the Message to be add
+    /// - Parameter contenuMsg: le contenu du message a ajouter dans la base de données
     func saveNewMessage(withContent contenuMsg: String){
+        
         // first get context into application delegate
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            self.alertError(errorMsg: "Could not save message", msgInfo: "unknown reason")
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-        // create a message managedObject
+        let context = CoreDataManager.context
+        
+        // create a messageManagedObject
         let message = Message(context: context)
+        
         // then modify its content
         message.contenu = contenuMsg
+        
         do{
-            try context.save()
+            CoreDataManager.save()
             self.messages.append(message)
         }
         catch let error as NSError{
-            self.alertError(errorMsg: "\(error)", msgInfo: "\(error.userInfo)")
+            DialogBoxHelper.alert(view: self, error: error)
             return
         }
     }
+
     
     // MARK: - NSFetchResultController delegate protocol
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.messageTable.beginUpdates()
     }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.messageTable.endUpdates()
         CoreDataManager.save()
     }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type{
         case .delete:
             if let indexPath = indexPath{
                 self.messageTable.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.messageTable.insertRows(at: [newIndexPath], with: .fade)
             }
         default:
             break
@@ -145,6 +153,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     // MARK: - Table View data source protocol -
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //return self.messages.count
         guard let section = self.messagesFetched.sections?[section] else {
@@ -153,11 +163,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         return section.numberOfObjects
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
         cell.accessoryType = .detailButton
+        /*cell.textLabel?.numberOfLines=0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping*/
         return cell
     }
     
@@ -175,31 +188,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    // MARK: - helper methods
-    /// Get context of core data initialized in application delegate
-    ///
-    /// - Parameters:
-    ///   - errorMsg: main error message
-    ///   - userInfoMsg: additional information in application delegate
-    /// - Returns: context of coreData
-    func getContext(errorMsg: String, userInfoMsg: String = "could not retrieve data context") -> NSManagedObjectContext?{
-        // first get context of persistent data
-        guard let  appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            DialogBoxHelper.alert(view: self, WithTitle: errorMsg, andMessage: userInfoMsg)
-            return nil
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
     
-    func alertError(errorMsg error : String, msgInfo msg: String = ""){
-        let alert = UIAlertController(title: error,
-                                      message: msg,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok",
-                                         style: .default)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
     
     
     /*
