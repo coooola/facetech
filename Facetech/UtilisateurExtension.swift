@@ -1,5 +1,5 @@
 //
-//  UtilisateurModel.swift
+//  Utilisateur.swift
 //  Facetech
 //
 //  Created by Nicolas BITAN on 08/03/2017.
