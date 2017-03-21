@@ -115,7 +115,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         message.contenu = contenuMsg
         
         do{
-            CoreDataManager.save()
+            try CoreDataManager.save()
             self.messages.append(message)
         }
         catch let error as NSError{
