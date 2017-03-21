@@ -94,8 +94,15 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
             {
                 do
                 {
-                    try EvenementsSetModel.evenementSet.insertEvenement(nom: self.nomEvenement, date: Date());
-                    //self.dateEvenementDatePicker.date)
+                    let event = try EvenementsSetModel.evenementSet.insertEvenement(nom: self.nomEvenement, date: Date());
+                    /**var date = self.dateEvenementDatePicker.date.description
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss +SSSSxxx"
+                    let datedate = dateFormatter.date(from: date)
+                    //Date.addToAvoirEvenements(datedate)
+                    print(datedate?.description ?? "bah alors on sait pas afficher une date ? :) :) :)")
+                    print(self.dateEvenementDatePicker.date.description)
+                    //)**/
                 }
                 catch let error as NSError
                 {

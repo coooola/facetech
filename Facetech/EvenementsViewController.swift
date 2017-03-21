@@ -10,10 +10,13 @@ import UIKit
 import CoreData
 
 
-class EvenementsViewController: UIViewController//, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
+class EvenementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
 {
     
-    /**@IBOutlet weak var evenementsTableView: UITableView!
+    @IBOutlet weak var evenementTableView: UITableView!
+    
+    
+    /**
     
     @IBOutlet weak var evenementTableCell: UITableViewCell!
     
@@ -67,27 +70,38 @@ class EvenementsViewController: UIViewController//, UITableViewDelegate, UITable
         }
     }
     
+**/
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //return self.messages.count
-        guard let section = self.evenementsFetched.sections?[section] else {
-            fatalError("unexpected section number")
+        var nbEvent : Int = 0
+        do{
+            nbEvent = try EvenementsSetModel.evenementSet.getTousLesEvenements().count
         }
-        return section.numberOfObjects
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error:error)
+        }
+        
+        return nbEvent
     }
     
     
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = self.evenementsTableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! EvenementTableViewCell
-        let message = self.evenementsFetched.object(at: indexPath)
-        self.messagePresenter.configure(theCell: cell, forMessage: message)
-        cell.accessoryType = .detailButton
-        /*cell.textLabel?.numberOfLines=0
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping*/
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+     {
+        let cell = self.evenementTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EvenementTableViewCell
+        do{
+            cell.heureLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description
+            //cell.heureLabel.text = cell.heureLabel.text! + " : "
+            //try print(EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description ?? "Ca ne marche pas :) :)")
+            cell.nomEventLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].nomEvenement
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error:error)
+        }
+        
         return cell
-    }
-**/
+     }
+
     
 
 }

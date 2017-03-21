@@ -561,12 +561,52 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S1w-VJ-8gx" kind="showDetail" id="fFg-Gi-5jh"/>
+                                    <segue destination="S1w-VJ-8gx" kind="modal" id="uK9-Du-g7U"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4p-ndf">
                                 <rect key="frame" x="5" y="62" width="404" height="666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="bLm-a8-7UY" customClass="EvenementTableViewCell" customModule="Facetech" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bLm-a8-7UY" id="V8Q-jp-scY">
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V6-Nf-fnO">
+                                                    <rect key="frame" x="8" y="8" width="55" height="27.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJ4-Rn-Jfn">
+                                                    <rect key="frame" x="71" y="8" width="42" height="27.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7V6-Nf-fnO" firstAttribute="leading" secondItem="V8Q-jp-scY" secondAttribute="leadingMargin" id="1m6-LQ-OZj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7V6-Nf-fnO" secondAttribute="bottom" id="9Ll-4X-WU0"/>
+                                                <constraint firstItem="CJ4-Rn-Jfn" firstAttribute="leading" secondItem="7V6-Nf-fnO" secondAttribute="trailing" constant="8" id="UJM-gy-VyQ"/>
+                                                <constraint firstItem="CJ4-Rn-Jfn" firstAttribute="top" secondItem="V8Q-jp-scY" secondAttribute="topMargin" id="mIp-mV-ENu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CJ4-Rn-Jfn" secondAttribute="bottom" id="pJX-jZ-LBs"/>
+                                                <constraint firstItem="7V6-Nf-fnO" firstAttribute="top" secondItem="V8Q-jp-scY" secondAttribute="topMargin" id="uGn-ve-KYL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="heureLabel" destination="7V6-Nf-fnO" id="PSL-9K-jRC"/>
+                                            <outlet property="nomEventLabel" destination="CJ4-Rn-Jfn" id="ZE4-Gf-En3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gt0-27-nfx" id="vgZ-K7-NTX"/>
+                                    <outlet property="delegate" destination="gt0-27-nfx" id="Lfp-A7-QMa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -580,6 +620,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="Wak-Hb-UzO"/>
+                    <connections>
+                        <outlet property="evenementTableView" destination="ZxK-4p-ndf" id="u2o-Nt-rz6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvN-En-ifr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -658,6 +701,7 @@
                             <constraint firstItem="71j-Tn-3ea" firstAttribute="top" secondItem="81n-EX-cBj" secondAttribute="bottom" constant="20" id="yYc-jj-zN9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oAV-EL-Zye"/>
                     <connections>
                         <outlet property="dateEvenementDatePicker" destination="2MF-f2-l7x" id="123-Wp-MZF"/>
                         <outlet property="nomEvenementTextField" destination="lU1-kq-VFY" id="4HW-Pl-ohC"/>

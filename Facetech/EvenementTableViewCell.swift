@@ -10,7 +10,9 @@ import UIKit
 
 class EvenementTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var heureLabel: UILabel!
+    @IBOutlet weak var nomEventLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
