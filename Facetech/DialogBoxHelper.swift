@@ -11,7 +11,8 @@ import UIKit
 import CoreData
 
 class DialogBoxHelper{
-    //
+    
+    
     /// shows an alert dialog box with two messages
     ///
     /// - Parameters:

@@ -9,15 +9,20 @@
 import Foundation
 class Session : NSObject{
     
-    private override init() {}
     
+    /// Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
     static var session = {
         return Session()
     }()
     
+    /// Override de l'init pour éviter les instanciations externes.
+    private override init() {}
     
+    /// Variable privée contenant l'utilisateur connecté (ou pas)
     static private var putilisateurConnecte : Utilisateur? = nil
     
+    
+    /// Variable gérant l'utilisateur connecté
     static var utilisateurConnecte : Utilisateur? {
         get{
             return self.putilisateurConnecte
@@ -29,6 +34,8 @@ class Session : NSObject{
         }
     }
     
+    
+    /// Déconnexion de l'utilisateur : s'assure qu'il n'y a plus d'utilisateur existant.
     class func disconnectUser()
     {
         putilisateurConnecte = nil;

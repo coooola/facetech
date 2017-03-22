@@ -22,6 +22,10 @@ class CoreDataManager: NSObject {
         return appDelegate.persistentContainer.viewContext
     }()
     
+    
+    /// Sauvegarde le contexte
+    ///
+    /// - Returns: Erreur en cas de problème lors de la sauvegarde du contexte
     @discardableResult
     class func save() -> NSError?{
         // try to save it

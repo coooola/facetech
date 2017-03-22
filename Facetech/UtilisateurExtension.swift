@@ -11,13 +11,25 @@ import CoreData
 
 extension Utilisateur{
     
-    static func createUtilisateur(mail: String, nom: String, prenom: String) -> Utilisateur
+    
+    /// Crée un utilisateur
+    ///
+    /// - Parameters:
+    ///   - mail: Mail de l'utilisateur
+    ///   - nom: Nom de l'utilisateur
+    ///   - prenom: Prénom de l'utilisateur
+    ///   - annee: Année de promotion de l'utilisateur
+    ///   - typeUtilisateur: Type d'utilisateur
+    /// - Returns: L'utilisateur créé
+    static func createUtilisateur(mail: String, nom: String, prenom: String, annee: AnneePromo, typeUtilisateur: TypeUtilisateur) -> Utilisateur
     {
         let newUser = Utilisateur(context : CoreDataManager.context)
         newUser.adresseMail = mail
         newUser.nom = nom
         newUser.prenom = prenom
         newUser.motDePasse = prenom + "." + nom
+        newUser.appartenirPromo = annee
+        newUser.possederTypeUtilisateur = typeUtilisateur
         
         return newUser
         

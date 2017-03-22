@@ -92,14 +92,14 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         var user : Utilisateur?
         do
         {
-            try user = UtilisateursSetModel.utilisateursSet.getUtilisateur(mail: self.id)
+            try user = UtilisateursSetModel.utilisateursSet.getUtilisateurByMail(mail: self.id)
         }
         catch let error as NSError
         {
             DialogBoxHelper.alert(view : self, error: error)
         }
         
-        if user!.adresseMail == self.id && user!.motDePasse == self.mdp
+        if user != nil && user!.adresseMail == self.id && user!.motDePasse == self.mdp
         {
             messageErreurLabel.isHidden = true;
             Session.utilisateurConnecte = user;

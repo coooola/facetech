@@ -50,11 +50,12 @@
     </entity>
     <elements>
         <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="73"/>
-        <element name="Document" positionX="-378" positionY="287" width="128" height="28"/>
+        <element name="Document" positionX="-378" positionY="287" width="128" height="103"/>
         <element name="Evenement" positionX="297" positionY="-52" width="90" height="118"/>
         <element name="Message" positionX="-162" positionY="270" width="171" height="133"/>
         <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>
-        <element name="TypeUtilisateur" positionX="214" positionY="296" width="128" height="118"/>
-        <element name="Utilisateur" positionX="-63" positionY="-90" width="128" height="178"/>
+        <element name="TypeUtilisateur" positionX="214" positionY="296" width="128" height="120"/>
+        <element name="Utilisateur" positionX="-29" positionY="-90" width="128" height="178"/>
+        <element name="Date" positionX="376" positionY="497" width="128" height="88"/>
     </elements>
 </model>

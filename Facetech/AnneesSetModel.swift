@@ -11,15 +11,23 @@ import CoreData
 
 class AnneesSetModel : NSObject{
     
+    /// Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
     static var anneesSet = {
         return AnneesSetModel()
     }()
     
+    /// Override de l'init pour éviter les instanciations externes.
+    private override init() {}
     
+    /// Variable privée contenant toutes les années de promotion.
     private var touteLesAnnees : [AnneePromo] = []
     
     
     
+    /// Retourne un tableau contenant toutes les années de promotion
+    ///
+    /// - Returns: tableau des années de promo
+    /// - Throws: exception si une erreur pendant la requête
     func getToutesLesAnnees() throws -> [AnneePromo]
     {
         if (touteLesAnnees.count == 0)
@@ -31,6 +39,24 @@ class AnneesSetModel : NSObject{
             do
             {
                 try touteLesAnnees = context.fetch(request)
+                
+                if (touteLesAnnees.count == 0)
+                {
+                    let an1 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+                    an1.annee = 3
+                    
+                    let an2 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+                    an2.annee = 4
+                    
+                    let an3 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+                    an3.annee = 5
+                    
+                    CoreDataManager.save()
+                    
+                    try touteLesAnnees = context.fetch(request)
+                }
+                
+                
             }
             catch let error as NSError{
                 throw error
