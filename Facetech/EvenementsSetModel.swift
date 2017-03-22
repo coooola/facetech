@@ -69,9 +69,6 @@ class EvenementsSetModel: NSObject{
         
         tousLesEvenements.append(newEvent)
         
-        print("Insertion de l'évenement réussi !")
-        
-        
         return newEvent
     }
     

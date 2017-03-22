@@ -107,7 +107,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         {
             do
             {
-                try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: anneePickerData[anneePicker.selectedRow(inComponent: 0)], typeUtilisateur: typeUtilisateurData[typeUtilisateurPicker.selectedRow(inComponent: 0)])
+                _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: anneePickerData[anneePicker.selectedRow(inComponent: 0)], typeUtilisateur: typeUtilisateurData[typeUtilisateurPicker.selectedRow(inComponent: 0)])
             }
             catch let error as NSError
             {
