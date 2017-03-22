@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class DialogBoxHelper{
     
@@ -22,6 +23,12 @@ class DialogBoxHelper{
         let cancelAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(cancelAction)
         view.present(alert, animated: true)
+    }
+    
+    class func alertEmpty(view: UIViewController){
+        let alertController = UIAlertController(title: "Empty", message: "Votre message est vide, veuillez écrire quelque chose.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        view.present(alertController, animated: true)
     }
     
     /// shows an alert to inform about an error

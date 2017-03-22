@@ -34,7 +34,6 @@
 		A3DDBD391E7943C000E478F5 /* MessagesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */; };
 		A3DDBD3B1E79461B00E478F5 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */; };
 		A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */; };
-		A3F7D6DD1E704B1000AC5577 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7D6DC1E704B1000AC5577 /* NewMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +87,6 @@
 		A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSetModel.swift; sourceTree = "<group>"; };
 		A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
 		A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
-		A3F7D6DC1E704B1000AC5577 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMessageViewController.swift; path = ../NewMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +142,6 @@
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
 				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
-				A3F7D6DC1E704B1000AC5577 /* NewMessageViewController.swift */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
 				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
@@ -360,7 +357,6 @@
 				6F54CB651E818B7200A7E22B /* EvenementTableViewCell.swift in Sources */,
 				53EE3C181E68413900519FFD /* CreateUserViewController.swift in Sources */,
 				53B1F4FA1E700EF7007730B8 /* UtilisateursSetModel.swift in Sources */,
-				A3F7D6DD1E704B1000AC5577 /* NewMessageViewController.swift in Sources */,
 				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
 				53B1F4FC1E7021FC007730B8 /* AnneesSetModel.swift in Sources */,
 				A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */,

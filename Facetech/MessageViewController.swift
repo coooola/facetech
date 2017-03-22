@@ -9,17 +9,17 @@
 import UIKit
 import CoreData
 
-class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
+class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
-    var messages : [Message] = []
+    @IBOutlet weak var messageTable: UITableView!
+    @IBOutlet var messagePresenter: MessagePresenter!
+    @IBOutlet weak var messageTextField: UITextField!
     
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
         
-        // prepare a request
         let request : NSFetchRequest<Message> = Message.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.etrePosteLe.date), ascending: true)]
-        
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.etrePosteLe), cacheName: nil)
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
         
@@ -27,16 +27,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }()
     
     
-    
-    @IBOutlet weak var messageTable: UITableView!
-    @IBOutlet var messagePresenter: MessagePresenter!
-    
-    
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         do{
             try self.messagesFetched.performFetch()
         }
@@ -48,48 +40,35 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     
     
-    /// Called when `add button`is pressed
+    /// Called when `envoyer`is pressed
     ///
-    /// Dislpay a dialog box to allow user to enter a name. If a name is entered then create a new `Message`, add it to the table and save data
     /// - Parameter sender: object that trigger action
     @IBAction func addAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Nouveau Message",
-                                  message: "Ajouter un message",
-                                  preferredStyle: .alert)
+        let msg = self.messageTextField.text
         
-        let saveAction = UIAlertAction(title: "Ajouter",
-                                       style: .default)
-        {
-                [unowned self] action in
-                guard let textField = alert.textFields?.first,
-                let messageToSave = textField.text else{
-                    return
-            }
-            self.saveNewMessage(withContent: messageToSave)
-            self.messageTable.reloadData()
+        if (msg != nil && Session.utilisateurConnecte != nil){
+            Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: msg!)
+            self.messageTextField.text=nil
         }
-        
-        let cancelACtion = UIAlertAction(title: "Annuler",
-                                         style: .default)
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelACtion)
-        
-        present(alert, animated: true)
+        else{
+            DialogBoxHelper.alertEmpty(view: self)
+        }
+
+        self.messageTable.reloadData()
+  
     }
     
     // MARK: - Action handler -
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let message = self.messagesFetched.object(at: indexPath)
-        CoreDataManager.context.delete(message)
+        Message.deleteMessage(message: message)
     }
     
     func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
@@ -98,34 +77,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
    
-    // MARK: - Messsage data management -
-
-    /// Enregistre un nouveau message
-    ///
-    /// - Parameter contenuMsg: le contenu du message a ajouter dans la base de données
-    func saveNewMessage(withContent contenuMsg: String){
-        
-        // first get context into application delegate
-        let context = CoreDataManager.context
-        
-        // create a messageManagedObject
-        let message = Message(context: context)
-        
-        // then modify its content
-        message.contenu = contenuMsg
-        
-        do{
-            try CoreDataManager.save()
-            self.messages.append(message)
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error: error)
-            return
-        }
-    }
-
-    
-    // MARK: - NSFetchResultController delegate protocol
+    // MARK: - Controller -
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.messageTable.beginUpdates()
@@ -154,23 +106,18 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Table View data source protocol -
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //return self.messages.count
         guard let section = self.messagesFetched.sections?[section] else {
             fatalError("unexpected section number")
         }
         return section.numberOfObjects
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
         cell.accessoryType = .detailButton
-        /*cell.textLabel?.numberOfLines=0
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping*/
         return cell
     }
     

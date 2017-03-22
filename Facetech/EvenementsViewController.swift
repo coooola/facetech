@@ -90,7 +90,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
      {
         let cell = self.evenementTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EvenementTableViewCell
         do{
-            cell.heureLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description
+            cell.heureLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement?.description
             //cell.heureLabel.text = cell.heureLabel.text! + " : "
             //try print(EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description ?? "Ca ne marche pas :) :)")
             cell.nomEventLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].nomEvenement
