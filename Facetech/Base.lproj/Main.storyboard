@@ -456,6 +456,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contentLabel" destination="bai-px-8Fl" id="Fl4-6t-N5r"/>
+                                            <outlet property="firstNameLabel" destination="yse-mL-CBI" id="zQ1-cA-Th8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
