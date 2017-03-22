@@ -71,8 +71,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "createUtilisateur(mail:nom:prenom:)"
-            landmarkType = "7">
+            landmarkName = "Utilisateur"
+            landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
