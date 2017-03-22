@@ -46,7 +46,7 @@ class EvenementsSetModel: NSObject{
             }
         }
         
-        return tousLesEvenements
+        return tousLesEvenements //.sorted(by: { $0.dateEvenement?.compare($1.dateEvenement as! Date) == ComparisonResult.orderedDescending})
     }
     
     

@@ -95,29 +95,7 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
             {
                 do
                 {
-                    print("AHAHAHAH")
-                    print(self.dateEvenementDatePicker.date)
-                    
-                    let calendar = NSCalendar.autoupdatingCurrent
-                    
-                    /**let components = DateComponents()
-                    components.day = self.dateEvenementDatePicker.calendar.component(Calendar.Component.day, from: self.dateEvenementDatePicker.date)
-                    components.month = self.dateEvenementDatePicker.calendar.component(Calendar.Component.month, from: self.dateEvenementDatePicker.date)
-                    components.year = self.dateEvenementDatePicker.calendar.component(Calendar.Component.year, from: self.dateEvenementDatePicker.date)
-                    components.hour = self.dateEvenementDatePicker.calendar.component(Calendar.Component.hour, from: self.dateEvenementDatePicker.date)
-                    components.minute = self.dateEvenementDatePicker.calendar.component(Calendar.Component.minute, from: self.dateEvenementDatePicker.date)
-                    var newDate = calendar.date(from: components)**/
-                    
-                    
-                    let event = try EvenementsSetModel.evenementSet.insertEvenement(nom: self.nomEvenement, date: Date());
-                    /**var date = self.dateEvenementDatePicker.date.description
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss +SSSSxxx"
-                    let datedate = dateFormatter.date(from: date)
-                    //Date.addToAvoirEvenements(datedate)
-                    print(datedate?.description ?? "bah alors on sait pas afficher une date ? :) :) :)")
-                    print(self.dateEvenementDatePicker.date.description)
-                    //)**/
+                    var event = try EvenementsSetModel.evenementSet.insertEvenement(nom: self.nomEvenement, date: self.dateEvenementDatePicker.date);
                 }
                 catch let error as NSError
                 {
