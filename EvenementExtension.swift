@@ -16,7 +16,7 @@ extension Evenement{
     {
         let newEvent = Evenement(context : CoreDataManager.context)
         newEvent.nomEvenement = nom
-        //newEvent.aLieuLe?.date = date.date
+        newEvent.dateEvenement = date as NSDate
         
         return newEvent
         

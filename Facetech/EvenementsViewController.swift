@@ -90,8 +90,15 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
      {
         let cell = self.evenementTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EvenementTableViewCell
         do{
-            cell.heureLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement?.description
-            //cell.heureLabel.text = cell.heureLabel.text! + " : "
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
+            dateFormatter.dateFormat = "HH:mm"
+            
+            if (try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement != nil)
+            {
+                cell.heureLabel.text = try dateFormatter.string(from: EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement as! Date)
+                cell.heureLabel.text = cell.heureLabel.text! + " : "
+            }
             //try print(EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description ?? "Ca ne marche pas :) :)")
             cell.nomEventLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].nomEvenement
         }
