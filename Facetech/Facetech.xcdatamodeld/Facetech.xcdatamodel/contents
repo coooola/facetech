@@ -56,6 +56,5 @@
         <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>
         <element name="TypeUtilisateur" positionX="214" positionY="296" width="128" height="120"/>
         <element name="Utilisateur" positionX="-29" positionY="-90" width="128" height="178"/>
-        <element name="Date" positionX="376" positionY="497" width="128" height="88"/>
     </elements>
 </model>
