@@ -11,15 +11,14 @@ import CoreData
 
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
+    // MARK: - Outlets -
+    
     @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
   
-    
+
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
-        
-        
-        
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: false)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
@@ -52,8 +51,31 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     /// Called when `envoyer`is pressed
     ///
     /// - Parameter sender: object that trigger action
-    @IBAction func addAction(_ sender: Any) {
-        let msg = self.messageTextField.text
+    /*@IBAction func addAction(_ sender: Any) {
+        
+       /* let alert = UIAlertController(title: "Destinataires",
+                                      message: "A qui voulez-vous envoyer votre message ?",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Envoyer",
+                                       style: .default)
+        {
+            [unowned self] action in
+            guard let textField = alert.textFields?.first, let messageToSave = textField.text else{
+                    return
+            }
+        }
+        
+        let cancelACtion = UIAlertAction(title: "Annuler",
+                                         style: .default)
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelACtion)
+        
+        
+        present(alert, animated: true)*/
+    
+        /*let msg = self.messageTextField.text
         
         if (msg != nil && Session.utilisateurConnecte != nil){
             Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: msg!)
@@ -62,10 +84,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         else{
             DialogBoxHelper.alertEmpty(view: self)
         }
+        
+        self.messageTable.reloadData()*/
 
-        self.messageTable.reloadData()
-  
-    }
+        
+    }*/
     
     // MARK: - Action handler -
     
