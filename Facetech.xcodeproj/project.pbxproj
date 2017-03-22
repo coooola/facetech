@@ -21,6 +21,7 @@
 		53B1F4F71E6FFE27007730B8 /* UtilisateurExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4F61E6FFE27007730B8 /* UtilisateurExtension.swift */; };
 		53B1F4FA1E700EF7007730B8 /* UtilisateursSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4F91E700EF7007730B8 /* UtilisateursSetModel.swift */; };
 		53B1F4FC1E7021FC007730B8 /* AnneesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */; };
+		53E2A5671E82B4AC003F2E9A /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2A5661E82B4AC003F2E9A /* UpdateUserViewController.swift */; };
 		53EE3C181E68413900519FFD /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EE3C171E68413900519FFD /* CreateUserViewController.swift */; };
 		6F1351D31E81998800463111 /* CreateEvenementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1351D21E81998800463111 /* CreateEvenementViewController.swift */; };
 		6F2D12911E7EC0C400B0B18E /* EvenementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */; };
@@ -75,6 +76,7 @@
 		53B1F4F61E6FFE27007730B8 /* UtilisateurExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UtilisateurExtension.swift; path = Facetech/UtilisateurExtension.swift; sourceTree = "<group>"; };
 		53B1F4F91E700EF7007730B8 /* UtilisateursSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilisateursSetModel.swift; sourceTree = "<group>"; };
 		53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnneesSetModel.swift; sourceTree = "<group>"; };
+		53E2A5661E82B4AC003F2E9A /* UpdateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
 		53EE3C171E68413900519FFD /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		6F1351D21E81998800463111 /* CreateEvenementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEvenementViewController.swift; sourceTree = "<group>"; };
 		6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvenementsViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
-				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
 				A3CEF7701E82CE4C0018AB53 /* CreateMessageViewController.swift */,
@@ -158,6 +159,8 @@
 				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
 				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
 				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
+				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
+				53E2A5661E82B4AC003F2E9A /* UpdateUserViewController.swift */,
 			);
 			path = Facetech;
 			sourceTree = "<group>";

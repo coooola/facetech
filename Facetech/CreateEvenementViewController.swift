@@ -61,6 +61,12 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
         return true;
     }
     
+    //MARK: - Actions
+    
+    @IBAction func cancelAction(_ sender: Any)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
     
@@ -78,34 +84,18 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
     /// - Returns: <#return value description#>
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
-        if (identifier == validerButton.accessibilityIdentifier)
+        self.textFieldDidEndEditing(nomEvenementTextField)
+        
+        if (self.nomEvenement=="")
         {
-            self.textFieldDidEndEditing(nomEvenementTextField)
-        
-            var verif: Bool = true
-        
-            if (self.nomEvenement=="")
-            {
                 self.nomEvenementTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
                 self.nomEvenementTextField.backgroundColor = UIColor.red
-                verif = false
-            }
-        
-            if (verif)
-            {
-                do
-                {
-                    var event = try EvenementsSetModel.evenementSet.insertEvenement(nom: self.nomEvenement, date: self.dateEvenementDatePicker.date);
-                }
-                catch let error as NSError
-                {
-                    DialogBoxHelper.alert(view : self, error: error)
-                }
-            }
-        
-            return verif
+                return false
         }
+        
+        
         return true
+
     }
     
     

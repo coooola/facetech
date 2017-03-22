@@ -15,35 +15,17 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var evenementTableView: UITableView!
     
-    
-    /**
-    
-    @IBOutlet weak var evenementTableCell: UITableViewCell!
-    
-    fileprivate lazy var evenementsFetched : NSFetchedResultsController<Evenement> = {
-        
-        // prepare a request
-        let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.etrePosteLe.date), ascending: true)]
-        
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.etrePosteLe), cacheName: nil)
-        
-        fetchResultController.delegate = self
-        
-        return fetchResultController //EvenementsSetModel.evenementSet.getTousLesElements()
-    }()
-    **/
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        /**do{
-            try self.evenementsFetched.performFetch()
+        do{
+            EvenementsSetModel.viewController = self
+            try EvenementsSetModel.evenementSet.tousLesEvenements.performFetch()
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
-        }**/
+        }
     }
     
     
@@ -72,43 +54,95 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
 **/
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let sections = EvenementsSetModel.evenementSet.tousLesEvenements.sections else {return 0}
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let section = EvenementsSetModel.evenementSet.tousLesEvenements.sections?[section] else {
+            fatalError("unexpected section number")
+        }
+        return section.name
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        var nbEvent : Int = 0
-        do{
-            nbEvent = try EvenementsSetModel.evenementSet.getTousLesEvenements().count
+        guard let section = EvenementsSetModel.evenementSet.tousLesEvenements.sections?[section] else {
+            fatalError("unexpected section number")
         }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error:error)
-        }
-        
-        return nbEvent
+        return section.numberOfObjects
     }
     
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
      {
         let cell = self.evenementTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EvenementTableViewCell
-        do{
             let dateFormatter = DateFormatter()
             dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
             dateFormatter.dateFormat = "HH:mm"
             
-            if (try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement != nil)
+            if (EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).dateEvenement != nil)
             {
-                cell.heureLabel.text = try dateFormatter.string(from: EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].dateEvenement as! Date)
+                cell.heureLabel.text = dateFormatter.string(from: EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).dateEvenement as! Date)
                 cell.heureLabel.text = cell.heureLabel.text! + " : "
             }
             //try print(EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description ?? "Ca ne marche pas :) :)")
-            cell.nomEventLabel.text = try EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].nomEvenement
-        }
-        catch let error as NSError{
-            DialogBoxHelper.alert(view: self, error:error)
-        }
+            cell.nomEventLabel.text = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).nomEvenement
+
         
         return cell
      }
 
     
-
+    //MARK: - Navigation
+    
+    @IBAction func unwindToEventListAfterAddingNewEvent(segue: UIStoryboardSegue)
+    {
+        let createViewController = segue.source as! CreateEvenementViewController
+        do
+        {
+            _ = try EvenementsSetModel.evenementSet.insertEvenement(nom: createViewController.nomEvenement, date: createViewController.dateEvenementDatePicker.date);
+        }
+        catch let error as NSError
+        {
+            DialogBoxHelper.alert(view : self, error: error)
+        }
+        
+        self.evenementTableView.reloadData()
+    }
+    
+    
+    // MARK: - Controller -
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.evenementTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.evenementTableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+    {
+        switch type{
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                self.evenementTableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            break
+        }
+    }
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type{
+        case .insert:
+            self.evenementTableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        default:
+            break
+        }
+    }
+    
+    
 }
