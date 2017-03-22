@@ -11,14 +11,17 @@ import CoreData
 
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
+    @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
-    @IBOutlet weak var messageTextField: UITextField!
+  
     
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
         
+        
+        
         let request : NSFetchRequest<Message> = Message.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: false)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
