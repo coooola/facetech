@@ -12,6 +12,9 @@ import CoreData
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
     
     var messages : [Message] = []
+    @IBOutlet weak var messageTable: UITableView!
+    @IBOutlet var messagePresenter: MessagePresenter!
+
     
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
         
@@ -27,16 +30,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }()
     
     
-    
-    @IBOutlet weak var messageTable: UITableView!
-    @IBOutlet var messagePresenter: MessagePresenter!
-    
-    
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         do{
             try self.messagesFetched.performFetch()
         }
@@ -55,7 +50,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     
     
-    /// Called when `add button`is pressed
+    /// Called when `add message`is pressed
     ///
     /// Dislpay a dialog box to allow user to enter a name. If a name is entered then create a new `Message`, add it to the table and save data
     /// - Parameter sender: object that trigger action
@@ -72,8 +67,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let messageToSave = textField.text else{
                     return
             }
-            self.saveNewMessage(withContent: messageToSave)
+            let msg = Message.createMessage(contenu: messageToSave)
             self.messageTable.reloadData()
+            self.messages.append(msg)
         }
         
         let cancelACtion = UIAlertAction(title: "Annuler",
@@ -103,7 +99,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     /// Enregistre un nouveau message
     ///
     /// - Parameter contenuMsg: le contenu du message a ajouter dans la base de données
-    func saveNewMessage(withContent contenuMsg: String){
+   /*func saveNewMessage(withContent contenuMsg: String){
         
         // first get context into application delegate
         let context = CoreDataManager.context
@@ -122,7 +118,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             DialogBoxHelper.alert(view: self, error: error)
             return
         }
-    }
+    }*/
 
     
     // MARK: - NSFetchResultController delegate protocol

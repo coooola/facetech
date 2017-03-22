@@ -25,7 +25,6 @@ class MessageSetModel: NSObject {
         {
             throw error
         }
-        
         return newMessage
     }
     

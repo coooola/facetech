@@ -15,7 +15,7 @@ extension Message{
     {
         let newMessage = Message(context : CoreDataManager.context)
         newMessage.contenu = contenu
-        
+        CoreDataManager.save()
         return newMessage
         
     }

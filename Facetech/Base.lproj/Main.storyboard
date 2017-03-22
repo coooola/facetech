@@ -110,7 +110,7 @@
         <scene sceneID="bZy-yA-nb2">
             <objects>
                 <navigationController id="2ub-53-NDw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPh-R2-aBF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QPh-R2-aBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -449,7 +449,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" tableViewCell="194-io-Ov7" id="XCX-Fm-xsF">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="89.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1LK-dW-2ai">
