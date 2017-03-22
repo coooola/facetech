@@ -92,7 +92,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         var user : Utilisateur?
         do
         {
-            try user = UtilisateursSetModel.utilisateursSet.getUtilisateur(mail: self.id)
+            try user = UtilisateursSetModel.utilisateursSet.getUtilisateurByMail(mail: self.id)
         }
         catch let error as NSError
         {
