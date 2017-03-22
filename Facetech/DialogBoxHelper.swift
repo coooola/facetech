@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class DialogBoxHelper{
-    //
+    
+    
     /// shows an alert dialog box with two messages
     ///
     /// - Parameters:

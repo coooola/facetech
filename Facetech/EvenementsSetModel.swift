@@ -13,15 +13,22 @@ import CoreData
 class EvenementsSetModel: NSObject{
     
     
+    /// Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
     static var evenementSet = {
         return EvenementsSetModel()
     }()
     
+    /// Override de l'init pour éviter les instanciations externes.
+    private override init() {}
     
+    /// Variable privée contenant tous les événements.
     private var tousLesEvenements: [Evenement] = []
     
     
-    
+    /// Récupére l'ensemble des événements
+    ///
+    /// - Returns: tableau des évenements
+    /// - Throws: erreur dans la requête
     func getTousLesEvenements() throws -> [Evenement]
     {
         if (tousLesEvenements.count == 0)
@@ -44,6 +51,13 @@ class EvenementsSetModel: NSObject{
     
     
     
+    /// Crée un événement
+    ///
+    /// - Parameters:
+    ///   - nom: Nom de l'événement
+    ///   - date: Date et heure de l'évenement
+    /// - Returns: L'événement créé
+    /// - Throws: Erreur dans la création
     func insertEvenement(nom: String, date: Date) throws -> Evenement
     {
         let newEvent = Evenement.createEvenement(nom: nom, date: date)

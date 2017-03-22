@@ -11,6 +11,7 @@ import CoreData
 
 extension Evenement{
     
+    
     static func createEvenement(nom: String, date: Date) -> Evenement
     {
         let newEvent = Evenement(context : CoreDataManager.context)

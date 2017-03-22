@@ -12,12 +12,12 @@ import CoreData
 class UtilisateursSetModel : NSObject{
 
     
+    ///  Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
     static var utilisateursSet = {
         return UtilisateursSetModel()
     }()
     
-    
-
+    ///  Override de l'init pour éviter les instanciations externes.
     private override init() {}
     
     
@@ -29,9 +29,9 @@ class UtilisateursSetModel : NSObject{
     ///   - prenom: prénom de l'utilisateur
     /// - Returns: l'utilisateur créé
     /// - Throws: retourne une erreur en cas d'erreur au moment de la sauvegard de l'objet créé
-    func insertUtilisateur(mail: String, nom: String, prenom: String) throws -> Utilisateur
+    func insertUtilisateur(mail: String, nom: String, prenom: String, annee: AnneePromo, typeUtilisateur: TypeUtilisateur) throws -> Utilisateur
     {
-        let newUser = Utilisateur.createUtilisateur(mail: mail, nom: nom, prenom: prenom)
+        let newUser = Utilisateur.createUtilisateur(mail: mail, nom: nom, prenom: prenom, annee: annee, typeUtilisateur: typeUtilisateur)
 
         if let error = CoreDataManager.save()
         {
@@ -43,9 +43,12 @@ class UtilisateursSetModel : NSObject{
     
     
     
-    
-    
-    func getUtilisateur(mail: String? = nil, nom: String? = nil, prenom: String? = nil) throws -> Utilisateur?
+    /// Récupère un utilisateur grâce à son mail d'authentification
+    ///
+    /// - Parameter mail: mail exact de l'utilisateur
+    /// - Returns: l'utilisateur correspondant au mail en paramètre
+    /// - Throws: exception en cas d'erreur lors de la requête
+    func getUtilisateurByMail(mail: String? = nil) throws -> Utilisateur?
     {
         
         let context = CoreDataManager.context
@@ -53,7 +56,7 @@ class UtilisateursSetModel : NSObject{
         var user : [Utilisateur] = []
         
         let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
-        
+
         request.predicate = NSPredicate(format: "adresseMail == %@", mail != nil ? mail! : "")
         
         do
@@ -67,13 +70,14 @@ class UtilisateursSetModel : NSObject{
         return user.count != 0 ? user[0]: nil
         
     }
- 
     
     
-    
-    
-    
-    
+    /// - Description
+    /// Récupère un utilisateur grâce à son id
+    ///
+    /// - Parameter id: id exact de l'utilisateur
+    /// - Returns: L'utilisateur correspondant à l'id en paramètre
+    /// - Throws: exception en cas d'erreur lros de la requête
     func getUtilisateurById(id: Int) throws -> Utilisateur?
     {
         
@@ -94,6 +98,17 @@ class UtilisateursSetModel : NSObject{
         }
         
         return user
-        
     }
+    
+    
+    func updateUtilisateur(user: Utilisateur) throws -> Utilisateur?
+    {
+        if let error = CoreDataManager.save()
+        {
+            throw error
+        }
+        
+        return user
+    }
+    
 }

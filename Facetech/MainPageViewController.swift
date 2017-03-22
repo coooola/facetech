@@ -99,7 +99,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alert(view : self, error: error)
         }
         
-        if user!.adresseMail == self.id && user!.motDePasse == self.mdp
+        if user != nil && user!.adresseMail == self.id && user!.motDePasse == self.mdp
         {
             messageErreurLabel.isHidden = true;
             Session.utilisateurConnecte = user;
