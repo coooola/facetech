@@ -78,46 +78,4 @@ class TypeUtilisateursSetModel: NSObject{
         
         return tousLesTypesUtilisateurs
     }
-    
-    
-    func getTypeUtilisateur(name: String) throws -> TypeUtilisateur? {
-        
-        /*var typesUtilisateurs : [TypeUtilisateur]
-        let request : NSFetchRequest<TypeUtilisateur> = TypeUtilisateur.fetchRequest()
-        request.predicate = NSPredicate(format: "nomTypeUtilisateur", name)
-        do{
-            typesUtilisateurs = try CoreDataManager.context.fetch(request)
-            return typesUtilisateurs[0]
-        }
-        catch let error as NSError{
-            throw error
-        }*/
-        
-        let typeUser : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
-        
-        
-        if (name == "Etudiant") {
-            typeUser.idTypeUtilisateur = 1
-            typeUser.libelleTypeUtilisateur = "Etudiant"
-        }
-        if (name == "Enseignant") {
-            typeUser.idTypeUtilisateur = 2
-            typeUser.libelleTypeUtilisateur = "Enseignant"
-        }
-        if (name == "Resposable du département") {
-            typeUser.idTypeUtilisateur = 3
-            typeUser.libelleTypeUtilisateur = "Resposable du département"
-        }
-        if (name == "Secrétaire") {
-            typeUser.idTypeUtilisateur = 4
-            typeUser.libelleTypeUtilisateur = "Secrétaire"
-        }
-        return typeUser
-    }
-    
-    
-    
-    
-    
-    
 }

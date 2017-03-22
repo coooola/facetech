@@ -11,16 +11,12 @@ import CoreData
 
 extension Message{
     
-    static func createMessage(etreEcritPar: Utilisateur, contenu: String, typesUtilisateurs : [TypeUtilisateur])
+    static func createMessage(etreEcritPar: Utilisateur, contenu: String)
     {
         let newMessage = Message(context : CoreDataManager.context)
         newMessage.etreEcritPar = etreEcritPar
         newMessage.contenu = contenu
         newMessage.datePost = NSDate()
-        for i in typesUtilisateurs {
-            newMessage.addToEtreLieTypeUtilisateur(i)
-        }
-                
         
         CoreDataManager.save()
     }

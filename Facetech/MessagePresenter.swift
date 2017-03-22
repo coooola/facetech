@@ -12,7 +12,6 @@ class MessagePresenter: NSObject {
     fileprivate var contenu :  String = ""
     fileprivate var prenom : String = ""
     fileprivate var nom : String = ""
-    fileprivate var date : Date = Date()
 
     fileprivate var message : Message? = nil {
         didSet{
@@ -30,28 +29,12 @@ class MessagePresenter: NSObject {
         }
     }
     
-    func configure(theCell : MessageTableViewCell?, forMessage: Message?)
-    {
-        /*var typesUtilisateur : String = ""
-        for i in (message?.etreLieTypeUtilisateur)!
-        {
-            typesUtilisateur = (", " + i.libelleTypeUtilisateur)
-        }*/
-    
-        /*let dateMsg = self.message?.datePost
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy'T'HH:mm:ssZ"
-        let s = dateFormatter.string(from: dateMsg as! Date)
-        */
-        
+    func configure(theCell : MessageTableViewCell?, forMessage: Message?){
         self.message = forMessage
         guard let cell = theCell else { return }
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
         cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
         cell.contentLabel.text = self.message?.contenu
-        //cell.dateLabel.text = s
-        
-        //cell.groupsLabel.text = self.message?.etreLieTypeUtilisateur?.libelleTypeUtilisateur
         
     }
 }
