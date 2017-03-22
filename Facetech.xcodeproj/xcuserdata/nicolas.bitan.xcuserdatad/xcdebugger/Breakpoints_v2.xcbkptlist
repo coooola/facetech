@@ -75,53 +75,5 @@
             landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Facetech/CreateEvenementViewController.swift"
-            timestampString = "511874395.252999"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "shouldPerformSegue(withIdentifier:sender:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Facetech.CreateEvenementViewController.shouldPerformSegue (withIdentifier : Swift.Optional&lt;Swift.String&gt;, sender : Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
-                  moduleName = "Facetech"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nicolas.bitan/Documents/facetech/Facetech/CreateEvenementViewController.swift"
-                  timestampString = "511874396.178809"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "2751">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Facetech.CreateEvenementViewController.shouldPerformSegue (withIdentifier : Swift.Optional&lt;Swift.String&gt;, sender : Swift.Optional&lt;Any&gt;) -&gt; Swift.Bool"
-                  moduleName = "Facetech"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nicolas.bitan/Documents/facetech/Facetech/CreateEvenementViewController.swift"
-                  timestampString = "511874396.180191"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "3147">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
