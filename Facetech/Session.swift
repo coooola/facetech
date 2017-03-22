@@ -36,9 +36,9 @@ class Session : NSObject{
     
     
     /// Déconnexion de l'utilisateur : s'assure qu'il n'y a plus d'utilisateur existant.
-    class func disconnectUser()
+    func disconnectUser()
     {
-        putilisateurConnecte = nil;
+        Session.putilisateurConnecte = nil;
     }
     
     

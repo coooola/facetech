@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 
-class EvenementsSetModel: NSObject{
+class EvenementsSetModel: NSObject
+{
     
     
     /// Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
@@ -21,33 +22,31 @@ class EvenementsSetModel: NSObject{
     /// Override de l'init pour éviter les instanciations externes.
     private override init() {}
     
-    /// Variable privée contenant tous les événements.
-    private var tousLesEvenements: [Evenement] = []
+    
+    static private var pViewController : NSFetchedResultsControllerDelegate? = nil
     
     
-    /// Récupére l'ensemble des événements
-    ///
-    /// - Returns: tableau des évenements
-    /// - Throws: erreur dans la requête
-    func getTousLesEvenements() throws -> [Evenement]
-    {
-        if (tousLesEvenements.count == 0)
-        {
-            let context = CoreDataManager.context
-            
-            let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
-            
-            do
-            {
-                try tousLesEvenements = context.fetch(request)
-            }
-            catch let error as NSError{
-                throw error
+    static var viewController : NSFetchedResultsControllerDelegate? {
+        get{
+            return self.pViewController
+        }
+        set{
+            if self.pViewController == nil{
+                self.pViewController = newValue
             }
         }
-        
-        return tousLesEvenements //.sorted(by: { $0.dateEvenement?.compare($1.dateEvenement as! Date) == ComparisonResult.orderedDescending})
     }
+    
+    /// Variable privée contenant tous les événements.
+    lazy var tousLesEvenements: NSFetchedResultsController<Evenement> = {
+        let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Evenement.dateEvenement), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Evenement.date), cacheName: nil)
+        
+        fetchResultController.delegate = viewController
+        
+        return fetchResultController
+    }()
     
     
     
@@ -67,7 +66,7 @@ class EvenementsSetModel: NSObject{
             throw error
         }
         
-        tousLesEvenements.append(newEvent)
+        //tousLesEvenements.append(newEvent)
         
         return newEvent
     }

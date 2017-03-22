@@ -22,6 +22,38 @@ extension Evenement{
         
     }
     
+    var time: String {
+        get {
+            if (self.dateEvenement != nil)
+            {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm:ss"
+                let convertedDate = dateFormatter.string(from: self.dateEvenement as! Date)
+                return convertedDate
+            }
+            else
+            {
+                return "00:00:00"
+            }
+        }
+    }
+    
+    var date: String {
+        get {
+            if (self.dateEvenement != nil)
+            {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                let convertedDate = dateFormatter.string(from: self.dateEvenement as! Date)
+                return convertedDate
+            }
+            else
+            {
+                return "Date Inconnue"
+            }
+        }
+    }
+    
     
     
     
