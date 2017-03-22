@@ -4,11 +4,6 @@
         <attribute name="annee" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="contenirUtilisateurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="appartenirPromo" inverseEntity="Utilisateur" syncable="YES"/>
     </entity>
-    <entity name="Date" representedClassName="Date" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="avoirEvenements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evenement" inverseName="aLieuLe" inverseEntity="Evenement" syncable="YES"/>
-        <relationship name="possederMessages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="etrePosteLe" inverseEntity="Message" syncable="YES"/>
-    </entity>
     <entity name="Document" representedClassName="Document" syncable="YES" codeGenerationType="class">
         <attribute name="document" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idDocument" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,18 +11,18 @@
         <relationship name="etreTypeDocument" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeDocument" inverseName="possederDocuments" inverseEntity="TypeDocument" syncable="YES"/>
     </entity>
     <entity name="Evenement" representedClassName="Evenement" syncable="YES" codeGenerationType="class">
+        <attribute name="dateEvenement" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idEvenement" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nomEvenement" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="aLieuLe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="avoirEvenements" inverseEntity="Date" syncable="YES"/>
         <relationship name="etreAssocieTypeUtilisateur" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="possederEvenements" inverseEntity="TypeUtilisateur" syncable="YES"/>
         <relationship name="etreCreerPar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="creerUnEvent" inverseEntity="Utilisateur" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
         <attribute name="contenu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="datePost" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idMesage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="etreEcritPar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="ecrireMessage" inverseEntity="Utilisateur" syncable="YES"/>
         <relationship name="etreLieTypeUtilisateur" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="etreRelieMessages" inverseEntity="TypeUtilisateur" syncable="YES"/>
-        <relationship name="etrePosteLe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="possederMessages" inverseEntity="Date" syncable="YES"/>
         <relationship name="possederDocuments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="appartenirMessage" inverseEntity="Document" syncable="YES"/>
     </entity>
     <entity name="TypeDocument" representedClassName="TypeDocument" syncable="YES" codeGenerationType="class">
@@ -55,8 +50,7 @@
     </entity>
     <elements>
         <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="73"/>
-        <element name="Date" positionX="387" positionY="420" width="128" height="88"/>
-        <element name="Document" positionX="-378" positionY="287" width="128" height="103"/>
+        <element name="Document" positionX="-378" positionY="287" width="128" height="28"/>
         <element name="Evenement" positionX="297" positionY="-52" width="90" height="118"/>
         <element name="Message" positionX="-162" positionY="270" width="171" height="133"/>
         <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>

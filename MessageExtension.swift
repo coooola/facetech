@@ -11,16 +11,20 @@ import CoreData
 
 extension Message{
     
-    static func createMessage(contenu: String) -> Message
+    static func createMessage(etreEcritPar: Utilisateur, contenu: String)
     {
         let newMessage = Message(context : CoreDataManager.context)
+        newMessage.etreEcritPar = etreEcritPar
         newMessage.contenu = contenu
-        CoreDataManager.save()
-        return newMessage
+        newMessage.datePost = NSDate()
         
+        CoreDataManager.save()
     }
     
-    
+    static func deleteMessage(message : Message)
+    {
+        CoreDataManager.context.delete(message)
+    }
     
     
 }

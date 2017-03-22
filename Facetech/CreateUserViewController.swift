@@ -47,6 +47,34 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         nomTextField.delegate = self
         mailTextField.delegate = self
         
+        /**let an1 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+        an1.annee = 3
+        
+        let an2 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+        an2.annee = 4
+        
+        let an3 : AnneePromo = AnneePromo(context : CoreDataManager.context)
+        an3.annee = 5
+        
+        let us1 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
+        us1.idTypeUtilisateur = 1
+        us1.libelleTypeUtilisateur = "Etudiant"
+        
+        let us2 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
+        us2.idTypeUtilisateur = 2
+        us2.libelleTypeUtilisateur = "Enseignant"
+        
+        let us3 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
+        us3.idTypeUtilisateur = 3
+        us3.libelleTypeUtilisateur = "Resposable du département"
+        
+        let us4 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
+        us4.idTypeUtilisateur = 4
+        us4.libelleTypeUtilisateur = "Secrétaire"
+        
+        
+        CoreDataManager.save()**/
+        
         
         do
         {
@@ -183,7 +211,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
     {
         if (pickerView == typeUtilisateurPicker)
         {
-            return "coucou"//typeUtilisateurData[row].libelleTypeUtilisateur
+            return typeUtilisateurData[row].libelleTypeUtilisateur
         }
         else
         {
