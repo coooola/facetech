@@ -11,11 +11,14 @@ import CoreData
 
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
     
+    @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
-    @IBOutlet weak var messageTextField: UITextField!
+  
     
     fileprivate lazy var messagesFetched : NSFetchedResultsController<Message> = {
+        
+        
         
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: true)]
@@ -114,6 +117,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        /*let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
+        let message = self.messagesFetched.object(at: indexPath)
+        cell.name.text = self.messagesFetched.estEcritPar.firstName
+        cell.accessoryType = .detailButton
+        return cell*/
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         let message = self.messagesFetched.object(at: indexPath)
         self.messagePresenter.configure(theCell: cell, forMessage: message)
