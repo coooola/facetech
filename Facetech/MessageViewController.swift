@@ -52,7 +52,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     /// Called when `envoyer`is pressed
     ///
     /// - Parameter sender: object that trigger action
-    @IBAction func addAction(_ sender: Any) {
+    /*@IBAction func addAction(_ sender: Any) {
         let msg = self.messageTextField.text
         
         if (msg != nil && Session.utilisateurConnecte != nil){
@@ -65,7 +65,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         self.messageTable.reloadData()
   
-    }
+    }*/
     
     // MARK: - Action handler -
     

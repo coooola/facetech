@@ -11,6 +11,8 @@ import UIKit
 class MessageTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var groupsLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
