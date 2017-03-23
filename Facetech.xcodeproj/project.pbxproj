@@ -158,7 +158,9 @@
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
 				A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */,
+				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
 				A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */,
+				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
 				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
 				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
 				A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */,
@@ -172,8 +174,6 @@
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
 				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
 				5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */,
-				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
-				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
 				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
 				53A104E81E843FA6007AC176 /* UpdateUserViewController.swift */,
 			);

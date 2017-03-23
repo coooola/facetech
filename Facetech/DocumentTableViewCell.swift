@@ -10,6 +10,9 @@ import UIKit
 
 class DocumentTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var urlDocumentLabel: UITextView!
+    @IBOutlet weak var nomDocumentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

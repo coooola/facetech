@@ -990,10 +990,10 @@
             </objects>
             <point key="canvasLocation" x="6281.1594202898559" y="-92.119565217391312"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Document View Controller-->
         <scene sceneID="TkN-ca-bKW">
             <objects>
-                <viewController id="glZ-kp-aw8" sceneMemberID="viewController">
+                <viewController id="glZ-kp-aw8" customClass="CreateDocumentViewController" customModule="Facetech" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdz-fP-m0V"/>
                         <viewControllerLayoutGuide type="bottom" id="ov8-se-stG"/>
@@ -1003,43 +1003,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajouter un document" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tK-Nr-29I">
-                                <rect key="frame" x="104" y="94" width="206" height="27"/>
+                                <rect key="frame" x="104" y="50" width="206" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de l'évenement :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16U-B3-uQ6">
-                                <rect key="frame" x="23" y="161" width="149" height="18"/>
+                                <rect key="frame" x="23" y="117" width="149" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Li-H9-Bb0">
-                                <rect key="frame" x="175" y="155" width="189" height="30"/>
+                                <rect key="frame" x="175" y="111" width="189" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="glZ-kp-aw8" id="FdE-um-3jI"/>
+                                    <outlet property="delegate" destination="glZ-kp-aw8" id="fwT-hM-1ff"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stp-aO-UKP">
-                                <rect key="frame" x="23" y="239" width="42" height="21"/>
+                                <rect key="frame" x="23" y="195" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAO-Md-I4O">
-                                <rect key="frame" x="68" y="234" width="296" height="30"/>
+                                <rect key="frame" x="68" y="190" width="296" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="glZ-kp-aw8" id="6mR-2B-QKk"/>
+                                    <outlet property="delegate" destination="glZ-kp-aw8" id="rWf-KS-h9Z"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6v-No-fWP">
-                                <rect key="frame" x="182" y="324" width="50" height="30"/>
+                                <rect key="frame" x="182" y="280" width="50" height="30"/>
                                 <state key="normal" title="Ajouter"/>
                                 <connections>
                                     <segue destination="aaC-Cl-aIS" kind="show" id="o5Q-ti-KtG"/>
@@ -1064,6 +1064,10 @@
                             <constraint firstItem="0Li-H9-Bb0" firstAttribute="leading" secondItem="16U-B3-uQ6" secondAttribute="trailing" constant="3" id="vdF-Ep-wsN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nomDocTextField" destination="0Li-H9-Bb0" id="UCN-bh-JF9"/>
+                        <outlet property="urlDocTextField" destination="VAO-Md-I4O" id="SpE-Cz-Xnu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwt-tV-Cmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
