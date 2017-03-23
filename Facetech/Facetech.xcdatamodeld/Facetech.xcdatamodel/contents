@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AnneePromo" representedClassName="AnneePromo" syncable="YES" codeGenerationType="class">
         <attribute name="annee" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="avoirMessage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="etreLieAnne" inverseEntity="Message" syncable="YES"/>
         <relationship name="contenirUtilisateurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="appartenirPromo" inverseEntity="Utilisateur" syncable="YES"/>
     </entity>
     <entity name="Document" representedClassName="Document" syncable="YES" codeGenerationType="class">
@@ -22,6 +23,7 @@
         <attribute name="datePost" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idMesage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="etreEcritPar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="ecrireMessage" inverseEntity="Utilisateur" syncable="YES"/>
+        <relationship name="etreLieAnne" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AnneePromo" inverseName="avoirMessage" inverseEntity="AnneePromo" syncable="YES"/>
         <relationship name="etreLieTypeUtilisateur" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="etreRelieMessages" inverseEntity="TypeUtilisateur" syncable="YES"/>
         <relationship name="possederDocuments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="appartenirMessage" inverseEntity="Document" syncable="YES"/>
     </entity>
@@ -49,10 +51,10 @@
         <relationship name="possederTypeUtilisateur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeUtilisateur" inverseName="avoirUtilisateurs" inverseEntity="TypeUtilisateur" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="73"/>
+        <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="88"/>
         <element name="Document" positionX="-378" positionY="287" width="128" height="103"/>
         <element name="Evenement" positionX="297" positionY="-52" width="90" height="118"/>
-        <element name="Message" positionX="-162" positionY="270" width="171" height="133"/>
+        <element name="Message" positionX="-162" positionY="270" width="171" height="148"/>
         <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>
         <element name="TypeUtilisateur" positionX="214" positionY="296" width="128" height="120"/>
         <element name="Utilisateur" positionX="-29" positionY="-90" width="128" height="178"/>

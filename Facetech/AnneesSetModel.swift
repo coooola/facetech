@@ -65,5 +65,24 @@ class AnneesSetModel : NSObject{
         
         return touteLesAnnees
     }
+    
+    
+    
+    func getAnne(anne: Int) throws -> AnneePromo? {
+        
+        let annees : AnneePromo = AnneePromo(context : CoreDataManager.context)
+        
+        if (anne == 3) {
+            annees.annee = 3
+        }
+        if (anne == 4) {
+            annees.annee = 4
+        }
+        if (anne == 5) {
+            annees.annee = 4
+        }
+        return annees
+    }
+
 }
     
