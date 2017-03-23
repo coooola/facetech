@@ -57,7 +57,7 @@ class TypeUtilisateursSetModel: NSObject{
                 
                     let us3 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
                     us3.idTypeUtilisateur = 3
-                    us3.libelleTypeUtilisateur = "Resposable du département"
+                    us3.libelleTypeUtilisateur = "Responsable"
                 
                     let us4 : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
                     us4.idTypeUtilisateur = 4
@@ -103,9 +103,9 @@ class TypeUtilisateursSetModel: NSObject{
             typeUser.idTypeUtilisateur = 2
             typeUser.libelleTypeUtilisateur = "Enseignant"
         }
-        if (name == "Resposable du département") {
+        if (name == "Responsable") {
             typeUser.idTypeUtilisateur = 3
-            typeUser.libelleTypeUtilisateur = "Resposable du département"
+            typeUser.libelleTypeUtilisateur = "Responsable"
         }
         if (name == "Secrétaire") {
             typeUser.idTypeUtilisateur = 4

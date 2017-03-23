@@ -102,7 +102,8 @@ class UtilisateursSetModel : NSObject{
     {
         do
         {
-        _ = try insertUtilisateur(mail: "admin@facetech.fr", nom: "Istrateur", prenom: "Admin", annee: AnneesSetModel.anneesSet.getToutesLesAnnees()[0], typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[0])
+            _ = try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()
+            _ = try insertUtilisateur(mail: "admin@facetech.fr", nom: "Istrateur", prenom: "Admin", annee: AnneesSetModel.anneesSet.getToutesLesAnnees()[0], typeUtilisateur: (TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire"))!)
         }
         catch _ as NSError
         {

@@ -67,7 +67,7 @@ class CreateMessageViewController: UIViewController {
                 try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Enseignant")!)
             }
             if toResponsables {
-                try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Resposable du département")!)
+                try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Responsable")!)
             }
         }
         catch let error as NSError{
