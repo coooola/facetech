@@ -31,11 +31,9 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     @IBOutlet weak var anneePicker: UIPickerView!
     
-    var anneePickerData: [AnneePromo] = []
     
     @IBOutlet weak var typeUtilisateurPicker: UIPickerView!
     
-    var typeUtilisateurData: [TypeUtilisateur] = []
     
     
     //MARK: - UIViewController function
@@ -46,16 +44,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         prenomTextField.delegate = self
         nomTextField.delegate = self
         mailTextField.delegate = self
-        
-        do
-        {
-            anneePickerData = try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})
-            typeUtilisateurData = try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()
-        }
-        catch let error as NSError
-        {
-            DialogBoxHelper.alert(view : self, error: error)
-        }
         
     }
 
@@ -103,11 +91,16 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
             self.mailTextField.backgroundColor = UIColor.red
             verif = false
         }
+        if (!isValidEmail(testStr: self.mail) )
+        {
+            self.mailTextField.backgroundColor = UIColor.red
+            verif = false
+        }
         if (verif)
         {
             do
             {
-                _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: anneePickerData[anneePicker.selectedRow(inComponent: 0)], typeUtilisateur: typeUtilisateurData[typeUtilisateurPicker.selectedRow(inComponent: 0)])
+                _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[anneePicker.selectedRow(inComponent: 0)], typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[typeUtilisateurPicker.selectedRow(inComponent: 0)])
             }
             catch let error as NSError
             {
@@ -159,7 +152,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     
+    
+    
     //MARK: - UIPickerViewDelegate Functions
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -167,29 +163,62 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        if (pickerView == typeUtilisateurPicker)
+        do
         {
-            return typeUtilisateurData.count
+            if (pickerView == typeUtilisateurPicker)
+            {
+                return try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs().count
+            }
+                
+            else
+            {
+                return try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee}).count
+            }
         }
-        
-        else
+        catch let error as NSError
         {
-            return anneePickerData.count
+            DialogBoxHelper.alert(view : self, error: error)
         }
+        return 0
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        if (pickerView == typeUtilisateurPicker)
+        do
         {
-            return typeUtilisateurData[row].libelleTypeUtilisateur
+            if (pickerView == typeUtilisateurPicker)
+            {
+                return try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[row].libelleTypeUtilisateur
+                
+            }
+            else
+            {
+                return try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[row].annee.description
+            }
         }
-        else
+        catch let error as NSError
         {
-            return anneePickerData[row].annee.description
+            DialogBoxHelper.alert(view : self, error: error)
         }
+        return nil
     }
     
+    
+    //MARK: - Validation function
+    
+    
+    /// Indique la validité d'un email
+    ///
+    /// - Parameter testStr: string à validé
+    /// - Returns: return vrai si le string en paramètre est un email, faux sinon.
+    func isValidEmail(testStr:String) -> Bool
+    {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
     
     
 
