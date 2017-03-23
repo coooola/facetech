@@ -11,6 +11,7 @@ import UIKit
 class MessageTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var groupsLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
