@@ -42,6 +42,10 @@
 		A3DDBD391E7943C000E478F5 /* MessagesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */; };
 		A3DDBD3B1E79461B00E478F5 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */; };
 		A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */; };
+		A3F8D79D1E846D4900289CC9 /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D79C1E846D4900289CC9 /* envelope.png */; };
+		A3F8D79F1E846E0E00289CC9 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D79E1E846E0E00289CC9 /* file.png */; };
+		A3F8D7A11E846E5500289CC9 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D7A01E846E5500289CC9 /* avatar.png */; };
+		A3F8D7A31E846ED500289CC9 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D7A21E846ED500289CC9 /* calendar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,10 @@
 		A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSetModel.swift; sourceTree = "<group>"; };
 		A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
 		A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		A3F8D79C1E846D4900289CC9 /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = envelope.png; path = ../../../Downloads/envelope.png; sourceTree = "<group>"; };
+		A3F8D79E1E846E0E00289CC9 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = file.png; path = ../../../Downloads/file.png; sourceTree = "<group>"; };
+		A3F8D7A01E846E5500289CC9 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = ../../../Downloads/avatar.png; sourceTree = "<group>"; };
+		A3F8D7A21E846ED500289CC9 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = ../../../Downloads/calendar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,10 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8D7A21E846ED500289CC9 /* calendar.png */,
+				A3F8D7A01E846E5500289CC9 /* avatar.png */,
+				A3F8D79E1E846E0E00289CC9 /* file.png */,
+				A3F8D79C1E846D4900289CC9 /* envelope.png */,
 				53B1F4F81E700EC6007730B8 /* Model */,
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
@@ -341,7 +353,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F8D7A31E846ED500289CC9 /* calendar.png in Resources */,
+				A3F8D7A11E846E5500289CC9 /* avatar.png in Resources */,
 				537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */,
+				A3F8D79F1E846E0E00289CC9 /* file.png in Resources */,
+				A3F8D79D1E846D4900289CC9 /* envelope.png in Resources */,
 				537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */,
 				537BEF341E51A5430002AB09 /* Main.storyboard in Resources */,
 			);
