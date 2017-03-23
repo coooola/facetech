@@ -18,6 +18,7 @@
 		537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */; };
 		537BEF471E51A5440002AB09 /* FacetechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF461E51A5440002AB09 /* FacetechTests.swift */; };
 		537BEF521E51A5440002AB09 /* FacetechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537BEF511E51A5440002AB09 /* FacetechUITests.swift */; };
+		539100AB1E840BBE0099CC61 /* MesagesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539100AA1E840BBE0099CC61 /* MesagesSetModel.swift */; };
 		53B1F4F71E6FFE27007730B8 /* UtilisateurExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4F61E6FFE27007730B8 /* UtilisateurExtension.swift */; };
 		53B1F4FA1E700EF7007730B8 /* UtilisateursSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4F91E700EF7007730B8 /* UtilisateursSetModel.swift */; };
 		53B1F4FC1E7021FC007730B8 /* AnneesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */; };
@@ -72,6 +73,7 @@
 		537BEF4D1E51A5440002AB09 /* FacetechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FacetechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		537BEF511E51A5440002AB09 /* FacetechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacetechUITests.swift; sourceTree = "<group>"; };
 		537BEF531E51A5440002AB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		539100AA1E840BBE0099CC61 /* MesagesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MesagesSetModel.swift; sourceTree = "<group>"; };
 		53B1F4F61E6FFE27007730B8 /* UtilisateurExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UtilisateurExtension.swift; path = Facetech/UtilisateurExtension.swift; sourceTree = "<group>"; };
 		53B1F4F91E700EF7007730B8 /* UtilisateursSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilisateursSetModel.swift; sourceTree = "<group>"; };
 		53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnneesSetModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */,
 				5349D28A1E795A690039A807 /* TypeUtilisateursSetModel.swift */,
 				6F2D12921E7EC23900B0B18E /* EvenementsSetModel.swift */,
+				539100AA1E840BBE0099CC61 /* MesagesSetModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			files = (
 				6F2D12911E7EC0C400B0B18E /* EvenementsViewController.swift in Sources */,
 				5316A5DA1E52ED440037BEB8 /* MainPageViewController.swift in Sources */,
+				539100AB1E840BBE0099CC61 /* MesagesSetModel.swift in Sources */,
 				A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */,
 				A3DDBD391E7943C000E478F5 /* MessagesSetModel.swift in Sources */,
 				A3DDBD3B1E79461B00E478F5 /* MessageExtension.swift in Sources */,

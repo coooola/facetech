@@ -501,24 +501,15 @@
                         <constraints>
                             <constraint firstItem="Frc-v9-1kr" firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" id="0BV-Z7-Q11"/>
                             <constraint firstItem="MyE-tz-AgK" firstAttribute="top" secondItem="2Ex-oa-dYh" secondAttribute="bottom" constant="20" id="0u1-tN-QSM"/>
-                            <constraint firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" multiplier="0.6" constant="2" id="3G2-jO-Vy9"/>
-                            <constraint firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" multiplier="0.2" constant="2" id="3nE-Ja-ycu"/>
                             <constraint firstItem="2Ex-oa-dYh" firstAttribute="leading" secondItem="C1b-lu-aap" secondAttribute="leadingMargin" id="5EV-LZ-8yl"/>
-                            <constraint firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="Gno-kq-v5H"/>
                             <constraint firstItem="VVW-3e-tNS" firstAttribute="leading" secondItem="C1b-lu-aap" secondAttribute="leading" constant="5" id="Lgf-CM-xhP"/>
-                            <constraint firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="OVv-uA-57y"/>
-                            <constraint firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" multiplier="1.4" id="Psq-ph-W62"/>
                             <constraint firstItem="2Ex-oa-dYh" firstAttribute="trailing" secondItem="C1b-lu-aap" secondAttribute="trailingMargin" id="Qyj-nt-YKF"/>
                             <constraint firstItem="VVW-3e-tNS" firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="30" id="TUp-xE-vQX"/>
                             <constraint firstItem="2Ex-oa-dYh" firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" id="YVF-G3-JeB"/>
-                            <constraint firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="ZcK-nr-8tp"/>
                             <constraint firstItem="2Ex-oa-dYh" firstAttribute="top" secondItem="Frc-v9-1kr" secondAttribute="bottom" constant="30" id="fAM-kA-uTt"/>
                             <constraint firstItem="Frc-v9-1kr" firstAttribute="top" secondItem="VVW-3e-tNS" secondAttribute="bottom" constant="30" id="fdZ-KN-Gx1"/>
-                            <constraint firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" multiplier="1.8" constant="2" id="feY-1U-TwX"/>
-                            <constraint firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="oKQ-iB-R0y"/>
                             <constraint firstItem="VVW-3e-tNS" firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" id="qgx-r5-PPz"/>
                             <constraint firstAttribute="centerX" secondItem="C1b-lu-aap" secondAttribute="centerX" id="weS-Ev-Gbm"/>
-                            <constraint firstAttribute="top" secondItem="LDv-YA-3sP" secondAttribute="bottom" constant="20" id="yTP-ky-c5q"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="8wZ-7Y-N3g"/>
@@ -679,21 +670,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scA-PC-BN5">
-                                <rect key="frame" x="379" y="25" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.7794574058219178" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Eoa-rV-mtK"/>
-                                    <constraint firstAttribute="height" constant="30" id="mPY-gD-dS6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <state key="normal" title=" ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="S1w-VJ-8gx" kind="show" id="JCA-rV-1nZ"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4p-ndf">
                                 <rect key="frame" x="5" y="69" width="404" height="610"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -702,7 +678,7 @@
                                         <rect key="frame" x="0.0" y="28" width="404" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bLm-a8-7UY" id="V8Q-jp-scY">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V6-Nf-fnO">
@@ -898,8 +874,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="i2h-EJ-dIA"/>
-        <segue reference="sjj-w8-F7W"/>
-        <segue reference="A0E-bU-dyv"/>
+        <segue reference="8l8-lb-ofF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -46,13 +46,25 @@ class MessagePresenter: NSObject {
          let s = dateFormatter.string(from: dateMsg as! Date)
          */
         
+        let types = self.message?.etreLieTypeUtilisateur?.objectEnumerator()
+        var typesString : String = ""
+        var value : TypeUtilisateur? = types?.nextObject() as? TypeUtilisateur
+        
+        while (value != nil) {
+            let type = value!.libelleTypeUtilisateur
+            typesString = typesString + type! + ", "
+            value = types?.nextObject() as? TypeUtilisateur
+        }
+        print(typesString)
+        
         self.message = forMessage
         guard let cell = theCell else { return }
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
         cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
         cell.contentLabel.text = self.message?.contenu
         cell.dateLabel.text = self.message?.date
-        //cell.groupsLabel.text = typesUtilisateur
+        cell.groupsLabel.text = typesString
+    
         
     }
 }
