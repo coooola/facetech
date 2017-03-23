@@ -53,6 +53,7 @@ class MessagePresenter: NSObject {
         cell.contentLabel.text = self.message?.contenu
         cell.dateLabel.text = self.message?.date
         //cell.groupsLabel.text = typesUtilisateur
+        cell.hourLabel.text = self.message?.time
         
     }
 }
