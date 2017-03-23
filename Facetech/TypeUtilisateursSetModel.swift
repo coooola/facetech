@@ -79,19 +79,18 @@ class TypeUtilisateursSetModel: NSObject{
         return tousLesTypesUtilisateurs
     }
     
-    
     func getTypeUtilisateur(name: String) throws -> TypeUtilisateur? {
         
         /*var typesUtilisateurs : [TypeUtilisateur]
-        let request : NSFetchRequest<TypeUtilisateur> = TypeUtilisateur.fetchRequest()
-        request.predicate = NSPredicate(format: "nomTypeUtilisateur", name)
-        do{
-            typesUtilisateurs = try CoreDataManager.context.fetch(request)
-            return typesUtilisateurs[0]
-        }
-        catch let error as NSError{
-            throw error
-        }*/
+         let request : NSFetchRequest<TypeUtilisateur> = TypeUtilisateur.fetchRequest()
+         request.predicate = NSPredicate(format: "nomTypeUtilisateur", name)
+         do{
+         typesUtilisateurs = try CoreDataManager.context.fetch(request)
+         return typesUtilisateurs[0]
+         }
+         catch let error as NSError{
+         throw error
+         }*/
         
         let typeUser : TypeUtilisateur = TypeUtilisateur(context : CoreDataManager.context)
         
@@ -114,10 +113,4 @@ class TypeUtilisateursSetModel: NSObject{
         }
         return typeUser
     }
-    
-    
-    
-    
-    
-    
 }
