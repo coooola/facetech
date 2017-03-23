@@ -72,6 +72,46 @@ class UtilisateursSetModel : NSObject{
     }
     
     
+    /// Retourne le nombre d'utilisateur dans la base.
+    ///
+    /// - Returns: le nombre d'utilisateur dans la base
+    /// - Throws: exception en cas d'erreur lors de la requête
+    func countAllUserInBase() throws -> Int
+    {
+        
+        let context = CoreDataManager.context
+        
+        var user : [Utilisateur] = []
+        
+        let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
+        
+        
+        do
+        {
+            try user = context.fetch(request)
+        }
+        catch let error as NSError{
+            throw error
+        }
+        
+        return user.count
+        
+    }
+    
+    func createAdmin()
+    {
+        do
+        {
+        _ = try insertUtilisateur(mail: "admin@facetech.fr", nom: "Istrateur", prenom: "Admin", annee: AnneesSetModel.anneesSet.getToutesLesAnnees()[0], typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[0])
+        }
+        catch _ as NSError
+        {
+            
+        }
+        
+    }
+    
+    
     /// - Description
     /// Récupère un utilisateur grâce à son id
     ///

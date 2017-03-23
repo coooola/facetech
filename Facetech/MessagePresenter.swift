@@ -39,7 +39,9 @@ class MessagePresenter: NSObject {
     func configure(theCell : MessageTableViewCell?, forMessage: Message?)
     {
         // Récuperation et concaténation des groupes auquels ont été lié le message
-        let types = message?.etreLieTypeUtilisateur?.allObjects as? [TypeUtilisateur]
+        
+        self.message = forMessage
+        guard let cell = theCell else { return }
         
         let types = self.message?.etreLieTypeUtilisateur?.objectEnumerator()
         var typesString : String = ""
@@ -50,16 +52,17 @@ class MessagePresenter: NSObject {
             typesString = typesString + type! + ", "
             value = types?.nextObject() as? TypeUtilisateur
         }
-        print(typesString)
         
-        self.message = forMessage
-        guard let cell = theCell else { return }
+        typesString.remove(at: typesString.index(before: typesString.endIndex))
+        typesString.remove(at: typesString.index(before: typesString.endIndex))
+        
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
         cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
         cell.contenuMsg.text = self.message?.contenu
         cell.dateLabel.text = self.message?.date
         cell.groupsLabel.text = typesString
-    
+        cell.hourLabel.text = self.message?.time
+        
         
     }
 }

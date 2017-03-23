@@ -189,6 +189,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         {
             if (pickerView == typeUtilisateurPicker)
             {
+                try anneePicker.isHidden = (TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[typeUtilisateurPicker.selectedRow(inComponent: 0)].libelleTypeUtilisateur != "Etudiant")
                 return try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[row].libelleTypeUtilisateur
                 
             }

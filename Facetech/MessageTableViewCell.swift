@@ -18,6 +18,7 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var contenuMsg: UITextView!
     
+    
     // Initialization code
     override func awakeFromNib() {
         super.awakeFromNib()
