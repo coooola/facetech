@@ -49,8 +49,7 @@ class MessagePresenter: NSObject {
                 typesUtilisateur += " "
             }
         }
-        
-        
+                
         self.message = forMessage
         guard let cell = theCell else { return }
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
