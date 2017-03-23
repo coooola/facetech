@@ -113,4 +113,6 @@ class TypeUtilisateursSetModel: NSObject{
         }
         return typeUser
     }
+    
+    
 }

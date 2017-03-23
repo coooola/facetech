@@ -30,9 +30,11 @@ class CreateMessageViewController: UIViewController {
         if (msg != nil && Session.utilisateurConnecte != nil){
             
             //Recupere les utilisateurs destinataires du message dans la variable
-            let typesUsers : [TypeUtilisateur] = getTypesUtilisateurMsg(toSecretaires: secretairesSwitch.isOn, toProfesseurs: professeursSwitch.isOn, toResponsables: responsablesSwitch.isOn, toTroisA: troisASwitch.isOn, toQuatreA: quatreASwitch.isOn, toCinqA: cinqASwitch.isOn)
+            let typesUsers : [TypeUtilisateur] = getTypesUtilisateurMsg(toSecretaires: secretairesSwitch.isOn, toProfesseurs: professeursSwitch.isOn, toResponsables: responsablesSwitch.isOn)
+            
+            let annees : [AnneePromo] = getAnneePromo(toTroisA: troisASwitch.isOn, toQuatreA: quatreASwitch.isOn, toCinqA: cinqASwitch.isOn)
 
-            Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: msg!, typesUtilisateurs : typesUsers)
+            Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: msg!, typesUtilisateurs : typesUsers, anneesPromo : annees)
             
             self.msgText.text=nil
         }
@@ -52,7 +54,7 @@ class CreateMessageViewController: UIViewController {
     ///   - toQuatreA: true si le switch est activé
     ///   - toCinqA: true si le switch est activé
     /// - Returns: return un tableau de types d'utilisateurs représentants les utilisateurs à qui le message doit etre envoyé
-    func getTypesUtilisateurMsg(toSecretaires: Bool, toProfesseurs: Bool, toResponsables: Bool, toTroisA: Bool, toQuatreA: Bool, toCinqA: Bool) -> [TypeUtilisateur]
+    func getTypesUtilisateurMsg(toSecretaires: Bool, toProfesseurs: Bool, toResponsables: Bool) -> [TypeUtilisateur]
     {
         
         var typesUtilisateurs : [TypeUtilisateur] = []
@@ -67,16 +69,6 @@ class CreateMessageViewController: UIViewController {
             if toResponsables {
                 try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Resposable du département")!)
             }
-            if toTroisA {
-                try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire")!)
-            }
-            if toQuatreA {
-                try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire")!)
-            }
-            if toCinqA {
-                try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire")!)
-            }
-            
         }
         catch let error as NSError{
             DialogBoxHelper.alert(view: self, error: error)
@@ -84,6 +76,26 @@ class CreateMessageViewController: UIViewController {
         
         return typesUtilisateurs
         
+    }
+    
+    func getAnneePromo(toTroisA: Bool, toQuatreA: Bool, toCinqA: Bool) -> [AnneePromo]
+    {
+        var annees : [AnneePromo] = []
+        do{
+            if toTroisA {
+                try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 3)!)
+            }
+            if toQuatreA {
+                try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 4)!)
+            }
+            if toCinqA {
+                try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 5)!)           }
+            
+        }
+        catch let error as NSError{
+            DialogBoxHelper.alert(view: self, error: error)
+        }
+        return annees
     }
     
     // Do any additional setup after loading the view.

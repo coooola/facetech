@@ -17,7 +17,7 @@ extension Message{
     ///   - etreEcritPar: l'utilisateur qui écrit le message, récupéré grâce à la session
     ///   - contenu: contenu du message
     ///   - typesUtilisateurs: les types utilisateurs auquels est envoyé le message
-    static func createMessage(etreEcritPar: Utilisateur, contenu: String, typesUtilisateurs : [TypeUtilisateur])
+    static func createMessage(etreEcritPar: Utilisateur, contenu: String, typesUtilisateurs : [TypeUtilisateur], anneesPromo : [AnneePromo])
     {
         let newMessage = Message(context : CoreDataManager.context)
         newMessage.etreEcritPar = etreEcritPar
@@ -25,6 +25,11 @@ extension Message{
         newMessage.datePost = NSDate()
         for i in typesUtilisateurs {
             newMessage.addToEtreLieTypeUtilisateur(i)
+            print(i)
+        }
+        for j in anneesPromo {
+            newMessage.addToEtreLieAnne(j)
+            print(j)
         }
         CoreDataManager.save()
     }
