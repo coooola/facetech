@@ -25,9 +25,11 @@ extension Message{
         newMessage.datePost = NSDate()
         for i in typesUtilisateurs {
             newMessage.addToEtreLieTypeUtilisateur(i)
+            print(i)
         }
         for j in anneesPromo {
             newMessage.addToEtreLieAnne(j)
+            print(j)
         }
         CoreDataManager.save()
     }

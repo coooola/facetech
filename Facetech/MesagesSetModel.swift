@@ -41,7 +41,7 @@ class  MesagesSetModel: NSObject
         
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: false)]
-        //request.predicate = NSPredicate(format: "productLine = %@", Session.)
+        //request.predicate = NSPredicate(format: "typeUtilisateur in %@.etreLieTypeUtilisateur", Message)
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.date), cacheName: nil)
         
         fetchResultController.delegate = viewController
