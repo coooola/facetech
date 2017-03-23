@@ -11,8 +11,8 @@ import UIKit
 class MessageTableViewCell: UITableViewCell {
 
     // Les label d'une vue
-    @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var groupsLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
