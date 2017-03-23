@@ -13,18 +13,35 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var urlDocTextField: UITextField!
     @IBOutlet weak var nomDocTextField: UITextField!
     
-    var nomDoc : String = ""
-    var urlDoc : String = ""
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        nomDocTextField.delegate = self
-        urlDocTextField.delegate = self
+    @IBAction func addDocButton(_ sender: Any) {
+        
+        let nom = self.nomDocTextField.text
+        let url = self.urlDocTextField.text
+        
+        //Créé le message si le nom et l'url sont non vide
+        if ((nom != nil) || (url != nil)){
+            
+            Document.createDocument(nomDocument: nom!, urlDocument: url!)
+            
+            self.nomDocTextField.text=nil
+            self.urlDocTextField.text=nil
+        }
+        else{
+            DialogBoxHelper.alertEmpty(view: self)
+        }
+        
     }
     
+    
+    // Do any additional setup after loading the view.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    // Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: - UITextFieldDelegate Functions
@@ -32,7 +49,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     /// <#Description#>
     ///
     /// - Parameter textField: <#textField description#>
-    func textFieldDidEndEditing(_ textField: UITextField)
+    /*func textFieldDidEndEditing(_ textField: UITextField)
     {
         if  let nomDocc = self.nomDocTextField.text
         {
@@ -100,7 +117,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
         
         return true
         
-    }
+    }*/
     
 
     /*

@@ -46,27 +46,4 @@ class DocumentSetModel: NSObject {
     }()
     
     
-    
-    /// Crée un événement
-    ///
-    /// - Parameters:
-    ///   - nom: Nom de l'événement
-    ///   - date: Date et heure de l'évenement
-    /// - Returns: L'événement créé
-    /// - Throws: Erreur dans la création
-    func insertDocument(nomDoc: String, urlDoc: String, date: Date) throws -> Document
-    {
-        let newDoc = Document.createDocument(nomDocument: nomDoc, urlDocument: urlDoc, dateCreationDocument: date)
-        
-        if let error = CoreDataManager.save()
-        {
-            throw error
-        }
-        
-        //tousLesDocuments.append(newDoc)
-        
-        return newDoc
-    }
-
-    
 }

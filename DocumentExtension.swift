@@ -12,14 +12,14 @@ import CoreData
 extension Document{
     
     
-    static func createDocument(nomDocument: String, urlDocument: String, dateCreationDocument: Date) -> Document
+    static func createDocument(nomDocument: String, urlDocument: String)
     {
         let newDoc = Document(context : CoreDataManager.context)
         newDoc.nomDocument = nomDocument
         newDoc.urlDocument = urlDocument
-        newDoc.dateCreationDocument = dateCreationDocument as NSDate
+        newDoc.dateCreationDocument = NSDate()
         
-        return newDoc
+        CoreDataManager.save()
         
     }
     
