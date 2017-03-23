@@ -23,6 +23,7 @@ extension Message{
         newMessage.etreEcritPar = etreEcritPar
         newMessage.contenu = contenu
         newMessage.datePost = NSDate()
+        
         for i in typesUtilisateurs {
             newMessage.addToEtreLieTypeUtilisateur(i)
             print(i)
