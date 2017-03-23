@@ -34,6 +34,11 @@
 		A39774A21E6D60290025281B /* MessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39774A11E6D60290025281B /* MessagePresenter.swift */; };
 		A39774A41E6D6D030025281B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39774A31E6D6D030025281B /* CoreDataManager.swift */; };
 		A3C9BC801E8442550068D65C /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */; };
+		A3C9BC821E844B760068D65C /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC811E844B760068D65C /* DocumentViewController.swift */; };
+		A3C9BC841E844BB40068D65C /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */; };
+		A3C9BC861E844C080068D65C /* CreateDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */; };
+		A3C9BC881E844FB80068D65C /* DocumentSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC871E844FB80068D65C /* DocumentSetModel.swift */; };
+		A3C9BC8A1E84517C0068D65C /* DocumentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9BC891E84517C0068D65C /* DocumentExtension.swift */; };
 		A3DDBD391E7943C000E478F5 /* MessagesSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */; };
 		A3DDBD3B1E79461B00E478F5 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */; };
 		A3F7D6D61E7001F800AC5577 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */; };
@@ -90,6 +95,11 @@
 		A39774A11E6D60290025281B /* MessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePresenter.swift; sourceTree = "<group>"; };
 		A39774A31E6D6D030025281B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		A3C9BC811E844B760068D65C /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
+		A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDocumentViewController.swift; sourceTree = "<group>"; };
+		A3C9BC871E844FB80068D65C /* DocumentSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentSetModel.swift; sourceTree = "<group>"; };
+		A3C9BC891E84517C0068D65C /* DocumentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentExtension.swift; sourceTree = "<group>"; };
 		A3DDBD381E7943C000E478F5 /* MessagesSetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSetModel.swift; sourceTree = "<group>"; };
 		A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
 		A3F7D6D51E7001F800AC5577 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
@@ -147,6 +157,10 @@
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
+				A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */,
+				A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */,
+				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
+				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
 				A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */,
 				A33D21B21E83FD6A00B90C61 /* CreateMessageViewController.swift */,
 				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
@@ -158,7 +172,6 @@
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
 				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
 				5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */,
-				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
 				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
 				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
 				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
@@ -189,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				53B1F4F91E700EF7007730B8 /* UtilisateursSetModel.swift */,
+				A3C9BC871E844FB80068D65C /* DocumentSetModel.swift */,
 				53B1F4FB1E7021FC007730B8 /* AnneesSetModel.swift */,
 				5349D28A1E795A690039A807 /* TypeUtilisateursSetModel.swift */,
 				6F2D12921E7EC23900B0B18E /* EvenementsSetModel.swift */,
@@ -203,6 +217,7 @@
 				53B1F4F61E6FFE27007730B8 /* UtilisateurExtension.swift */,
 				A3DDBD3A1E79461B00E478F5 /* MessageExtension.swift */,
 				6F2D12941E7EC2EF00B0B18E /* EvenementExtension.swift */,
+				A3C9BC891E84517C0068D65C /* DocumentExtension.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -367,13 +382,18 @@
 				5349D2871E7946360039A807 /* Session.swift in Sources */,
 				5349D28B1E795A690039A807 /* TypeUtilisateursSetModel.swift in Sources */,
 				6F54CB651E818B7200A7E22B /* EvenementTableViewCell.swift in Sources */,
+				A3C9BC881E844FB80068D65C /* DocumentSetModel.swift in Sources */,
 				53EE3C181E68413900519FFD /* CreateUserViewController.swift in Sources */,
+				A3C9BC8A1E84517C0068D65C /* DocumentExtension.swift in Sources */,
+				A3C9BC861E844C080068D65C /* CreateDocumentViewController.swift in Sources */,
 				53B1F4FA1E700EF7007730B8 /* UtilisateursSetModel.swift in Sources */,
+				A3C9BC841E844BB40068D65C /* DocumentTableViewCell.swift in Sources */,
 				537BEF371E51A5430002AB09 /* Facetech.xcdatamodeld in Sources */,
 				53B1F4FC1E7021FC007730B8 /* AnneesSetModel.swift in Sources */,
 				A3C9BC801E8442550068D65C /* MessageTableViewCell.swift in Sources */,
 				A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */,
 				A39774A41E6D6D030025281B /* CoreDataManager.swift in Sources */,
+				A3C9BC821E844B760068D65C /* DocumentViewController.swift in Sources */,
 				A39774A21E6D60290025281B /* MessagePresenter.swift in Sources */,
 				6F2D12951E7EC2EF00B0B18E /* EvenementExtension.swift in Sources */,
 				6F2D12931E7EC23900B0B18E /* EvenementsSetModel.swift in Sources */,

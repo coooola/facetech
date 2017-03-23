@@ -6,8 +6,10 @@
         <relationship name="contenirUtilisateurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Utilisateur" inverseName="appartenirPromo" inverseEntity="Utilisateur" syncable="YES"/>
     </entity>
     <entity name="Document" representedClassName="Document" syncable="YES" codeGenerationType="class">
-        <attribute name="document" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreationDocument" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idDocument" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nomDocument" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlDocument" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="appartenirMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="possederDocuments" inverseEntity="Message" syncable="YES"/>
         <relationship name="etreTypeDocument" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TypeDocument" inverseName="possederDocuments" inverseEntity="TypeDocument" syncable="YES"/>
     </entity>
@@ -52,7 +54,7 @@
     </entity>
     <elements>
         <element name="AnneePromo" positionX="-315" positionY="-46" width="128" height="88"/>
-        <element name="Document" positionX="-378" positionY="287" width="128" height="103"/>
+        <element name="Document" positionX="-378" positionY="287" width="128" height="135"/>
         <element name="Evenement" positionX="297" positionY="-52" width="90" height="118"/>
         <element name="Message" positionX="-162" positionY="270" width="171" height="148"/>
         <element name="TypeDocument" positionX="-342" positionY="506" width="128" height="88"/>
