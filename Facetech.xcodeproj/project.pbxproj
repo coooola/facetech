@@ -46,6 +46,7 @@
 		A3F8D79F1E846E0E00289CC9 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D79E1E846E0E00289CC9 /* file.png */; };
 		A3F8D7A11E846E5500289CC9 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D7A01E846E5500289CC9 /* avatar.png */; };
 		A3F8D7A31E846ED500289CC9 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D7A21E846ED500289CC9 /* calendar.png */; };
+		A3F8D7A61E84704E00289CC9 /* Logo_POLYTECH_Montpellier_couleur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3F8D7A51E84704E00289CC9 /* Logo_POLYTECH_Montpellier_couleur.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		A3F8D79E1E846E0E00289CC9 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = file.png; path = ../../../Downloads/file.png; sourceTree = "<group>"; };
 		A3F8D7A01E846E5500289CC9 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = ../../../Downloads/avatar.png; sourceTree = "<group>"; };
 		A3F8D7A21E846ED500289CC9 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = ../../../Downloads/calendar.png; sourceTree = "<group>"; };
+		A3F8D7A51E84704E00289CC9 /* Logo_POLYTECH_Montpellier_couleur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Logo_POLYTECH_Montpellier_couleur.jpg; path = ../../Logo_POLYTECH_Montpellier_couleur.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +163,7 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
-				A3F8D7A21E846ED500289CC9 /* calendar.png */,
-				A3F8D7A01E846E5500289CC9 /* avatar.png */,
-				A3F8D79E1E846E0E00289CC9 /* file.png */,
-				A3F8D79C1E846D4900289CC9 /* envelope.png */,
+				A3F8D7A41E846F6C00289CC9 /* Icones */,
 				53B1F4F81E700EC6007730B8 /* Model */,
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
@@ -243,6 +242,18 @@
 				5349D2861E7946360039A807 /* Session.swift */,
 			);
 			name = "Class Helpers";
+			sourceTree = "<group>";
+		};
+		A3F8D7A41E846F6C00289CC9 /* Icones */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8D7A51E84704E00289CC9 /* Logo_POLYTECH_Montpellier_couleur.jpg */,
+				A3F8D7A01E846E5500289CC9 /* avatar.png */,
+				A3F8D79C1E846D4900289CC9 /* envelope.png */,
+				A3F8D79E1E846E0E00289CC9 /* file.png */,
+				A3F8D7A21E846ED500289CC9 /* calendar.png */,
+			);
+			name = Icones;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +368,7 @@
 				A3F8D7A11E846E5500289CC9 /* avatar.png in Resources */,
 				537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */,
 				A3F8D79F1E846E0E00289CC9 /* file.png in Resources */,
+				A3F8D7A61E84704E00289CC9 /* Logo_POLYTECH_Montpellier_couleur.jpg in Resources */,
 				A3F8D79D1E846D4900289CC9 /* envelope.png in Resources */,
 				537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */,
 				537BEF341E51A5430002AB09 /* Main.storyboard in Resources */,

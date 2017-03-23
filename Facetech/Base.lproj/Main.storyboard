@@ -73,11 +73,19 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_POLYTECH_Montpellier_couleur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-Zy-vJn">
+                                <rect key="frame" x="102" y="35" width="210" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="68h-b8-hYn"/>
+                                    <constraint firstAttribute="height" constant="67" id="G9b-O4-oWr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yE3-nV-PCN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4g3-fY-xJX"/>
                             <constraint firstItem="2Tq-mI-eIE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ai0-G7-tmf"/>
+                            <constraint firstItem="SOi-Zy-vJn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Dec-MB-5RF"/>
                             <constraint firstItem="2Tq-mI-eIE" firstAttribute="top" secondItem="eNU-um-zLO" secondAttribute="bottom" constant="30" id="DnH-RO-bTY"/>
                             <constraint firstItem="QMk-PM-IWl" firstAttribute="top" secondItem="QCT-0G-ood" secondAttribute="bottom" constant="20" id="FPu-ze-eZd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QCT-0G-ood" secondAttribute="trailing" constant="64" id="MF7-ll-X9c"/>
@@ -90,6 +98,7 @@
                             <constraint firstItem="ZN4-c4-fiI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.7" constant="3" id="fFs-hu-K2a"/>
                             <constraint firstItem="bPE-co-5DX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="hMZ-pC-zJk"/>
                             <constraint firstItem="QMk-PM-IWl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="64" id="jKV-Jg-c9m"/>
+                            <constraint firstItem="SOi-Zy-vJn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l1E-Zi-wdY"/>
                             <constraint firstItem="eNU-um-zLO" firstAttribute="top" secondItem="QMk-PM-IWl" secondAttribute="bottom" constant="8" id="n3X-Av-mkP"/>
                             <constraint firstItem="eNU-um-zLO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="64" id="t0L-rm-1WQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eNU-um-zLO" secondAttribute="trailing" constant="64" id="u0f-3Q-RxU"/>
@@ -104,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="-355"/>
+            <point key="canvasLocation" x="942.02898550724649" y="-355.43478260869568"/>
         </scene>
         <!--Update User View Controller-->
         <scene sceneID="Ni1-wf-oyk">
@@ -1136,6 +1145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo_POLYTECH_Montpellier_couleur.jpg" width="1271" height="395"/>
         <image name="avatar.png" width="32" height="32"/>
         <image name="calendar.png" width="32" height="32"/>
         <image name="envelope.png" width="32" height="32"/>
