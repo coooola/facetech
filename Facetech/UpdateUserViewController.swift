@@ -13,6 +13,7 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
 {
     
     
+    @IBOutlet weak var createUser: UIButton!
     
     @IBOutlet weak var ancienMotDePasseTextField: UITextField!
     
@@ -26,6 +27,11 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Si l'utilisateur est un secrétaire, le bouton ajouter un utilisateur est visible, sinon il est caché
+        createUser.isHidden = true
+        if (Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur == "Secrétaire"){
+            createUser.isHidden = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
