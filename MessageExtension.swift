@@ -11,6 +11,12 @@ import CoreData
 
 extension Message{
     
+    /// Creer un nouveau message dans la base de données
+    ///
+    /// - Parameters:
+    ///   - etreEcritPar: l'utilisateur qui écrit le message, récupéré grâce à la session
+    ///   - contenu: contenu du message
+    ///   - typesUtilisateurs: les types utilisateurs auquels est envoyé le message
     static func createMessage(etreEcritPar: Utilisateur, contenu: String, typesUtilisateurs : [TypeUtilisateur])
     {
         let newMessage = Message(context : CoreDataManager.context)
@@ -20,26 +26,19 @@ extension Message{
         for i in typesUtilisateurs {
             newMessage.addToEtreLieTypeUtilisateur(i)
         }
-        
-        
         CoreDataManager.save()
     }
     
     
+    /// Supprime un message de la base de données
+    ///
+    /// - Parameter message: le message à supprimer
     static func deleteMessage(message : Message)
     {
         CoreDataManager.context.delete(message)
     }
     
-    /*static func getDate() -> String
-    {
-        let dateMsg = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy'T'HH:mm:ssZ"
-        let s = dateFormatter.string(from: dateMsg as Date)
-        return s
-    }*/
-    
+    // Retourne l'heure du message sous forme de String
     var time: String {
         get {
             if (self.datePost != nil)
@@ -56,6 +55,7 @@ extension Message{
         }
     }
     
+    // Retourne la date du message sous forme de string 
     var date: String {
         get {
             if (self.datePost != nil)

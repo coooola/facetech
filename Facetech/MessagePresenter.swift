@@ -14,6 +14,7 @@ class MessagePresenter: NSObject {
     fileprivate var nom : String = ""
     fileprivate var date : Date = Date()
     
+    /// Met une majuscule au nom et prenom
     fileprivate var message : Message? = nil {
         didSet{
             if let message = self.message {
@@ -30,29 +31,33 @@ class MessagePresenter: NSObject {
         }
     }
     
+    /// Configure la cellule de chaque message, récupère les données du message à afficher et les distribu aux différents labels
+    ///
+    /// - Parameters:
+    ///   - theCell: La cellule où le message sera affiché
+    ///   - forMessage: Le message a affiche
     func configure(theCell : MessageTableViewCell?, forMessage: Message?)
     {
         // Récuperation et concaténation des groupes auquels ont été lié le message
-        /*var typesUtilisateur : String = ""
-        for i in (message?.etreLieTypeUtilisateur)!
-        {
-            typesUtilisateur += (i as! TypeUtilisateur).libelleTypeUtilisateur!
-            typesUtilisateur += ", "
-        }*/
+        let types = message?.etreLieTypeUtilisateur?.allObjects as? [TypeUtilisateur]
         
-        /*let dateMsg = self.message?.datePost
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "dd-MM-yyyy'T'HH:mm:ssZ"
-         let s = dateFormatter.string(from: dateMsg as! Date)
-         */
+        var typesUtilisateur : String = ""
+        if (types != nil)
+        {
+            for type in types! {
+                typesUtilisateur += type.libelleTypeUtilisateur!
+                typesUtilisateur += " "
+            }
+        }
+        
         
         self.message = forMessage
         guard let cell = theCell else { return }
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
         cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
-        cell.contentLabel.text = self.message?.contenu
+        cell.contenuMsg.text = self.message?.contenu
         cell.dateLabel.text = self.message?.date
-        //cell.groupsLabel.text = typesUtilisateur
+        cell.groupsLabel.text = typesUtilisateur
         cell.hourLabel.text = self.message?.time
         
     }
