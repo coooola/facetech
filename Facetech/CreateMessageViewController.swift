@@ -18,29 +18,19 @@ class CreateMessageViewController: UIViewController {
     @IBOutlet weak var responsablesSwitch: UISwitch!
     @IBOutlet weak var cinqASwitch: UISwitch!
     
+    @IBAction func cancelAdd(_ sender: Any)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /// Action effectuée lors de l'appuie sur le bouton ’Envoyer’ de la vue de création d'un message.
     /// Cette action permet d'ajouter un message en appelant les différentes methodes necessaires
     ///
     /// - Parameter sender: sender button
-    @IBAction func addMessage(_ sender: UIButton) {
-        
-        let msg = self.msgText.text
-        
-        //Créé le message si l'utilisateur est connecté et le message non vide
-        if (msg != nil && Session.utilisateurConnecte != nil){
-            
-            //Recupere les utilisateurs destinataires du message dans la variable
-            let typesUsers : [TypeUtilisateur] = getTypesUtilisateurMsg(toSecretaires: secretairesSwitch.isOn, toProfesseurs: professeursSwitch.isOn, toResponsables: responsablesSwitch.isOn)
-            
-            let annees : [AnneePromo] = getAnneePromo(toTroisA: troisASwitch.isOn, toQuatreA: quatreASwitch.isOn, toCinqA: cinqASwitch.isOn)
+    @IBAction func addMessage(_ sender: Any)
+    {
 
-            Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: msg!, typesUtilisateurs : typesUsers, anneesPromo : annees)
-            
-            self.msgText.text=nil
-        }
-        else{
-            DialogBoxHelper.alertEmpty(view: self)
-        }
+
     }
     
     
@@ -54,19 +44,19 @@ class CreateMessageViewController: UIViewController {
     ///   - toQuatreA: true si le switch est activé
     ///   - toCinqA: true si le switch est activé
     /// - Returns: return un tableau de types d'utilisateurs représentants les utilisateurs à qui le message doit etre envoyé
-    func getTypesUtilisateurMsg(toSecretaires: Bool, toProfesseurs: Bool, toResponsables: Bool) -> [TypeUtilisateur]
+    func getTypesUtilisateurMsg() -> [TypeUtilisateur]
     {
         
         var typesUtilisateurs : [TypeUtilisateur] = []
         
         do{
-            if toSecretaires {
+            if secretairesSwitch.isOn {
                 try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire")!)
             }
-            if toProfesseurs {
+            if professeursSwitch.isOn {
                 try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Enseignant")!)
             }
-            if toResponsables {
+            if responsablesSwitch.isOn {
                 try typesUtilisateurs.append(TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Responsable")!)
             }
         }
@@ -78,17 +68,17 @@ class CreateMessageViewController: UIViewController {
         
     }
     
-    func getAnneePromo(toTroisA: Bool, toQuatreA: Bool, toCinqA: Bool) -> [AnneePromo]
+    func getAnneePromo() -> [AnneePromo]
     {
         var annees : [AnneePromo] = []
         do{
-            if toTroisA {
+            if troisASwitch.isOn {
                 try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 3)!)
             }
-            if toQuatreA {
+            if quatreASwitch.isOn {
                 try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 4)!)
             }
-            if toCinqA {
+            if cinqASwitch.isOn {
                 try annees.append(AnneesSetModel.anneesSet.getAnne(anne: 5)!)           }
             
         }
@@ -109,14 +99,28 @@ class CreateMessageViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+     /// <#Description#>
+     ///
+     /// - Parameters:
+     ///   - identifier: <#identifier description#>
+     ///   - sender: <#sender description#>
+     /// - Returns: <#return value description#>
+     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
+     {
+
+        if (self.msgText.text=="")
+        {
+            self.msgText.backgroundColor = UIColor.red
+            return false
+        }
+        return true
+     
+     }
+
 
 }

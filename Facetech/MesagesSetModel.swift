@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class  MesagesSetModel: NSObject
+class MesagesSetModel: NSObject
 {
     
     /// Instance et instanciation du singleton afin d'assurer l'unicité de la variable privée suivante
@@ -21,6 +21,7 @@ class  MesagesSetModel: NSObject
     /// Override de l'init pour éviter les instanciations externes.
     private override init() {}
     
+
     
     static private var pViewController : NSFetchedResultsControllerDelegate? = nil
     
@@ -37,17 +38,19 @@ class  MesagesSetModel: NSObject
     }
     
     /// Variable privée contenant tous les événements.
-    lazy var tousLesMessages: NSFetchedResultsController<Message> = {
-        
+    lazy var tousLesMessages: NSFetchedResultsController<Message> =
+        {
+                print("JE PASSE DANS LE FETCH")
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: false)]
-        //request.predicate = NSPredicate(format: "ANY etreLieTypeUtilisateur == %@", (Session.utilisateurConnecte?.possederTypeUtilisateur)!)
+        request.predicate = NSPredicate(format: "ANY etreLieTypeUtilisateur == %@ OR ANY etreLieAnne == %@ OR etreEcritPar == %@", (Session.utilisateurConnecte?.possederTypeUtilisateur)!, (Session.utilisateurConnecte?.appartenirPromo)!, Session.utilisateurConnecte!)
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.date), cacheName: nil)
         
         fetchResultController.delegate = viewController
         
         return fetchResultController
     }()
+    
     
     
 }
