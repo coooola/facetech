@@ -53,8 +53,21 @@ class MessagePresenter: NSObject {
             value = types?.nextObject() as? TypeUtilisateur
         }
         
-        typesString.remove(at: typesString.index(before: typesString.endIndex))
-        typesString.remove(at: typesString.index(before: typesString.endIndex))
+        let annees = self.message?.etreLieAnne?.objectEnumerator()
+        
+        var valueA : AnneePromo? = annees?.nextObject() as? AnneePromo
+        
+        while (valueA != nil) {
+            let annee = valueA!.annee
+            typesString = typesString + annee.description + "A, "
+            valueA = annees?.nextObject() as? AnneePromo
+        }
+        
+        if (typesString != "")
+        {
+            typesString.remove(at: typesString.index(before: typesString.endIndex))
+            typesString.remove(at: typesString.index(before: typesString.endIndex))
+        }
         
         cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
         cell.lastNameLabel.text = self.message?.etreEcritPar?.nom

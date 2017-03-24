@@ -24,13 +24,14 @@ extension Message{
         newMessage.contenu = contenu
         newMessage.datePost = NSDate()
         
-        for i in typesUtilisateurs {
+        for i in typesUtilisateurs
+        {
+            i.addToEtreRelieMessages(newMessage)
             newMessage.addToEtreLieTypeUtilisateur(i)
-            print(i)
         }
         for j in anneesPromo {
+            j.addToAvoirMessage(newMessage)
             newMessage.addToEtreLieAnne(j)
-            print(j)
         }
         CoreDataManager.save()
     }

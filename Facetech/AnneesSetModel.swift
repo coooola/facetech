@@ -68,20 +68,14 @@ class AnneesSetModel : NSObject{
     
     
     
-    func getAnne(anne: Int) throws -> AnneePromo? {
+    func getAnne(anne: Int) throws -> AnneePromo?
+    {
+        if (anne < 3 || anne > 5)
+        {
+            return nil
+        }
+        return try getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[(anne - 3)]
         
-        let annees : AnneePromo = AnneePromo(context : CoreDataManager.context)
-        
-        if (anne == 3) {
-            annees.annee = 3
-        }
-        if (anne == 4) {
-            annees.annee = 4
-        }
-        if (anne == 5) {
-            annees.annee = 4
-        }
-        return annees
     }
 
 }

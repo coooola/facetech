@@ -38,11 +38,11 @@ class EvenementsSetModel: NSObject
     }
     
     /// Variable privée contenant tous les événements.
-    lazy var tousLesEvenements: NSFetchedResultsController<Evenement> = {
+    lazy var tousLesEvenements: NSFetchedResultsController<Evenement> =
+    {
         let request : NSFetchRequest<Evenement> = Evenement.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Evenement.dateEvenement), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Evenement.date), cacheName: nil)
-        
         fetchResultController.delegate = viewController
         
         return fetchResultController

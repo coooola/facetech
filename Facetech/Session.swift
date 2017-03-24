@@ -28,7 +28,8 @@ class Session : NSObject{
             return self.putilisateurConnecte
         }
         set{
-            if self.putilisateurConnecte == nil{
+            if self.putilisateurConnecte == nil
+            {
                 self.putilisateurConnecte = newValue
             }
         }
@@ -40,10 +41,7 @@ class Session : NSObject{
     {
         Session.putilisateurConnecte = nil;
     }
-    
-    
-    
-    
+
     
     
 }

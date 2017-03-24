@@ -25,9 +25,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
+        
+        
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,6 +78,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch type{
         case .insert:
             self.messageTable.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        //case .update:
+            //self.messageTable.reloadData()
         default:
             break
         }
@@ -136,15 +138,30 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    ///MARK: - Navigation
+    
+    @IBAction func unwindToMessageListAfterAddingNewMessage(segue: UIStoryboardSegue)
+    {
+        let createViewController = segue.source as! CreateMessageViewController
+        
+        //Créé le message si l'utilisateur est connecté et le message non vide
+        if (Session.utilisateurConnecte != nil){
+            
+            //Recupere les utilisateurs destinataires du message dans la variable
+            let typesUsers : [TypeUtilisateur] = createViewController.getTypesUtilisateurMsg()
+            
+            let annees : [AnneePromo] = createViewController.getAnneePromo()
+            
+            Message.createMessage(etreEcritPar: Session.utilisateurConnecte!, contenu: createViewController.msgText.text, typesUtilisateurs : typesUsers, anneesPromo : annees)
+            
+        }
+        else{
+            DialogBoxHelper.alertEmpty(view: self)
+        }
+        
+        self.messageTable.reloadData()
+    }
+    
     
 
 }
