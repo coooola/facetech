@@ -163,6 +163,7 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
+				A340E03D1E852E43008F26D6 /* Photos */,
 				A3F8D7A41E846F6C00289CC9 /* Icons */,
 				53B1F4F81E700EC6007730B8 /* Model */,
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
@@ -232,6 +233,13 @@
 			);
 			name = Extensions;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A340E03D1E852E43008F26D6 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Photos;
 			sourceTree = "<group>";
 		};
 		A3F7D6D71E70040D00AC5577 /* Class Helpers */ = {
