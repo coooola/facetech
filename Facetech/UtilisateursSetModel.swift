@@ -29,7 +29,7 @@ class UtilisateursSetModel : NSObject{
     ///   - prenom: prénom de l'utilisateur
     /// - Returns: l'utilisateur créé
     /// - Throws: retourne une erreur en cas d'erreur au moment de la sauvegard de l'objet créé
-    func insertUtilisateur(mail: String, nom: String, prenom: String, annee: AnneePromo, typeUtilisateur: TypeUtilisateur) throws -> Utilisateur
+    func insertUtilisateur(mail: String, nom: String, prenom: String, annee: AnneePromo?, typeUtilisateur: TypeUtilisateur) throws -> Utilisateur
     {
         let newUser = Utilisateur.createUtilisateur(mail: mail, nom: nom, prenom: prenom, annee: annee, typeUtilisateur: typeUtilisateur)
 
@@ -103,7 +103,7 @@ class UtilisateursSetModel : NSObject{
         do
         {
             _ = try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()
-            _ = try insertUtilisateur(mail: "admin@facetech.fr", nom: "Istrateur", prenom: "Admin", annee: AnneesSetModel.anneesSet.getToutesLesAnnees()[0], typeUtilisateur: (TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire"))!)
+            _ = try insertUtilisateur(mail: "admin@facetech.fr", nom: "Istrateur", prenom: "Admin", annee: nil, typeUtilisateur: (TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Secrétaire"))!)
         }
         catch _ as NSError
         {
