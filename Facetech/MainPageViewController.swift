@@ -103,6 +103,8 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         {
             messageErreurLabel.isHidden = true;
             Session.utilisateurConnecte = user;
+            self.identifiantTextField.text = "";
+            self.mdpTextField.text = "";
             return true
         }
         messageErreurLabel.isHidden = false;

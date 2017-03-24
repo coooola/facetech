@@ -133,9 +133,39 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
     /// Déconnecte l'utilisateur
     ///
     /// - Parameter sender: bouton de déconnexion
-    @IBAction func disconnect(_ sender: Any) {
+    @IBAction func disconnect(_ sender: Any)
+    {
         Session.session.disconnectUser()
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: - Create User functions
+    
+    
+    /// crée l'utilisateur après le retour sur l'écran d'update utilisateur
+    ///
+    /// - Parameter segue: CreateUserViewController
+    @IBAction func unwindToUpdateUserAfterAddingNewUser(segue: UIStoryboardSegue)
+    {
+        let createViewController = segue.source as! CreateUserViewController
+        do
+        {
+
+            var annee : AnneePromo? = nil
+                    if (try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[createViewController.typeUtilisateurPicker.selectedRow(inComponent: 0)] == TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Etudiant"))
+                    {
+                        annee = try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[createViewController.anneePicker.selectedRow(inComponent: 0)]
+                    }
+                    _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: createViewController.mail, nom: createViewController.nom, prenom: createViewController.prenom, annee: annee, typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[createViewController.typeUtilisateurPicker.selectedRow(inComponent: 0)])
+
+        }
+        catch let error as NSError
+        {
+            DialogBoxHelper.alert(view : self, error: error)
+        }
+
+    }
+    
     
     
     

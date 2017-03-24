@@ -110,22 +110,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         {
             DialogBoxHelper.alert(view : self, error: error)
         }
-        if (verif)
-        {
-            do
-            {
-                var annee : AnneePromo? = nil
-                if (try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[typeUtilisateurPicker.selectedRow(inComponent: 0)] == TypeUtilisateursSetModel.typeUtilisateurSet.getTypeUtilisateur(name: "Etudiant"))
-                {
-                    annee = try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[anneePicker.selectedRow(inComponent: 0)]
-                }
-                _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: annee, typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[typeUtilisateurPicker.selectedRow(inComponent: 0)])
-            }
-            catch let error as NSError
-            {
-                DialogBoxHelper.alert(view : self, error: error)
-            }
-        }
         
        return verif
     }

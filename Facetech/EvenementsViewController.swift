@@ -37,22 +37,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    /**func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type{
-        default:
-            break
-        }
-    }
-    
-**/
+    //MARK: - TABLE VIEW -
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = EvenementsSetModel.evenementSet.tousLesEvenements.sections else {return 0}

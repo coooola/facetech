@@ -18,22 +18,15 @@ class CreateMessageViewController: UIViewController {
     @IBOutlet weak var responsablesSwitch: UISwitch!
     @IBOutlet weak var cinqASwitch: UISwitch!
     
+    /// Action effectuée lors de l'appuie sur le bouton ’Annuler’ de la vue de création d'un message.
+    /// Cette action permet d'annuler l'ajout d'un message en appelant les différentes methodes necessaires
+    ///
+    /// - Parameter sender: sender button
     @IBAction func cancelAdd(_ sender: Any)
     {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /// Action effectuée lors de l'appuie sur le bouton ’Envoyer’ de la vue de création d'un message.
-    /// Cette action permet d'ajouter un message en appelant les différentes methodes necessaires
-    ///
-    /// - Parameter sender: sender button
-    @IBAction func addMessage(_ sender: Any)
-    {
 
-
-    }
-    
-    
     /// Permet de récuperer des types d'utilisateur en fonction de booleens recupéré grâce aux switch
     ///
     /// - Parameters:
@@ -114,6 +107,11 @@ class CreateMessageViewController: UIViewController {
      {
 
         if (self.msgText.text=="")
+        {
+            self.msgText.backgroundColor = UIColor.red
+            return false
+        }
+        if (!cinqASwitch.isOn && !quatreASwitch.isOn && !troisASwitch.isOn && !professeursSwitch.isOn && !responsablesSwitch.isOn && !secretairesSwitch.isOn)
         {
             self.msgText.backgroundColor = UIColor.red
             return false

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DocumentViewController: UIViewController, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class DocumentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var documentTableView: UITableView!
     
@@ -39,7 +39,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, NSFetchedRe
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, itleForHeaderInSection section: Int) -> String? {
         guard let section = DocumentSetModel.documentSet.tousLesDocuments.sections?[section] else {
             fatalError("unexpected section number")
         }

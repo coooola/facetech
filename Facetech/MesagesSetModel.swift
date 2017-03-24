@@ -39,10 +39,10 @@ class MesagesSetModel: NSObject
     
     /// Variable privée contenant tous les événements.
     lazy var tousLesMessages: NSFetchedResultsController<Message> =
-        {
-                print("JE PASSE DANS LE FETCH")
+    {
         let request : NSFetchRequest<Message> = Message.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Message.datePost), ascending: false)]
+            
         if (Session.utilisateurConnecte?.appartenirPromo == nil)
         {
             request.predicate = NSPredicate(format: "ANY etreLieTypeUtilisateur == %@ OR etreEcritPar == %@", (Session.utilisateurConnecte?.possederTypeUtilisateur)!, Session.utilisateurConnecte!)
@@ -51,6 +51,7 @@ class MesagesSetModel: NSObject
         {
             request.predicate = NSPredicate(format: "ANY etreLieTypeUtilisateur == %@ OR ANY etreLieAnne == %@ OR etreEcritPar == %@", (Session.utilisateurConnecte?.possederTypeUtilisateur)!, (Session.utilisateurConnecte?.appartenirPromo)!, Session.utilisateurConnecte!)
         }
+            
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Message.date), cacheName: nil)
         
         fetchResultController.delegate = viewController
