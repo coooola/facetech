@@ -87,7 +87,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
         if (self.mail=="")
         {
-            self.mailTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
+            self.mailTextField.placeholder = "FORMAT DU MAIL : christophe.fiorio@facetech.fr"
             self.mailTextField.backgroundColor = UIColor.red
             verif = false
         }
@@ -96,16 +96,19 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
             self.mailTextField.backgroundColor = UIColor.red
             verif = false
         }
-        if (verif)
+        do
         {
-            do
+            if (try UtilisateursSetModel.utilisateursSet.getUtilisateurByMail(mail: self.mail) != nil)
             {
-                _ = try UtilisateursSetModel.utilisateursSet.insertUtilisateur(mail: self.mail, nom: self.nom, prenom: self.prenom, annee: AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee})[anneePicker.selectedRow(inComponent: 0)], typeUtilisateur: TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs()[typeUtilisateurPicker.selectedRow(inComponent: 0)])
+                self.mailTextField.text = ""
+                self.mailTextField.placeholder = "MAIL DEJA PRIS"
+                self.mailTextField.backgroundColor = UIColor.red
+                verif = false
             }
-            catch let error as NSError
-            {
-                DialogBoxHelper.alert(view : self, error: error)
-            }
+        }
+        catch let error as NSError
+        {
+            DialogBoxHelper.alert(view : self, error: error)
         }
         
        return verif

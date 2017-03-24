@@ -9,12 +9,16 @@
 import UIKit
 import CoreData
 
-class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate{
+class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate,UISearchResultsUpdating
+    
+{
     
     @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
   
+    var filtredMessage = [Message]()
+    var resultSeachController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,23 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
+        
+        // l'initialisation de SeachController avec un UISearchController vide
+        self.resultSeachController = UISearchController(searchResultsController: nil)
+        
+        // Paramétrer le SeachController
+        self.resultSeachController.searchResultsUpdater = self
+        self.resultSeachController.dimsBackgroundDuringPresentation = false
+        self.resultSeachController.searchBar.sizeToFit()
+        
+        // Ajout de SeachController au Header du tableView
+        self.messageTable.tableHeaderView = self.resultSeachController.searchBar
+        
+        // Modifier le titre du notre SearchTableViewController
+        self.title = "Messages"
+        
+        // Actualisation du tableView
+        self.messageTable.reloadData()
         
         
     }
@@ -89,10 +110,15 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Table View data source protocol -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        if self.resultSeachController.isActive {
+            return self.filtredMessage.count
+        }
+        else{
         guard let section = MesagesSetModel.messageSet.tousLesMessages.sections?[section] else {
             fatalError("unexpected section number")
         }
         return section.numberOfObjects
+        }
     }
     
     
@@ -112,7 +138,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
-        let message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
+        
+        let message : Message
+        if self.resultSeachController.isActive {
+            message = self.filtredMessage[indexPath.row]
+        }
+        else{
+            message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
+        }
         self.messagePresenter.configure(theCell: cell, forMessage: message)
         cell.accessoryType = .detailButton
         return cell
@@ -131,6 +164,36 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         delete.backgroundColor = UIColor.red
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
+    }
+    
+    //MARK: - Search control
+    
+    func updateSearchResults(for searchController:  UISearchController)
+    {
+        // Supprimer tous les éléments du filtredTeams
+        self.filtredMessage.removeAll(keepingCapacity: false)
+        
+        // Créer le Predicate
+        //let searchPredicate = NSPredicate(format: "contenu CONTAINS[c] %@", searchController.searchBar.text!)
+        
+        // Créer un NSArray (ce array représente SELF dans le Predicate créé)
+        let array = MesagesSetModel.messageSet.tousLesMessages.fetchedObjects?.filter({
+            return (($0 as Message).contenu?.contains(searchController.searchBar.text!))!
+        })
+        
+        //{searchPredicate.evaluate(with: searchController.searchBar.text!) })
+        
+        // Nouveau filtredTeams de la requête du Predicate
+        if (array != nil)
+        {
+            self.filtredMessage = array!
+        }
+        
+        
+        
+        // Actualisation du tableView
+        self.messageTable.reloadData()
+        
     }
     
     
