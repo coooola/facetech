@@ -45,5 +45,28 @@ class DocumentSetModel: NSObject {
         return fetchResultController
     }()
     
+    /// Crée un Document
+    ///
+    /// - Parameters:
+    ///   - nom: Nom du document
+    ///   - url: Url du document
+    /// - Returns: Le document créé
+    /// - Throws: Erreur dans la création
+    func insertDocument(nom: String, url: String) throws -> Document
+    {
+        let newDoc = Document.createDocument(nomDocument: nom, urlDocument: url)
+        
+        if let error = CoreDataManager.save()
+        {
+            throw error
+        }
+        
+        //tousLesEvenements.append(newEvent)
+        
+        return newDoc
+    }
     
 }
+
+    
+

@@ -61,11 +61,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         let message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
-        Message.deleteMessage(message: message)
-    }
-    
-    func editHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        print("edit")
+        if (Session.utilisateurConnecte?.adresseMail == message.etreEcritPar?.adresseMail){
+            Message.deleteMessage(message: message)
+        }
     }
     
     
@@ -152,6 +150,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    
+    
     // tell if a particular row can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -160,10 +160,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
-        let edit = UITableViewRowAction(style: .default, title: "Modifier", handler: editHandlerAction)
         delete.backgroundColor = UIColor.red
-        edit.backgroundColor = UIColor.blue
-        return [delete, edit]
+        return [delete]
     }
     
     //MARK: - Search control

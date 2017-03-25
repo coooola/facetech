@@ -71,9 +71,9 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.heureLabel.text = dateFormatter.string(from: EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).dateEvenement as! Date)
                 cell.heureLabel.text = cell.heureLabel.text! + " : "
             }
-            //try print(EvenementsSetModel.evenementSet.getTousLesEvenements()[indexPath.row].aLieuLe?.date?.description ?? "Ca ne marche pas :) :)")
+           
             cell.nomEventLabel.text = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).nomEvenement
-
+        
         
         return cell
      }

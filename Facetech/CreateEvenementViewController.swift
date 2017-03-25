@@ -18,15 +18,13 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
     
     @IBOutlet weak var validerButton: UIButton!
     
-    
     var nomEvenement : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nomEvenementTextField.delegate = self
-        
-    }
+         }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,11 +42,12 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
         {
             self.nomEvenement = nomEv;
         }
-    }
+         }
     
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
         self.nomEvenementTextField.backgroundColor = UIColor.white
+        
     }
     
     /// <#Description#>

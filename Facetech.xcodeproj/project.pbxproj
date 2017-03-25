@@ -34,6 +34,8 @@
 		6FF0BE1F1E850078005060DF /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF0BE1C1E850078005060DF /* envelope.png */; };
 		6FF0BE221E850086005060DF /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF0BE201E850086005060DF /* file.png */; };
 		6FF0BE231E850086005060DF /* Logo_POLYTECH_Montpellier_couleur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FF0BE211E850086005060DF /* Logo_POLYTECH_Montpellier_couleur.jpg */; };
+		A316CED01E867F9600370B9E /* geometrique.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A316CECF1E867F9600370B9E /* geometrique.jpg */; };
+		A316CED21E86824000370B9E /* geomclair.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A316CED11E86824000370B9E /* geomclair.jpg */; };
 		A33D21B31E83FD6A00B90C61 /* CreateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33D21B21E83FD6A00B90C61 /* CreateMessageViewController.swift */; };
 		A36A5E4C1E683EEB003F3CCF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */; };
 		A39774A21E6D60290025281B /* MessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39774A11E6D60290025281B /* MessagePresenter.swift */; };
@@ -100,6 +102,8 @@
 		6FF0BE1C1E850078005060DF /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = SOURCE_ROOT; };
 		6FF0BE201E850086005060DF /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = SOURCE_ROOT; };
 		6FF0BE211E850086005060DF /* Logo_POLYTECH_Montpellier_couleur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_POLYTECH_Montpellier_couleur.jpg; sourceTree = SOURCE_ROOT; };
+		A316CECF1E867F9600370B9E /* geometrique.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geometrique.jpg; sourceTree = SOURCE_ROOT; };
+		A316CED11E86824000370B9E /* geomclair.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geomclair.jpg; sourceTree = SOURCE_ROOT; };
 		A33D21B21E83FD6A00B90C61 /* CreateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMessageViewController.swift; sourceTree = "<group>"; };
 		A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A39774A11E6D60290025281B /* MessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePresenter.swift; sourceTree = "<group>"; };
@@ -163,30 +167,21 @@
 		537BEF2D1E51A5430002AB09 /* Facetech */ = {
 			isa = PBXGroup;
 			children = (
-				A340E03D1E852E43008F26D6 /* Photos */,
 				A3F8D7A41E846F6C00289CC9 /* Icons */,
 				53B1F4F81E700EC6007730B8 /* Model */,
 				A3F7D6D71E70040D00AC5577 /* Class Helpers */,
 				53EE3C0F1E6829EF00519FFD /* Extensions */,
 				537BEF2E1E51A5430002AB09 /* AppDelegate.swift */,
 				537BEF321E51A5430002AB09 /* Main.storyboard */,
-				A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */,
-				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
-				A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */,
-				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
-				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
-				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
-				A33D21B21E83FD6A00B90C61 /* CreateMessageViewController.swift */,
-				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
-				A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */,
-				A39774A11E6D60290025281B /* MessagePresenter.swift */,
+				537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */,
+				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
+				A314EC001E8554AE007BB34D /* Utilisateur */,
+				A314EBFF1E8554A3007BB34D /* Calendrier */,
+				A314EBFE1E855493007BB34D /* Document */,
+				A314EBFD1E85548B007BB34D /* Message */,
 				537BEF301E51A5430002AB09 /* ViewController.swift */,
 				5316A5D91E52ED440037BEB8 /* MainPageViewController.swift */,
-				53A104E81E843FA6007AC176 /* UpdateUserViewController.swift */,
-				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
-				537BEF351E51A5430002AB09 /* Facetech.xcdatamodeld */,
 				537BEF3D1E51A5430002AB09 /* Info.plist */,
-				537BEF3A1E51A5430002AB09 /* LaunchScreen.storyboard */,
 				537BEF381E51A5430002AB09 /* Assets.xcassets */,
 			);
 			path = Facetech;
@@ -235,11 +230,44 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		A340E03D1E852E43008F26D6 /* Photos */ = {
+		A314EBFD1E85548B007BB34D /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				A33D21B21E83FD6A00B90C61 /* CreateMessageViewController.swift */,
+				A36A5E4B1E683EEB003F3CCF /* MessageViewController.swift */,
+				A3C9BC7F1E8442550068D65C /* MessageTableViewCell.swift */,
+				A39774A11E6D60290025281B /* MessagePresenter.swift */,
 			);
-			name = Photos;
+			name = Message;
+			sourceTree = "<group>";
+		};
+		A314EBFE1E855493007BB34D /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
+				A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */,
+				A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		A314EBFF1E8554A3007BB34D /* Calendrier */ = {
+			isa = PBXGroup;
+			children = (
+				6F1351D21E81998800463111 /* CreateEvenementViewController.swift */,
+				6F54CB641E818B7200A7E22B /* EvenementTableViewCell.swift */,
+				6F2D12901E7EC0C400B0B18E /* EvenementsViewController.swift */,
+			);
+			name = Calendrier;
+			sourceTree = "<group>";
+		};
+		A314EC001E8554AE007BB34D /* Utilisateur */ = {
+			isa = PBXGroup;
+			children = (
+				53A104E81E843FA6007AC176 /* UpdateUserViewController.swift */,
+				53EE3C171E68413900519FFD /* CreateUserViewController.swift */,
+			);
+			name = Utilisateur;
 			sourceTree = "<group>";
 		};
 		A3F7D6D71E70040D00AC5577 /* Class Helpers */ = {
@@ -255,6 +283,8 @@
 		A3F8D7A41E846F6C00289CC9 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A316CED11E86824000370B9E /* geomclair.jpg */,
+				A316CECF1E867F9600370B9E /* geometrique.jpg */,
 				6FF0BE201E850086005060DF /* file.png */,
 				6FF0BE211E850086005060DF /* Logo_POLYTECH_Montpellier_couleur.jpg */,
 				6FF0BE1A1E850078005060DF /* avatar.png */,
@@ -375,9 +405,11 @@
 				6FF0BE1D1E850078005060DF /* avatar.png in Resources */,
 				537BEF3C1E51A5430002AB09 /* LaunchScreen.storyboard in Resources */,
 				6FF0BE1E1E850078005060DF /* calendar.png in Resources */,
+				A316CED21E86824000370B9E /* geomclair.jpg in Resources */,
 				6FF0BE1F1E850078005060DF /* envelope.png in Resources */,
 				6FF0BE231E850086005060DF /* Logo_POLYTECH_Montpellier_couleur.jpg in Resources */,
 				537BEF391E51A5430002AB09 /* Assets.xcassets in Resources */,
+				A316CED01E867F9600370B9E /* geometrique.jpg in Resources */,
 				537BEF341E51A5430002AB09 /* Main.storyboard in Resources */,
 				6FF0BE221E850086005060DF /* file.png in Resources */,
 			);

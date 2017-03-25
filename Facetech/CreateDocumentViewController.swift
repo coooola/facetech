@@ -13,7 +13,10 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var urlDocTextField: UITextField!
     @IBOutlet weak var nomDocTextField: UITextField!
     
-    @IBAction func addDocButton(_ sender: Any) {
+    var nomDoc : String = ""
+    var urlDoc : String = ""
+    
+    /*@IBAction func addDocButton(_ sender: Any) {
         
         let nom = self.nomDocTextField.text
         let url = self.urlDocTextField.text
@@ -30,7 +33,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
             DialogBoxHelper.alertEmpty(view: self)
         }
         
-    }
+    }*/
     
     
     // Do any additional setup after loading the view.
@@ -49,7 +52,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     /// <#Description#>
     ///
     /// - Parameter textField: <#textField description#>
-    /*func textFieldDidEndEditing(_ textField: UITextField)
+    func textFieldDidEndEditing(_ textField: UITextField)
     {
         if  let nomDocc = self.nomDocTextField.text
         {
@@ -60,6 +63,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
             self.urlDoc = urlDocc
         }
     }
+
     
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
@@ -90,6 +94,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     /// <#Description#>
     ///
@@ -117,7 +122,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
         
         return true
         
-    }*/
+    }
     
 
     /*

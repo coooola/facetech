@@ -12,7 +12,7 @@ import CoreData
 extension Document{
     
     
-    static func createDocument(nomDocument: String, urlDocument: String)
+    static func createDocument(nomDocument: String, urlDocument: String) -> Document
     {
         let newDoc = Document(context : CoreDataManager.context)
         newDoc.nomDocument = nomDocument
@@ -20,7 +20,7 @@ extension Document{
         newDoc.dateCreationDocument = NSDate()
         
         CoreDataManager.save()
-        
+        return newDoc
     }
     
     var time: String {

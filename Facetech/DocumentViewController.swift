@@ -23,23 +23,23 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
-
-
-        // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    //MARK: - TABLE VIEW -
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = DocumentSetModel.documentSet.tousLesDocuments.sections else {return 0}
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, itleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = DocumentSetModel.documentSet.tousLesDocuments.sections?[section] else {
             fatalError("unexpected section number")
         }
@@ -56,7 +56,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! DocumentTableViewCell
+        let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "cellDoc", for: indexPath) as! DocumentTableViewCell
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
         dateFormatter.dateFormat = "HH:mm"
@@ -70,12 +70,12 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: - Navigation
     
-    @IBAction func unwindToEventListAfterAddingNewEvent(segue: UIStoryboardSegue)
+    @IBAction func unwindToDocumentListAfterAddingNewDocument(segue: UIStoryboardSegue)
     {
-        let createViewController = segue.source as! CreateEvenementViewController
+        let createViewController = segue.source as! CreateDocumentViewController
         do
         {
-            _ = try EvenementsSetModel.evenementSet.insertEvenement(nom: createViewController.nomEvenement, date: createViewController.dateEvenementDatePicker.date);
+            _ = try DocumentSetModel.documentSet.insertDocument(nom: createViewController.nomDoc, url: createViewController.urlDoc);
         }
         catch let error as NSError
         {
