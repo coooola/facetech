@@ -13,6 +13,9 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var documentTableView: UITableView!
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,17 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
+        
+        // Permet de ne faire apparaitre le bouton pour ajouter un document officiel uniquement si l'utilisateur est un secrétaire ou un responsable
+        if (Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur == "Etudiant" || Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur == "Enseignant"){
+            addButton?.isEnabled      = false
+            addButton?.tintColor    = UIColor.clear
+        }else{
+            addButton?.isEnabled      = true
+            addButton?.tintColor    = nil
+        }
+        
+        
     }
 
     
@@ -57,7 +71,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "cellDoc", for: indexPath) as! DocumentTableViewCell
+        let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "cellDocument", for: indexPath) as! DocumentTableViewCell
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
         dateFormatter.dateFormat = "HH:mm"
@@ -76,7 +90,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         let createViewController = segue.source as! CreateDocumentViewController
         do
         {
-            _ = try DocumentSetModel.documentSet.insertDocument(nom: createViewController.nomDoc, url: createViewController.urlDoc);
+            _ = try DocumentSetModel.documentSet.insertDocument(nomdoc: createViewController.nomDoc, urldoc: createViewController.urlDoc);
         }
         catch let error as NSError
         {

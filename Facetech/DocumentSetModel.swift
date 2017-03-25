@@ -34,12 +34,11 @@ class DocumentSetModel: NSObject {
         }
     }
     
-    /// Variable privée contenant tous les événements.
+    /// Variable privée contenant tous les documents.
     lazy var tousLesDocuments: NSFetchedResultsController<Document> = {
         let request : NSFetchRequest<Document> = Document.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Document.dateCreationDocument), ascending: false)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Document.dateCreationDocument), cacheName: nil)
-        
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Document.dateCreationDocument), ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Document.date), cacheName: nil)
         fetchResultController.delegate = viewController
         
         return fetchResultController
@@ -52,9 +51,9 @@ class DocumentSetModel: NSObject {
     ///   - url: Url du document
     /// - Returns: Le document créé
     /// - Throws: Erreur dans la création
-    func insertDocument(nom: String, url: String) throws -> Document
+    func insertDocument(nomdoc: String, urldoc: String) throws -> Document
     {
-        let newDoc = Document.createDocument(nomDocument: nom, urlDocument: url)
+        let newDoc = Document.createDocument(nom: nomdoc, url: urldoc)
         
         if let error = CoreDataManager.save()
         {
