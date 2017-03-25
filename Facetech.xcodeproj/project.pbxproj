@@ -244,9 +244,9 @@
 		A314EBFE1E855493007BB34D /* Document */ = {
 			isa = PBXGroup;
 			children = (
-				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
 				A3C9BC851E844C080068D65C /* CreateDocumentViewController.swift */,
 				A3C9BC831E844BB40068D65C /* DocumentTableViewCell.swift */,
+				A3C9BC811E844B760068D65C /* DocumentViewController.swift */,
 			);
 			name = Document;
 			sourceTree = "<group>";

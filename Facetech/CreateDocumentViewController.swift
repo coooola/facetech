@@ -16,30 +16,11 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     var nomDoc : String = ""
     var urlDoc : String = ""
     
-    /*@IBAction func addDocButton(_ sender: Any) {
-        
-        let nom = self.nomDocTextField.text
-        let url = self.urlDocTextField.text
-        
-        //Créé le message si le nom et l'url sont non vide
-        if ((nom != nil) || (url != nil)){
-            
-            Document.createDocument(nomDocument: nom!, urlDocument: url!)
-            
-            self.nomDocTextField.text=nil
-            self.urlDocTextField.text=nil
-        }
-        else{
-            DialogBoxHelper.alertEmpty(view: self)
-        }
-        
-    }*/
-    
-    
     // Do any additional setup after loading the view.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        nomDocTextField.delegate = self
+        urlDocTextField.delegate = self
     }
     
     // Dispose of any resources that can be recreated.
@@ -68,6 +49,7 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
         self.nomDocTextField.backgroundColor = UIColor.white
+        self.urlDocTextField.backgroundColor = UIColor.white
     }
     
     /// <#Description#>
@@ -82,20 +64,13 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Actions
     
-    @IBAction func cancelAction(_ sender: Any)
-    {
+    @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    
+     
     /// <#Description#>
     ///
     /// - Parameters:
@@ -105,6 +80,8 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
         self.textFieldDidEndEditing(nomDocTextField)
+        self.textFieldDidEndEditing(urlDocTextField)
+
         
         if (self.nomDoc=="")
         {

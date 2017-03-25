@@ -21,6 +21,12 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
     
     @IBOutlet weak var confirmationNouveauMotDePasseTextFied: UITextField!
     
+    @IBOutlet weak var prenomLable: UILabel!
+    
+    @IBOutlet weak var nomLabel: UILabel!
+    
+    @IBOutlet weak var groupeLabel: UILabel!
+    
     
     //MARK: - UIViewController function
     
@@ -32,6 +38,22 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
         if (Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur == "Secrétaire"){
             createUser.isHidden = false
         }
+        
+        // Affiche les informations de l'utilisateur
+        prenomLable.text = Session.utilisateurConnecte?.prenom
+        nomLabel.text = Session.utilisateurConnecte?.nom
+        
+        let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        
+        if (utilisateur == "Etudiant"){
+            
+            let annee = Session.utilisateurConnecte?.appartenirPromo?.annee
+            groupeLabel.text = utilisateur! + " " + (annee?.description)! + "A"
+        }
+        else{
+            groupeLabel.text = utilisateur
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
