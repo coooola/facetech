@@ -9,17 +9,17 @@
 import UIKit
 import CoreData
 
-class DocumentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class DocumentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var documentTableView: UITableView!
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.documentTableView.delegate = self
+
         do{
             DocumentSetModel.viewController = self
             try DocumentSetModel.documentSet.tousLesDocuments.performFetch()
@@ -36,8 +36,6 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
             addButton?.isEnabled      = true
             addButton?.tintColor    = nil
         }
-        
-        
     }
 
     
@@ -50,35 +48,34 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: - TABLE VIEW -
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let sections = DocumentSetModel.documentSet.tousLesDocuments.sections else {return 0}
+        guard let sections = DocumentSetModel.documentSet.getTousDoc().sections else {return 0}
         return sections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let section = DocumentSetModel.documentSet.tousLesDocuments.sections?[section] else {
-            fatalError("unexpected section number")
+        guard let section = DocumentSetModel.documentSet.getTousDoc().sections?[section] else {
+            fatalError("unexpected section name")
         }
         return section.name
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        guard let section = DocumentSetModel.documentSet.tousLesDocuments.sections?[section] else {
+        guard let section = DocumentSetModel.documentSet.getTousDoc().sections?[section] else {
             fatalError("unexpected section number")
         }
         return section.numberOfObjects
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "cellDocument", for: indexPath) as! DocumentTableViewCell
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
-        dateFormatter.dateFormat = "HH:mm"
         
-        cell.nomDocumentLabel.text = DocumentSetModel.documentSet.tousLesDocuments.object(at: indexPath).nomDocument
-        cell.urlDocumentLabel.text = DocumentSetModel.documentSet.tousLesDocuments.object(at: indexPath).urlDocument
+       let nom = DocumentSetModel.documentSet.getTousDoc().object(at: indexPath).nomDocument
+        let url = DocumentSetModel.documentSet.getTousDoc().object(at: indexPath).urlDocument
         
+            cell.nomDocumentLabel?.text = nom
+            cell.urlDocumentLabel?.text = url
+            cell.urlDocumentLabel?.linkTextAttributes = [ NSForegroundColorAttributeName: UIColor.blue ]
         return cell
     }
     
@@ -90,7 +87,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         let createViewController = segue.source as! CreateDocumentViewController
         do
         {
-            _ = try DocumentSetModel.documentSet.insertDocument(nomdoc: createViewController.nomDoc, urldoc: createViewController.urlDoc);
+            try DocumentSetModel.documentSet.insertDocument(nomdoc: createViewController.nomDoc, urldoc: createViewController.urlDoc);
         }
         catch let error as NSError
         {
@@ -109,6 +106,8 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.documentTableView.endUpdates()
+        self.documentTableView.reloadData()
+        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
@@ -122,7 +121,6 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
             break
         }
     }
-    
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type{

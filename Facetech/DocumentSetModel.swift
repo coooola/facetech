@@ -35,7 +35,8 @@ class DocumentSetModel: NSObject {
     }
     
     /// Variable privée contenant tous les documents.
-    lazy var tousLesDocuments: NSFetchedResultsController<Document> = {
+    lazy var tousLesDocuments: NSFetchedResultsController<Document> =
+        {
         let request : NSFetchRequest<Document> = Document.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Document.dateCreationDocument), ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Document.date), cacheName: nil)
@@ -43,6 +44,10 @@ class DocumentSetModel: NSObject {
         
         return fetchResultController
     }()
+    
+    func getTousDoc() -> NSFetchedResultsController<Document> {
+        return tousLesDocuments
+    }
     
     /// Crée un Document
     ///
@@ -61,9 +66,10 @@ class DocumentSetModel: NSObject {
         }
         
         //tousLesEvenements.append(newEvent)
-        
+
         return newDoc
     }
+    
     
 }
 

@@ -35,14 +35,14 @@ class CreateDocumentViewController: UIViewController, UITextFieldDelegate {
     /// - Parameter textField: <#textField description#>
     func textFieldDidEndEditing(_ textField: UITextField)
     {
-        if  let nomDocc = self.nomDocTextField.text
-        {
-            self.nomDoc = nomDocc
-        }
-        if  let urlDocc = self.urlDocTextField.text
-        {
-            self.urlDoc = urlDocc
-        }
+        //if  let nomDocc = self.nomDocTextField.text
+        //{
+            self.nomDoc = self.nomDocTextField.text ?? ""
+        //}
+        //if  let urlDocc = self.urlDocTextField.text
+        //{
+            self.urlDoc = self.urlDocTextField.text ?? ""
+       // }
     }
 
     

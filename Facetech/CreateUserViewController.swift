@@ -172,11 +172,12 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
             {
                 return try TypeUtilisateursSetModel.typeUtilisateurSet.getTousLesTypesUtilisateurs().count
             }
-                
+            
             else
             {
                 return try AnneesSetModel.anneesSet.getToutesLesAnnees().sorted(by: { $0.annee < $1.annee}).count
             }
+           
         }
         catch let error as NSError
         {

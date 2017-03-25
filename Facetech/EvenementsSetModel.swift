@@ -71,4 +71,5 @@ class EvenementsSetModel: NSObject
         return newEvent
     }
     
+    
 }

@@ -12,8 +12,8 @@ class DocumentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellDocument: UIView!
     
-    @IBOutlet weak var urlDocumentLabel: UITextView!
-    @IBOutlet weak var nomDocumentLabel: UILabel!
+    @IBOutlet weak var urlDocumentLabel: UITextView?
+    @IBOutlet weak var nomDocumentLabel: UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
