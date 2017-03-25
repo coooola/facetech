@@ -145,18 +145,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
         }
         self.messagePresenter.configure(theCell: cell, forMessage: message)
-        cell.accessoryType = .detailButton
         return cell
     }
-    
-    
     
     
     // tell if a particular row can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
@@ -170,34 +166,22 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         // Supprimer tous les éléments du filtredTeams
         self.filtredMessage.removeAll(keepingCapacity: false)
-        
-        // Créer le Predicate
-        //let searchPredicate = NSPredicate(format: "contenu CONTAINS[c] %@", searchController.searchBar.text!)
-        
+
         // Créer un NSArray (ce array représente SELF dans le Predicate créé)
         let array = MesagesSetModel.messageSet.tousLesMessages.fetchedObjects?.filter({
             return (($0 as Message).contenu?.contains(searchController.searchBar.text!))!
         })
-        
-        //{searchPredicate.evaluate(with: searchController.searchBar.text!) })
         
         // Nouveau filtredTeams de la requête du Predicate
         if (array != nil)
         {
             self.filtredMessage = array!
         }
-        
-        
-        
         // Actualisation du tableView
         self.messageTable.reloadData()
-        
     }
     
-    
-    
-    
-    
+
     
     ///MARK: - Navigation
     

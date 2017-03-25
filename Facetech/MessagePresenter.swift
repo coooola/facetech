@@ -76,6 +76,16 @@ class MessagePresenter: NSObject {
         cell.groupsLabel.text = typesString
         cell.hourLabel.text = self.message?.time
         
+        let utilisateur = self.message?.etreEcritPar?.possederTypeUtilisateur?.libelleTypeUtilisateur
         
+        
+        if (utilisateur == "Etudiant"){
+            
+            let annee = self.message?.etreEcritPar?.appartenirPromo?.annee
+            cell.selfGroupLabel.text = utilisateur! + " en " + (annee?.description)! + "ème année"
+        }
+        else{
+            cell.selfGroupLabel.text = utilisateur
+        }
     }
 }
