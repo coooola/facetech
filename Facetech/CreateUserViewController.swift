@@ -13,30 +13,23 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
 {
 
     
-    //MARK: - Objects
-    
-    //MARK: Textfield
+    //MARK: - OUTLETS -
     
     @IBOutlet weak var prenomTextField: UITextField!
-    
     @IBOutlet weak var nomTextField: UITextField!
-    
     @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var anneePicker: UIPickerView!
+    @IBOutlet weak var typeUtilisateurPicker: UIPickerView!
+    
+    
+    //MARK: - VARIABLES -
     
     var prenom : String = "";
     var nom : String = "";
     var mail : String = "";
     
-    //MARK: Picker
     
-    @IBOutlet weak var anneePicker: UIPickerView!
-    
-    
-    @IBOutlet weak var typeUtilisateurPicker: UIPickerView!
-    
-    
-    
-    //MARK: - UIViewController function
+    //MARK: - UIViewController function -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +37,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, UIPickerV
         prenomTextField.delegate = self
         nomTextField.delegate = self
         mailTextField.delegate = self
-        
     }
 
     override func didReceiveMemoryWarning() {

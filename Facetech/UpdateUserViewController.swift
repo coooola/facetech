@@ -11,20 +11,15 @@ import CoreData
 
 class UpdateUserViewController: UIViewController, UITextFieldDelegate
 {
+    //MARK: - OUTLETS -
     
-    
+    @IBOutlet weak var listeUtilisateurs: UIButton!
     @IBOutlet weak var createUser: UIButton!
-    
     @IBOutlet weak var ancienMotDePasseTextField: UITextField!
-    
     @IBOutlet weak var nouveauMotDePasseTextField: UITextField!
-    
     @IBOutlet weak var confirmationNouveauMotDePasseTextFied: UITextField!
-    
     @IBOutlet weak var prenomLable: UILabel!
-    
     @IBOutlet weak var nomLabel: UILabel!
-    
     @IBOutlet weak var groupeLabel: UILabel!
     
     
@@ -32,6 +27,15 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Si l'utilisateur est un secrétaire, un responsable ou un enseignant le bouton liste des utilisateur est visible, sinon il est caché
+       listeUtilisateurs.isHidden = true
+        let user = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        
+        if (user != "Etudiant"){
+            listeUtilisateurs.isHidden = false
+        }
+
         
         // Si l'utilisateur est un secrétaire, le bouton ajouter un utilisateur est visible, sinon il est caché
         createUser.isHidden = true
@@ -61,7 +65,8 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Update User functions
+    
+    //MARK: - Update User functions -
     
     @IBAction func updateUser(_ sender: Any)
     {
@@ -77,7 +82,6 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
         alert.addAction(okAction)
         
         present(alert, animated: true)
-        
     }
     
     
@@ -150,7 +154,7 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
     }
     
     
-    //MARK: - Disconnect User functions
+    //MARK: - Disconnect User functions -
     
     /// Déconnecte l'utilisateur
     ///
@@ -161,10 +165,10 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
         self.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: - Create User functions
+    //MARK: - Create User functions -
     
     
-    /// crée l'utilisateur après le retour sur l'écran d'update utilisateur
+    /// Crée l'utilisateur après le retour sur l'écran d'update utilisateur
     ///
     /// - Parameter segue: CreateUserViewController
     @IBAction func unwindToUpdateUserAfterAddingNewUser(segue: UIStoryboardSegue)
@@ -185,7 +189,6 @@ class UpdateUserViewController: UIViewController, UITextFieldDelegate
         {
             DialogBoxHelper.alert(view : self, error: error)
         }
-
     }
     
     

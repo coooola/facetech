@@ -12,11 +12,19 @@ import CoreData
 class CreateEvenementViewController: UIViewController, UITextFieldDelegate
 {
     
+    //MARK: - OUTLETS -
+    
     @IBOutlet weak var nomEvenementTextField: UITextField!
     @IBOutlet weak var dateEvenementDatePicker: UIDatePicker!
     @IBOutlet weak var validerButton: UIButton!
     
+    
+    //MARK: - VARIABLE -
+    
     var nomEvenement : String = ""
+    
+    
+    //MARK: - UIViewController function -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +36,7 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - UITextFieldDelegate Functions
+    //MARK: - UITextFieldDelegate Functions -
     
     /// <#Description#>
     ///
@@ -57,41 +65,34 @@ class CreateEvenementViewController: UIViewController, UITextFieldDelegate
         return true;
     }
     
-    //MARK: - Actions
+    //MARK: - Actions -
     
+    /// Go to the previous page
+    ///
     @IBAction func cancelAction(_ sender: Any)
     {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Navigation
+    // MARK: - Navigation -
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
     
-    /// <#Description#>
+    /// Check if the textField are not empty
     ///
     /// - Parameters:
-    ///   - identifier: <#identifier description#>
-    ///   - sender: <#sender description#>
-    /// - Returns: <#return value description#>
+    ///   - identifier: the identifier
+    ///   - sender: the sender
+    /// - Returns: a boolean true if it's not empty
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
     {
         self.textFieldDidEndEditing(nomEvenementTextField)
-        
         if (self.nomEvenement=="")
         {
                 self.nomEvenementTextField.placeholder = "REMPLISSEZ CE CHAMP SVP"
                 self.nomEvenementTextField.backgroundColor = UIColor.red
                 return false
         }
-        
-        
         return true
-
     }
     
     

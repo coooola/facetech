@@ -12,13 +12,18 @@ import CoreData
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate,UISearchResultsUpdating
     
 {
+    //MARK: - OUTLETS -
     
     @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var messageTable: UITableView!
     @IBOutlet var messagePresenter: MessagePresenter!
   
+    //MARK: - VARIABLES -
+
     var filtredMessage = [Message]()
     var resultSeachController = UISearchController()
+    
+    //MARK: - UIViewController function -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +51,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Actualisation du tableView
         self.messageTable.reloadData()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +62,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Action handler -
     
+    /// Call the delete function
+    ///
+    /// - Parameters:
+    ///   - action: the action
+    ///   - indexPath: the index of the message to delete
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         
         let message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
@@ -72,6 +80,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
    
     // MARK: - Controller -
+    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.messageTable.beginUpdates()
@@ -104,10 +113,16 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             break
         }
     }
-    
+
     
     // MARK: - Table View data source protocol -
     
+    /// Return the number row in a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: teh section
+    /// - Returns: number of row in the section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if self.resultSeachController.isActive {
             return self.filtredMessage.count
@@ -120,13 +135,22 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
+    /// Return the number of sections
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    /// - Returns: number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = MesagesSetModel.messageSet.tousLesMessages.sections else {return 0}
         return sections.count
     }
     
-    
+    /// Return the name of a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: the section
+    /// - Returns: the name of the section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = MesagesSetModel.messageSet.tousLesMessages.sections?[section] else {
             fatalError("unexpected section number")
@@ -134,7 +158,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         return section.name
     }
     
-    
+    /// Define the cell of the tableview
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - indexPath: the index of each cell
+    /// - Returns: the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.messageTable.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
         
@@ -150,11 +179,22 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    // tell if a particular row can be edited
+    /// Tell if a tableview can be edited
+    ///
+    /// - Parameters:
+    ///   - tableView: tableview related
+    ///   - indexPath: index for the table
+    /// - Returns: YES the table can be edited or NO
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    /// Give different options for a selected row
+    ///
+    /// - Parameters:
+    ///   - tableView: the tablevView
+    ///   - indexPath: the index path of the cell
+    /// - Returns: the type of action
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red

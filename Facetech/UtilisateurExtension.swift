@@ -38,6 +38,14 @@ extension Utilisateur{
         
     }
     
+    /// Supprime un utilisateur de la base de données
+    ///
+    /// - Parameter utilisateur: l'utilisateur à supprimer
+    static func deleteUtilisateur(utilisateur : Utilisateur)
+    {
+        CoreDataManager.context.delete(utilisateur)
+    }
+    
     
 
     

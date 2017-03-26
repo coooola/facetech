@@ -12,16 +12,16 @@ import CoreData
 
 class EvenementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
 {
+    //MARK: - OUTLETS -
     
     @IBOutlet weak var evenementTableView: UITableView!
     
+    //MARK: - UIViewController function -
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         self.evenementTableView.delegate = self
-        
         do{
             EvenementsSetModel.viewController = self
             try EvenementsSetModel.evenementSet.tousLesEvenements.performFetch()
@@ -29,10 +29,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
-        
     }
-    
-    
     
     override func didReceiveMemoryWarning()
     {
@@ -58,11 +55,22 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //MARK: - TABLE VIEW -
     
+    /// Return the number of section of a tableView
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    /// - Returns: the number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = EvenementsSetModel.evenementSet.getTousEvent().sections else {return 0}
         return sections.count
     }
     
+    /// Return the name of a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: the section
+    /// - Returns: the name of the section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = EvenementsSetModel.evenementSet.getTousEvent().sections?[section] else {
             fatalError("unexpected section name")
@@ -70,6 +78,12 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         return section.name
     }
     
+    /// Return the number row in a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: teh section
+    /// - Returns: number of row in the section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         guard let section = EvenementsSetModel.evenementSet.getTousEvent().sections?[section] else {
             fatalError("unexpected section number")
@@ -78,7 +92,13 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    /// Define the cell of the tableview
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - indexPath: the index of each cell
+    /// - Returns: the cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
      {
         let cell = self.evenementTableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EvenementTableViewCell
             let dateFormatter = DateFormatter()

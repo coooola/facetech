@@ -10,9 +10,13 @@ import UIKit
 
 class ListeUserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nomLabel: UILabel!
+    //MARK: - OUTLETS -
     
+    @IBOutlet weak var nomLabel: UILabel!
     @IBOutlet weak var prenomLabel: UILabel!
+    
+    
+    //MARK: - UIViewController function -
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +25,6 @@ class ListeUserTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

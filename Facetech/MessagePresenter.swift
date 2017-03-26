@@ -9,6 +9,9 @@
 import Foundation
 
 class MessagePresenter: NSObject {
+    
+    //MARK: - VARIABLES -
+    
     fileprivate var contenu :  String = ""
     fileprivate var prenom : String = ""
     fileprivate var nom : String = ""
@@ -41,9 +44,14 @@ class MessagePresenter: NSObject {
         // Récuperation et concaténation des groupes auquels ont été lié le message
         
         self.message = forMessage
+        
         guard let cell = theCell else { return }
         
         let types = self.message?.etreLieTypeUtilisateur?.objectEnumerator()
+        let annees = self.message?.etreLieAnne?.objectEnumerator()
+        let utilisateur = self.message?.etreEcritPar?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        
+        var valueA : AnneePromo? = annees?.nextObject() as? AnneePromo
         var typesString : String = ""
         var value : TypeUtilisateur? = types?.nextObject() as? TypeUtilisateur
         
@@ -52,10 +60,6 @@ class MessagePresenter: NSObject {
             typesString = typesString + type! + ", "
             value = types?.nextObject() as? TypeUtilisateur
         }
-        
-        let annees = self.message?.etreLieAnne?.objectEnumerator()
-        
-        var valueA : AnneePromo? = annees?.nextObject() as? AnneePromo
         
         while (valueA != nil) {
             let annee = valueA!.annee
@@ -69,16 +73,6 @@ class MessagePresenter: NSObject {
             typesString.remove(at: typesString.index(before: typesString.endIndex))
         }
         
-        cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
-        cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
-        cell.contenuMsg.text = self.message?.contenu
-        cell.dateLabel.text = self.message?.date
-        cell.groupsLabel.text = typesString
-        cell.hourLabel.text = self.message?.time
-        
-        let utilisateur = self.message?.etreEcritPar?.possederTypeUtilisateur?.libelleTypeUtilisateur
-        
-        
         if (utilisateur == "Etudiant"){
             
             let annee = self.message?.etreEcritPar?.appartenirPromo?.annee
@@ -87,5 +81,14 @@ class MessagePresenter: NSObject {
         else{
             cell.selfGroupLabel.text = utilisateur
         }
-    }
+
+        
+        cell.firstNameLabel.text = self.message?.etreEcritPar?.prenom
+        cell.lastNameLabel.text = self.message?.etreEcritPar?.nom
+        cell.contenuMsg.text = self.message?.contenu
+        cell.dateLabel.text = self.message?.date
+        cell.groupsLabel.text = typesString
+        cell.hourLabel.text = self.message?.time
+  
+            }
 }

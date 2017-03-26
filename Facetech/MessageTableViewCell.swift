@@ -10,7 +10,8 @@ import UIKit
 
 class MessageTableViewCell: UITableViewCell {
 
-    // Les label d'une vue
+    //MARK: - OUTLETS -
+    
     @IBOutlet weak var groupsLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -18,6 +19,8 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var contenuMsg: UITextView!
     @IBOutlet weak var selfGroupLabel: UILabel!
+    
+    //MARK: - UIViewController function -
     
     // Initialization code
     override func awakeFromNib() {

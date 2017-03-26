@@ -58,11 +58,23 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: - TABLE VIEW -
     
+    
+    /// Return the number of section of a tableView
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    /// - Returns: the number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = DocumentSetModel.documentSet.getTousDoc().sections else {return 0}
         return sections.count
     }
     
+    /// Return the name of a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: the section
+    /// - Returns: the name of the section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let section = DocumentSetModel.documentSet.getTousDoc().sections?[section] else {
             fatalError("unexpected section name")
@@ -70,6 +82,13 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         return section.name
     }
     
+    
+    /// Return the number row in a section
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - section: the section
+    /// - Returns: number of row in the section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         guard let section = DocumentSetModel.documentSet.getTousDoc().sections?[section] else {
             fatalError("unexpected section number")
@@ -77,6 +96,13 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         return section.numberOfObjects
     }
     
+    
+    /// Define the cell of the tableview
+    ///
+    /// - Parameters:
+    ///   - tableView: the table view
+    ///   - indexPath: the index of each cell
+    /// - Returns: the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.documentTableView.dequeueReusableCell(withIdentifier: "cellDocument", for: indexPath) as! DocumentTableViewCell
@@ -90,11 +116,22 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    // tell if a particular row can be edited
+    /// Tell if a particular row of a tableview can be edited
+    ///
+    /// - Parameters:
+    ///   - tableView: the tableview
+    ///   - indexPath: the index of the row
+    /// - Returns: YES the table can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    /// Give different options for a selected row
+    ///
+    /// - Parameters:
+    ///   - tableView: the tablevView
+    ///   - indexPath: the index path of the cell
+    /// - Returns: the type of action
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red

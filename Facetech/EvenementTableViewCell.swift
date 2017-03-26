@@ -10,10 +10,12 @@ import UIKit
 
 class EvenementTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var heureLabel: UILabel!
+    //MARK: - OUTLETS -
     
+    @IBOutlet weak var heureLabel: UILabel!
     @IBOutlet weak var nomEventLabel: UILabel!
     
+    //MARK: - UIViewController function -
 
     override func awakeFromNib() {
         super.awakeFromNib()
