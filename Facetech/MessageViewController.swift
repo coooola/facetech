@@ -29,6 +29,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         do{
             MesagesSetModel.viewController = self
+            MesagesSetModel.messageSet = MesagesSetModel()
+            
             try MesagesSetModel.messageSet.tousLesMessages.performFetch()
         }
         catch let error as NSError{

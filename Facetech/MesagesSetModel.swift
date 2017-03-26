@@ -19,7 +19,7 @@ class MesagesSetModel: NSObject
     }()
     
     /// Override de l'init pour éviter les instanciations externes.
-    private override init() {}
+    override init() {}
     
     static private var pViewController : NSFetchedResultsControllerDelegate? = nil
     
