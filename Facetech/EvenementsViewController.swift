@@ -40,7 +40,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Action handler -
     
-   /* func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+   func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
         
         let event = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath)
         
@@ -49,7 +49,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         if ( utilisateur == "Responsable" || utilisateur == "Secrétaire"){
             Evenement.deleteEvenement(evenement: event)
         }
-    }*/
+    }
 
     
     
@@ -117,7 +117,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
      }
     
-   /* // tell if a particular row can be edited
+   // tell if a particular row can be edited
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -126,7 +126,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
         delete.backgroundColor = UIColor.red
         return [delete]
-    }*/
+    }
 
     
     //MARK: - Navigation
@@ -166,13 +166,13 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
             if let newIndexPath = newIndexPath{
                 self.evenementTableView.insertRows(at: [newIndexPath], with: .fade)
             }
-        /*case .delete:
+        case .delete:
             if let indexPath = indexPath{
                 self.evenementTableView.deleteRows(at: [indexPath], with: .automatic)
-            }*/
-
-            default:
-            break
+            }
+ 
+        default:
+        break
         }
     }
     
@@ -181,6 +181,8 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         switch type{
         case .insert:
             self.evenementTableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            self.evenementTableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             break
         }

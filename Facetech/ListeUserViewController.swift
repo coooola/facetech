@@ -35,15 +35,6 @@ class ListeUserViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Action handler -
-    
-    /*func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        
-        let user = UtilisateursSetModel.utilisateursSet.getTousUtilisateurs().object(at: indexPath)
-        
-        Utilisateur.deleteUtilisateur(utilisateur: user)
-        
-    }*/
     
     //MARK: - TABLE VIEW -
     
@@ -102,18 +93,6 @@ class ListeUserViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
-    
-     /*// tell if a particular row can be edited
-     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     
-     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-     let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
-     delete.backgroundColor = UIColor.red
-     return [delete]
-     }
-    */
 
 
 

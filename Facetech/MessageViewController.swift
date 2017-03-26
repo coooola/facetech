@@ -109,6 +109,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch type{
         case .insert:
             self.messageTable.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            self.messageTable.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             break
         }

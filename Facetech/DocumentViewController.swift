@@ -189,6 +189,8 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         switch type{
         case .insert:
             self.documentTableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            self.documentTableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             break
         }
