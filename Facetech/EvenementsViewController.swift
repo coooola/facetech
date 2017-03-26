@@ -41,23 +41,37 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    // MARK: - Action handler -
+    
+   /* func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        
+        let event = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath)
+        
+        let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        
+        if ( utilisateur == "Responsable" || utilisateur == "Secrétaire"){
+            Evenement.deleteEvenement(evenement: event)
+        }
+    }*/
+
+    
     
     //MARK: - TABLE VIEW -
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let sections = EvenementsSetModel.evenementSet.tousLesEvenements.sections else {return 0}
+        guard let sections = EvenementsSetModel.evenementSet.getTousEvent().sections else {return 0}
         return sections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let section = EvenementsSetModel.evenementSet.tousLesEvenements.sections?[section] else {
-            fatalError("unexpected section number")
+        guard let section = EvenementsSetModel.evenementSet.getTousEvent().sections?[section] else {
+            fatalError("unexpected section name")
         }
         return section.name
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        guard let section = EvenementsSetModel.evenementSet.tousLesEvenements.sections?[section] else {
+        guard let section = EvenementsSetModel.evenementSet.getTousEvent().sections?[section] else {
             fatalError("unexpected section number")
         }
         return section.numberOfObjects
@@ -71,19 +85,28 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
             dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR") as Locale!
             dateFormatter.dateFormat = "HH:mm"
             
-            if (EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).dateEvenement != nil)
+            if (EvenementsSetModel.evenementSet.getTousEvent().object(at: indexPath).dateEvenement != nil)
             {
-                cell.heureLabel.text = dateFormatter.string(from: EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).dateEvenement as! Date)
+                cell.heureLabel.text = dateFormatter.string(from: EvenementsSetModel.evenementSet.getTousEvent().object(at: indexPath).dateEvenement as! Date)
                 cell.heureLabel.text = cell.heureLabel.text! + " : "
             }
            
-            cell.nomEventLabel.text = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath).nomEvenement
+            cell.nomEventLabel.text = EvenementsSetModel.evenementSet.getTousEvent().object(at: indexPath).nomEvenement
         
         
         return cell
      }
     
+   /* // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
+        delete.backgroundColor = UIColor.red
+        return [delete]
+    }*/
 
     
     //MARK: - Navigation
@@ -112,6 +135,8 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.evenementTableView.endUpdates()
+        self.evenementTableView.reloadData()
+        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
@@ -121,6 +146,11 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
             if let newIndexPath = newIndexPath{
                 self.evenementTableView.insertRows(at: [newIndexPath], with: .fade)
             }
+        /*case .delete:
+            if let indexPath = indexPath{
+                self.evenementTableView.deleteRows(at: [indexPath], with: .automatic)
+            }*/
+
             default:
             break
         }

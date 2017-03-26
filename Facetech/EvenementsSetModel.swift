@@ -48,6 +48,10 @@ class EvenementsSetModel: NSObject
         return fetchResultController
     }()
     
+    func getTousEvent() -> NSFetchedResultsController<Evenement> {
+        return tousLesEvenements
+    }
+    
     
     
     /// Crée un événement

@@ -129,8 +129,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.documentTableView.endUpdates()
         self.documentTableView.reloadData()
-        
-            self.viewDidLoad()
+        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
