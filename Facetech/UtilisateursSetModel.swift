@@ -21,6 +21,21 @@ class UtilisateursSetModel : NSObject{
     private override init() {}
     
     
+    static private var pViewController : NSFetchedResultsControllerDelegate? = nil
+    
+    
+    static var viewController : NSFetchedResultsControllerDelegate? {
+        get{
+            return self.pViewController
+        }
+        set{
+            if self.pViewController == nil{
+                self.pViewController = newValue
+            }
+        }
+    }
+    
+    
     /// - Description:
     /// Permet de créer un utilisateur
     /// - Parameters:
@@ -41,6 +56,23 @@ class UtilisateursSetModel : NSObject{
         return newUser        
     }
     
+    
+    /// Variable privée contenant tous les documents.
+    lazy var tousLesUtilisateurs: NSFetchedResultsController<Utilisateur> =
+        {
+            let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Utilisateur.nom), ascending: false)]
+            let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Utilisateur.possederTypeUtilisateur.libelleTypeUtilisateur), cacheName: nil)
+            
+            fetchResultController.delegate = viewController
+            
+            return fetchResultController
+    }()
+    
+    func getTousUtilisateurs() -> NSFetchedResultsController<Utilisateur> {
+        return tousLesUtilisateurs
+    }
+
     
     
     /// Récupère un utilisateur grâce à son mail d'authentification

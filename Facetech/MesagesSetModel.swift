@@ -37,7 +37,7 @@ class MesagesSetModel: NSObject
         }
     }
     
-    /// Variable privée contenant tous les événements.
+    /// Variable privée contenant tous les messages.
     lazy var tousLesMessages: NSFetchedResultsController<Message> =
     {
         let request : NSFetchRequest<Message> = Message.fetchRequest()
