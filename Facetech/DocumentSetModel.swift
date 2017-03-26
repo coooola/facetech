@@ -38,7 +38,7 @@ class DocumentSetModel: NSObject {
     lazy var tousLesDocuments: NSFetchedResultsController<Document> =
         {
         let request : NSFetchRequest<Document> = Document.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Document.dateCreationDocument), ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Document.dateCreationDocument), ascending: false)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Document.date), cacheName: nil)
         fetchResultController.delegate = viewController
         

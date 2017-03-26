@@ -23,6 +23,14 @@ extension Document{
         return newDoc
     }
     
+    /// Supprime un document de la base de données
+    ///
+    /// - Parameter document: le document à supprimer
+    static func deleteDocument(document : Document)
+    {
+        CoreDataManager.context.delete(document)
+    }
+    
     var time: String {
         get {
             if (self.dateCreationDocument != nil)

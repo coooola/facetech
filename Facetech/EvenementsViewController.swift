@@ -37,6 +37,16 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    // MARK: - Action handler -
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        let event = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath)
+        let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        if ( utilisateur == "Responsable" || utilisateur == "Secrétaire" || utilisateur == "Enseignant"){
+            Evenement.deleteEvenement(evenement: event)
+        }
+    }
+    
     //MARK: - TABLE VIEW -
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,6 +87,18 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
      }
+    
+    // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
+        delete.backgroundColor = UIColor.red
+        return [delete]
+    }
+    
 
     
     //MARK: - Navigation
@@ -113,6 +135,10 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         case .insert:
             if let newIndexPath = newIndexPath{
                 self.evenementTableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath{
+                self.evenementTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         default:
             break

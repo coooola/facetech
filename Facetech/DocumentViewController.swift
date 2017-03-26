@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class DocumentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UINavigationControllerDelegate {
+class DocumentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
+{
 
     @IBOutlet weak var documentTableView: UITableView!
     
@@ -42,6 +43,16 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Action handler -
+    
+    func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        let doc = DocumentSetModel.documentSet.getTousDoc().object(at: indexPath)
+        let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        if ( utilisateur == "Responsable" || utilisateur == "Secrétaire"){
+            Document.deleteDocument(document: doc)
+        }
     }
     
     
@@ -79,6 +90,17 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    // tell if a particular row can be edited
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
+        delete.backgroundColor = UIColor.red
+        return [delete]
+    }
+    
     
     //MARK: - Navigation
     
@@ -87,7 +109,7 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         let createViewController = segue.source as! CreateDocumentViewController
         do
         {
-            try DocumentSetModel.documentSet.insertDocument(nomdoc: createViewController.nomDoc, urldoc: createViewController.urlDoc);
+            _ = try DocumentSetModel.documentSet.insertDocument(nomdoc: createViewController.nomDoc, urldoc: createViewController.urlDoc);
         }
         catch let error as NSError
         {
@@ -106,8 +128,6 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.documentTableView.endUpdates()
-        self.documentTableView.reloadData()
-        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
@@ -116,6 +136,10 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
         case .insert:
             if let newIndexPath = newIndexPath{
                 self.documentTableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath{
+                self.documentTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         default:
             break

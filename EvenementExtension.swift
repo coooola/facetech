@@ -22,6 +22,14 @@ extension Evenement{
         
     }
     
+    /// Supprime un evenement de la base de données
+    ///
+    /// - Parameter evenement: le document à supprimer
+    static func deleteEvenement(evenement : Evenement)
+    {
+        CoreDataManager.context.delete(evenement)
+    }
+    
     var time: String {
         get {
             if (self.dateEvenement != nil)
