@@ -67,7 +67,10 @@ class AnneesSetModel : NSObject{
     }
     
     
-    
+    /// Retourne l'année correspondante à l'int passé en parametre
+    ///
+    /// - Parameter anne : l'année en int à retourner
+    /// - Returns: l'année
     func getAnne(anne: Int) throws -> AnneePromo?
     {
         if (anne < 3 || anne > 5)

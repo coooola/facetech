@@ -69,6 +69,8 @@ class UtilisateursSetModel : NSObject{
             return fetchResultController
     }()
     
+    
+    // Retourne tous les utilisateurs
     func getTousUtilisateurs() -> NSFetchedResultsController<Utilisateur> {
         return tousLesUtilisateurs
     }
@@ -130,6 +132,8 @@ class UtilisateursSetModel : NSObject{
         
     }
     
+    
+    // Creer l'administrateur
     func createAdmin()
     {
         do
@@ -155,9 +159,7 @@ class UtilisateursSetModel : NSObject{
     {
         
         let context = CoreDataManager.context
-        
         var user : Utilisateur? = nil
-        
         let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
         
         request.predicate = NSPredicate(format: "idUtilisateur == %@", id)
@@ -174,13 +176,13 @@ class UtilisateursSetModel : NSObject{
     }
     
     
+    // Sauvegarde l'utilisateur
     func updateUtilisateur(user: Utilisateur) throws -> Utilisateur?
     {
         if let error = CoreDataManager.save()
         {
             throw error
         }
-        
         return user
     }
     

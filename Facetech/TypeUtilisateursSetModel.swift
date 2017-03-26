@@ -37,7 +37,6 @@ class TypeUtilisateursSetModel: NSObject{
         if (tousLesTypesUtilisateurs.count == 0)
         {
             let context = CoreDataManager.context
-            
             let request : NSFetchRequest<TypeUtilisateur> = TypeUtilisateur.fetchRequest()
             
             do
@@ -79,6 +78,11 @@ class TypeUtilisateursSetModel: NSObject{
         return tousLesTypesUtilisateurs
     }
     
+    /// Retourne le type utilisateur du String passé en paramètre
+    ///
+    /// - Parameter name : le string a evaluer
+    /// - Returns: Tableau de l'ensemble des types d'utilisateur
+    /// - Throws: une exception en cas d'erreur lors de l'éxécution de la requête
     func getTypeUtilisateur(name: String) throws -> TypeUtilisateur?
     {
         

@@ -45,6 +45,8 @@ class DocumentSetModel: NSObject {
         return fetchResultController
     }()
     
+    
+    //Retourne tous les documents
     func getTousDoc() -> NSFetchedResultsController<Document> {
         return tousLesDocuments
     }
