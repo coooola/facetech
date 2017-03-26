@@ -15,9 +15,12 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var evenementTableView: UITableView!
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.evenementTableView.delegate = self
         
         do{
             EvenementsSetModel.viewController = self
@@ -26,6 +29,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         catch let error as NSError{
             DialogBoxHelper.alert(view: self,error:error)
         }
+        
     }
     
     
@@ -37,15 +41,6 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    // MARK: - Action handler -
-    
-    /*func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
-        let event = EvenementsSetModel.evenementSet.tousLesEvenements.object(at: indexPath)
-        let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
-        if ( utilisateur == "Responsable" || utilisateur == "Secrétaire" || utilisateur == "Enseignant"){
-            Evenement.deleteEvenement(evenement: event)
-        }
-    }*/
     
     //MARK: - TABLE VIEW -
     
@@ -88,16 +83,6 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
      }
     
-    // tell if a particular row can be edited
-    /*func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Suppr", handler: self.deleteHandlerAction)
-        delete.backgroundColor = UIColor.red
-        return [delete]
-    }*/
     
 
     
@@ -127,8 +112,6 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.evenementTableView.endUpdates()
-        self.evenementTableView.reloadData()
-        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
@@ -138,11 +121,7 @@ class EvenementsViewController: UIViewController, UITableViewDelegate, UITableVi
             if let newIndexPath = newIndexPath{
                 self.evenementTableView.insertRows(at: [newIndexPath], with: .fade)
             }
-        /*case .delete:
-            if let indexPath = indexPath{
-                self.evenementTableView.deleteRows(at: [indexPath], with: .automatic)
-            }*/
-        default:
+            default:
             break
         }
     }
