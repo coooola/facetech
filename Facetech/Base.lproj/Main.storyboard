@@ -337,7 +337,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="geomclair.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vsi-D7-g4F">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-lT-wAM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-lT-wAM">
                                 <rect key="frame" x="25" y="138" width="364" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1441,5 +1441,5 @@
         <image name="file.png" width="32" height="32"/>
         <image name="geomclair.jpg" width="548" height="651"/>
     </resources>
-    <color key="tintColor" red="0.90009486675262451" green="0.64083141088485718" blue="0.55613178014755249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.90009486675262451" green="0.64063456971100297" blue="0.56406946092219334" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

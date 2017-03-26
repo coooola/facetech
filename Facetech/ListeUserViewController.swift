@@ -92,6 +92,7 @@ class ListeUserViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.listeUserTableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! ListeUserTableViewCell
+        
         let nom = UtilisateursSetModel.utilisateursSet.getTousUtilisateurs().object(at: indexPath).nom
         let prenom = UtilisateursSetModel.utilisateursSet.getTousUtilisateurs().object(at: indexPath).prenom
         
