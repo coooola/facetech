@@ -48,8 +48,11 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - Action handler -
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        
         let doc = DocumentSetModel.documentSet.getTousDoc().object(at: indexPath)
+        
         let utilisateur = Session.utilisateurConnecte?.possederTypeUtilisateur?.libelleTypeUtilisateur
+        
         if ( utilisateur == "Responsable" || utilisateur == "Secrétaire"){
             Document.deleteDocument(document: doc)
         }
@@ -128,6 +131,8 @@ class DocumentViewController: UIViewController, UITableViewDelegate, UITableView
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.documentTableView.endUpdates()
+        self.documentTableView.reloadData()
+        self.viewDidLoad()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)

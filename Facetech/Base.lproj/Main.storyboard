@@ -513,11 +513,11 @@
                                 <color key="sectionIndexColor" red="0.90009486679999995" green="0.64083141089999995" blue="0.55613178009999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="messageCell" rowHeight="130" id="194-io-Ov7" customClass="MessageTableViewCell" customModule="Facetech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="messageCell" rowHeight="200" id="194-io-Ov7" customClass="MessageTableViewCell" customModule="Facetech" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" tableViewCell="194-io-Ov7" id="XCX-Fm-xsF">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="129.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1LK-dW-2ai">
@@ -577,8 +577,8 @@
                                                     <color key="textColor" red="0.9018622637" green="0.61707061529999996" blue="0.54831498860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-Cc-9DL">
-                                                    <rect key="frame" x="0.0" y="61.666666666666671" width="369" height="63.000000000000014"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-Cc-9DL">
+                                                    <rect key="frame" x="0.0" y="61.666666666666657" width="369" height="133"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>

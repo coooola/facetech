@@ -60,8 +60,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Action handler -
     
     func deleteHandlerAction(action: UITableViewRowAction, indexPath: IndexPath) -> Void{
+        
         let message = MesagesSetModel.messageSet.tousLesMessages.object(at: indexPath)
-        if (Session.utilisateurConnecte?.adresseMail == message.etreEcritPar?.adresseMail){
+        let mail = message.etreEcritPar?.adresseMail
+        
+        if (Session.utilisateurConnecte?.adresseMail == mail){
             Message.deleteMessage(message: message)
         }
     }
