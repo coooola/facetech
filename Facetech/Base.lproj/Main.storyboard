@@ -984,7 +984,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="geomclair.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FDI-eZ-XK3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4p-ndf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4p-ndf">
                                 <rect key="frame" x="5" y="69" width="310" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="0.76399293664383561" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.9018622637" green="0.61707061529999996" blue="0.54831498860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

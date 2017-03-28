@@ -61,7 +61,7 @@ class UtilisateursSetModel : NSObject{
     lazy var tousLesUtilisateurs: NSFetchedResultsController<Utilisateur> =
         {
             let request : NSFetchRequest<Utilisateur> = Utilisateur.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Utilisateur.nom), ascending: false)]
+            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Utilisateur.nom), ascending: true)]
             let fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.context, sectionNameKeyPath: #keyPath(Utilisateur.possederTypeUtilisateur.libelleTypeUtilisateur), cacheName: nil)
             
             fetchResultController.delegate = viewController
